@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+const { execSync } = require("child_process");
+
+try {
+  console.log("🧠 Running Hover Audit Agent (Vauntico motion standards)…");
+  execSync('echo "Audit all components for missing hover polish. Enforce Vauntico standards: glow, scale, smooth transitions." | cursor -', { stdio: "inherit" });
+} catch (err) {
+  console.warn("⚠️ Hover Audit Agent failed or credits exhausted. Skipping polish enforcement.");
+}

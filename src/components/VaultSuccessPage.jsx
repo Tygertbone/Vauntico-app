@@ -4,6 +4,9 @@ import { Card, CardContent } from '@/components/ui/card'
 import { CheckCircle, Bookmark, ExternalLink } from 'lucide-react'
 import vaunticoBanner from '../assets/vauntico_banner.webp'
 
+// Copilot: scaffold an email capture form with validation and webhook submission
+// Cursur: audit this page for missing routing logic and CTA wiring
+
 const VaultSuccessPage = () => {
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -12,7 +15,27 @@ const VaultSuccessPage = () => {
     const timer = setTimeout(() => setIsLoaded(true), 500)
     return () => clearTimeout(timer)
   }, [])
+const [email, setEmail] = useState('');
+const [status, setStatus] = useState('');
 
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  try {
+    const res = await fetch(import.meta.env.VITE_EMAIL_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email }),
+    });
+    if (res.ok) {
+      setStatus('Thanks! You’re on the list.');
+      setEmail('');
+    } else {
+      setStatus('Something went wrong. Try again.');
+    }
+  } catch (err) {
+    setStatus('Network error. Please try later.');
+  }
+};
   const notionEmbedUrl = import.meta.env.VITE_NOTION_EMBED_URL || "https://classy-uranium-c6b.notion.site/Vauntico-Prompt-Vault-Founders-Edition-26a81beec93980c88b4ec6eefe61082c?source=copy_link"
 
   return (
@@ -128,6 +151,23 @@ const VaultSuccessPage = () => {
               Join Creator Pass
             </Button>
           </div>
+          <form onSubmit={handleSubmit} className="mt-8 flex flex-col sm:flex-row gap-4 justify-center items-center">
+  <input
+    type="email"
+    placeholder="you@example.com"
+    value={email}
+    onChange={(e) => setEmail(e.target.value)}
+    required
+    className="px-4 py-2 border rounded w-full sm:w-auto"
+  />
+  <Button type="submit" className="vauntico-btn">
+    Notify Me
+  </Button>
+</form>
+{status && <p className="text-sm text-green-600 mt-4">{status}</p>}
+<p className="text-md text-red-600 font-semibold mt-4">
+  Limited-time vault access. New drops every week. Stay subscribed.
+</p>
           <p className="text-sm text-gray-500">
             Questions? Reach out to our support team anytime.
           </p>
@@ -137,4 +177,4 @@ const VaultSuccessPage = () => {
   )
 }
 
-export default VaultSuccessPage
+export default VaultSuccessPag

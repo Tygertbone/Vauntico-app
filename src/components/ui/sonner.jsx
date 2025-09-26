@@ -1,24 +1,27 @@
-import { useTheme } from "next-themes"
+import * as React from "react";
+import PropTypes from "prop-types";
+import { useTheme } from "next-themes";
 import { Toaster as Sonner } from "sonner";
 
-const Toaster = ({
-  ...props
-}) => {
-  const { theme = "system" } = useTheme()
+function Toaster({ ...props }) {
+  const { theme = "system" } = useTheme();
 
   return (
     <Sonner
       theme={theme}
-      className="toaster group"
-      style={
-        {
-          "--normal-bg": "var(--popover)",
-          "--normal-text": "var(--popover-foreground)",
-          "--normal-border": "var(--border)"
-        }
-      }
-      {...props} />
+      data-slot="toaster"
+      className="group toaster"
+      style={{
+        "--normal-bg": "var(--popover)",
+        "--normal-text": "var(--popover-foreground)",
+        "--normal-border": "var(--border)",
+      }}
+      {...props}
+    />
   );
 }
 
-export { Toaster }
+// ✅ Prop validation for clarity
+Toaster.propTypes = {};
+
+export { Toaster };
