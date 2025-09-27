@@ -1,40 +1,47 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import { useNavigate } from "react-router-dom";
-import { cn } from "@/lib/utils";
+import { Link } from "react-router-dom";
+import clsx from "clsx";
 
-const CTAButton = ({ label, to = "/vaults", trackEvent = true, className, ...props }) => {
-  const navigate = useNavigate();
-
+// ✅ CTAButton enforces Vauntico polish globally
+const CTAButton = ({
+  to,
+  label,
+  trackEvent,
+  className = "",
+  children,
+  ...props
+}) => {
   const handleClick = () => {
     if (trackEvent) {
-      console.log("📊 Tracking: CTA clicked →", label);
+      console.log(`Tracking event: ${trackEvent}`);
+      // 🔧 Hook into analytics here if needed
     }
-
-    navigate(to);
   };
 
   return (
-    <button
-      data-slot="cta-button"
+    <Link
+      to={to}
       onClick={handleClick}
       aria-label={label}
-      className={cn(
-        "bg-gradient-to-r from-vauntico-gold to-vauntico-gold-hover text-black font-semibold px-6 py-3 rounded-lg shadow-lg transition-transform duration-200 hover:scale-105 hover:shadow-vauntico-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:opacity-50",
-        className
+      className={clsx(
+        className,
+        "hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300 inline-flex items-center justify-center rounded-md font-medium"
       )}
       {...props}
     >
-      {label}
-    </button>
+      {children || label}
+    </Link>
   );
 };
 
+// ✅ Prop validation
 CTAButton.propTypes = {
+  to: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  to: PropTypes.string,
-  trackEvent: PropTypes.bool,
+  trackEvent: PropTypes.string,
   className: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default CTAButton;
