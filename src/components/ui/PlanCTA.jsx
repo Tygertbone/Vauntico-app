@@ -1,4 +1,4 @@
-import CTAButton from "./CTAButton";
+import CTAButton from '@/components/ui/CTAButton';;
 
 export default function PlanCTA({ planId, label = "Choose Plan", vaultBundle, promoCode, className }) {
   let to = `/checkout?plan=${planId}`;
@@ -11,6 +11,6 @@ export default function PlanCTA({ planId, label = "Choose Plan", vaultBundle, pr
       to={to}
       trackEvent={true}
       className={className}
-    />
+    / className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
   );
 }

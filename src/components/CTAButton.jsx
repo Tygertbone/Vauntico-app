@@ -26,7 +26,7 @@ const CTAButton = ({ label, to = "/vaults", trackEvent = true, className, ...pro
         className
       )}
       {...props}
-    >
+     className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
       {label}
     </button>
   );

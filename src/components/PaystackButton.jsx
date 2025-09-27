@@ -62,12 +62,10 @@ const PaystackButton = ({
               type="submit"
               className={className}
               disabled={!userEmail}
-            >
+             className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
               Continue to Payment
             </button>
-            <button
-              type="button"
-              onClick={() => setShowEmailInput(false)}
+            <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300" className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"> setShowEmailInput(false)}
               className="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors"
             >
               Cancel
@@ -83,7 +81,7 @@ const PaystackButton = ({
       onClick={handlePayment}
       disabled={isLoading}
       className={className}
-    >
+     className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
       {isLoading ? 'Processing...' : children}
     </button>
   )

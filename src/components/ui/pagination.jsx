@@ -46,7 +46,7 @@ function PaginationLink({ className, isActive, size = "icon", ...props }) {
         className
       )}
       {...props}
-    />
+    / className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
   );
 }
 

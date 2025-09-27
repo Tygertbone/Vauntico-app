@@ -119,7 +119,7 @@ function SidebarLink({ href, icon, label }) {
               ? "bg-[var(--sidebar-accent)] text-[var(--sidebar-accent-foreground)]"
               : "hover:bg-[var(--sidebar-accent)] hover:text-[var(--sidebar-accent-foreground)]"
           )}
-        >
+         className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
           {icon}
           <span>{label}</span>
         </a>

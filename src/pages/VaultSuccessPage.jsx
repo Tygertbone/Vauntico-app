@@ -51,8 +51,8 @@ export default function VaultSuccessPage() {
     />
     <button
       type="submit"
-      className="mt-4 bg-vauntico-gold text-black px-6 py-3 rounded font-semibold hover:bg-yellow-400 transition w-full"
-    >
+      className="mt-4 bg-vauntico-gold text-black px-6 py-3 rounded font-semibold hover:bg-yellow-400 transition w-full hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
+     className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
       Subscribe
     </button>
   </form>

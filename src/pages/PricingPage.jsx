@@ -1,42 +1,47 @@
-import { useNavigate } from 'react-router-dom';
-import CTAButton from '../components/CTAButton';
-import VaultCard from '../components/VaultCard';
-import PricingTable from '../components/PricingTable';
+import React from 'react';
+import CTAButton from '@/components/ui/CTAButton';;
 
 const PricingPage = () => {
-  const navigate = useNavigate();
-
   return (
-    <div className="space-y-8">
-      <div className="text-center max-w-4xl mx-auto pt-12 px-4">
-  <h1 className="text-4xl font-bold text-gray-900 mb-4">
-    Choose Your Path to Mastery
-  </h1>
-  <p className="text-lg text-gray-600 mb-8">
-    Whether you're just starting or ready to unlock the full vault, there's a tier for you.
-  </p>
-</div>
-      <VaultCard />
-      <PricingTable />
-      <div className="text-center">
-  <p className="text-md text-red-600 font-semibold">
-    🔥 Limited-time bonuses included with Creator Pass and Vault Master tiers.
-  </p>
-  <p className="text-sm text-gray-500 mt-2">
-    Bonuses include DFY templates, exclusive prompts, and early vault access.
-  </p>
-</div>
-      <CTAButton label="Unlock Creator Toolkit" onClick={() => navigate('/vault/creator')} />
-      <CTAButton label="Unlock Agency Arsenal" onClick={() => navigate('/vault/agency')} />
-      <CTAButton label="Unlock E-commerce Empire" onClick={() => navigate('/vault/ecommerce')} />
-        <div className="text-center py-12">
-  <p className="text-sm text-gray-500">
-    Questions? Reach out anytime — your journey to mastery is just beginning.
-  </p>
-</div>
+    <div className="pricing-page">
+      <section className="pricing-intro">
+        <h1 className="text-4xl font-bold mb-6">Choose Your Legacy Tier</h1>
+        <CTAButton
+          to="/pricing-details"
+          trackEvent="pricing_cta_click"
+          label="View Plans"
+          className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
+         className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
+          View Plans
+        </CTAButton>
+      </section>
+
+      <section className="premium-offer mt-12">
+        <h2 className="text-2xl font-semibold mb-4">Vauntico Premium</h2>
+        <p className="mb-6">Unlock full access to branded automation, spiritual empowerment, and legacy-grade tooling.</p>
+        <CTAButton
+          to="/checkout"
+          trackEvent="pricing_cta_click"
+          label="Upgrade Now"
+          className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
+         className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
+          Upgrade Now
+        </CTAButton>
+      </section>
+
+      <section className="faq mt-16">
+        <h3 className="text-xl font-medium mb-4">Need Help Choosing?</h3>
+        <CTAButton
+          to="/contact"
+          trackEvent="pricing_cta_click"
+          label="Talk to Us"
+          className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
+         className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
+          Talk to Us
+        </CTAButton>
+      </section>
     </div>
   );
 };
 
 export default PricingPage;
-

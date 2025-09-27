@@ -1,53 +1,74 @@
-const fs = require("fs");
-const path = require("path");
-const { execSync } = require("child_process");
+// vauntico-lint.cjs
+const fs = require('fs');
+const path = require('path');
 
-const filesToAudit = [
-  "src/components/ui/CTAButton.jsx",
-  "src/components/ui/VaultCTA.jsx",
-  "src/components/ui/PlanCTA.jsx",
-  "src/pages/Homepage.jsx",
-  "src/pages/OnboardingPage.jsx",
-  "src/components/PricingTable.jsx"
-];
+const CTA_REGEX = /<CTAButton([^>]*)>/g;
+const HOVER_REGEX = /hover:scale-\[1\.02\].*hover:shadow-vauntico-glow.*transition-all.*duration-300/;
+const IMPORT_REGEX = /import CTAButton from ['"]([^'"]+)['"]/;
 
-let failed = false;
+const requiredProps = ['label', 'to', 'trackEvent'];
+const requiredHover = 'hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300';
+const correctImport = '@/components/ui/CTAButton';
 
-filesToAudit.forEach((filePath) => {
-  const fullPath = path.resolve(filePath);
-  if (!fs.existsSync(fullPath)) {
-    console.warn(`⚠️ File not found: ${filePath}`);
-    return;
+const scanFile = (filePath) => {
+  const content = fs.readFileSync(filePath, 'utf8');
+  const issues = [];
+
+  // Check CTAButton props
+  const matches = [...content.matchAll(CTA_REGEX)];
+  matches.forEach((match, i) => {
+    const props = match[1];
+    requiredProps.forEach((prop) => {
+      if (!props.includes(`${prop}=`)) {
+        issues.push(`❌ Missing prop '${prop}' on CTAButton #${i + 1}`);
+      }
+    });
+  });
+
+  // Check hover polish
+  if (!HOVER_REGEX.test(content)) {
+    issues.push(`⚠️ Missing Vauntico hover polish`);
   }
 
-  const content = fs.readFileSync(fullPath, "utf8");
+  // Check import path
+  const importMatch = content.match(IMPORT_REGEX);
+  if (importMatch && importMatch[1] !== correctImport) {
+    issues.push(`⚠️ Incorrect CTAButton import path: ${importMatch[1]}`);
+  }
 
-  const missingProps = [];
-  if (!content.includes("CTAButton")) missingProps.push("CTAButton");
-  if (!content.includes("label=")) missingProps.push("label");
-  if (!content.includes("to=")) missingProps.push("to");
-  if (!content.includes("trackEvent")) missingProps.push("trackEvent");
+  return issues;
+};
 
-  if (missingProps.length > 0) {
-    console.error(`❌ ${filePath} is missing: ${missingProps.join(", ")}`);
-    failed = true;
+const walkDir = (dir) => {
+  const results = [];
+  fs.readdirSync(dir).forEach((file) => {
+    const fullPath = path.join(dir, file);
+    const stat = fs.statSync(fullPath);
+    if (stat.isDirectory()) {
+      results.push(...walkDir(fullPath));
+    } else if (file.endsWith('.jsx')) {
+      results.push(fullPath);
+    }
+  });
+  return results;
+};
+
+const jsxFiles = walkDir(path.resolve(process.cwd(), 'src'));
+let totalIssues = 0;
+
+console.log('🔍 Running vauntico-lint...\n');
+
+jsxFiles.forEach((file) => {
+  const issues = scanFile(file);
+  if (issues.length > 0) {
+    console.log(`📄 ${file}`);
+    issues.forEach((issue) => console.log(`   ${issue}`));
+    totalIssues += issues.length;
   }
 });
 
-if (failed) {
-  console.error("🚫 CTA audit failed. Fix issues before committing.");
-}
-
-// 🧠 Cursor CLI integration (lean mode via stdin)
-try {
-  console.log("🧠 Running Cursor Agent (lean mode via stdin)…");
-  execSync('echo "Audit CTA props in Homepage.jsx" | cursor -', { stdio: "inherit" });
-} catch (err) {
-  console.warn("⚠️ Cursor Agent failed or credits exhausted. Skipping automated polish.");
-}
-
-if (failed) {
-  process.exit(1);
+if (totalIssues === 0) {
+  console.log('\n✅ All files pass Vauntico lint standards.');
 } else {
-  console.log("✅ All CTA components pass audit.");
+  console.log(`\n🚨 ${totalIssues} issues found across ${jsxFiles.length} files.`);
 }
