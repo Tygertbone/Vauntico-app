@@ -60,14 +60,13 @@ const PaystackButton = ({
           <div className="flex gap-2">
             <button
               type="submit"
-              className={className}
-              disabled={!userEmail}
-             className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
+              className={`${className} hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300`}
+              disabled={!userEmail}>
               Continue to Payment
             </button>
-            <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300" className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"> setShowEmailInput(false)}
-              className="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors"
-            >
+            <button 
+              onClick={() => setShowEmailInput(false)}
+              className="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
               Cancel
             </button>
           </div>
@@ -80,8 +79,7 @@ const PaystackButton = ({
     <button 
       onClick={handlePayment}
       disabled={isLoading}
-      className={className}
-     className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
+      className={`${className} hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300`}>
       {isLoading ? 'Processing...' : children}
     </button>
   )

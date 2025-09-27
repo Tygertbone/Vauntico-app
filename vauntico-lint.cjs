@@ -25,9 +25,10 @@ const scanFile = (filePath) => {
     });
   });
 
-  // Check hover polish
-  if (!HOVER_REGEX.test(content)) {
-    issues.push(`⚠️ Missing Vauntico hover polish`);
+  // Check hover polish only if file has interactive elements
+  const hasInteractiveElements = /<button|<a href|<CTAButton|<PlanCTA|<VaultCTA/.test(content);
+  if (hasInteractiveElements && !HOVER_REGEX.test(content)) {
+    issues.push(`⚠️ Missing Vauntico hover polish on interactive elements`);
   }
 
   // Check import path

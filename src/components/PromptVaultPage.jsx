@@ -10,7 +10,7 @@ const PromptVaultPage = () => {
         <p className="text-lg text-muted max-w-2xl mx-auto mb-6">
           Vauntico is a movement. A vault. A creator’s command center. Join us to build, monetize, and leave a legacy.
         </p>
-        <a href="/creator-pass" className="vauntico-btn hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300" className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">Get Your Creator Pass</a>
+        <a href="/creator-pass" className="vauntico-btn hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">Get Your Creator Pass</a>
       </section>
 
       {/* Feature Cards */}

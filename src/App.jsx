@@ -4,13 +4,13 @@ import PromptVaultPage from './components/PromptVaultPage';
 import VaultsPage from './components/VaultsPage';
 import VaultDetailPage from './pages/VaultDetailPage';
 import Homepage from './pages/Homepage';
-import PricingPage from './pages/PricingPage';
 import CreatorPassPage from './components/CreatorPassPage';
 import VaultSuccessPage from './pages/VaultSuccessPage';
 import OnboardingPage from './pages/OnboardingPage';
 import { Sidebar, SidebarProvider, SidebarInset } from './components/ui/sidebar';
 import DemoPage from './pages/DemoPage';
 import DelegationPage from './pages/DelegationPage';
+import PricingPage from "@/pages/PricingPage";
 import './App.css';
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
             <Route path="/prompt-vault" element={<PromptVaultPage />} />
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/vaults" element={<VaultsPage />} />
+            <Route path="/pricing" element={<PricingPage />} />
             <Route path="/vaults/:slug" element={<VaultDetailPage />} />
             <Route path="/creator-pass" element={<CreatorPassPage />} />
             <Route path="/vault-success" element={<VaultSuccessPage />} />

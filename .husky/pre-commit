@@ -1,0 +1,16 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔧 Running Vauntico Branded Standards Enforcement..."
+
+# Run audit and lint checks
+npm run audit
+node vauntico-lint.cjs
+
+# Check exit codes
+if [ $? -ne 0 ]; then
+  echo "❌ Commit blocked: Vauntico branded standards not met"
+  exit 1
+fi
+
+echo "✅ Vauntico standards enforced - commit allowed"

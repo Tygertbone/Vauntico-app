@@ -121,7 +121,7 @@ const CreatorPassPage = () => {
                 <Button
                   onClick={handleJoinWaitlist}
                   disabled={isLoading}
-                  className="vauntico-btn text-lg px-8 py-4"
+                  className="vauntico-btn text-lg px-8 py-4 hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
                   aria-label="Join Creator Pass waitlist"
                 >
                   {isLoading ? "Redirecting..." : "Join Waitlist"}

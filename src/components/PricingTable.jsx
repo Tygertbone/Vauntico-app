@@ -1,5 +1,5 @@
 import React from 'react';
-import CTAButton from '@/components/ui/CTAButton';;
+import CTAButton from '@/components/ui/CTAButton';
 
 const PricingTable = () => {
   return (

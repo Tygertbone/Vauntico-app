@@ -16,13 +16,13 @@ export default function VaultSuccessPage() {
 
           <Link
             to="/creator-pass"
-            className="inline-block bg-yellow-400 text-black px-6 py-3 rounded border border-vauntico-gold hover:bg-vauntico-gold transition font-semibold shadow-md"
+            className="inline-block bg-yellow-400 text-black px-6 py-3 rounded border border-vauntico-gold hover:bg-vauntico-gold transition font-semibold shadow-md hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
           >
             Get the Full Creator Pass →
           </Link>
 
           <div className="mt-8">
-            <Link to="/" className="text-gray-400 underline">
+            <Link to="/" className="text-gray-400 underline hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
               Back to Homepage
             </Link>
           </div>
@@ -51,8 +51,7 @@ export default function VaultSuccessPage() {
     />
     <button
       type="submit"
-      className="mt-4 bg-vauntico-gold text-black px-6 py-3 rounded font-semibold hover:bg-yellow-400 transition w-full hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
-     className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
+      className="mt-4 bg-vauntico-gold text-black px-6 py-3 rounded font-semibold hover:bg-yellow-400 transition w-full hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
       Subscribe
     </button>
   </form>

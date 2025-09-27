@@ -132,7 +132,7 @@ const VaultsPage = () => {
                     <Button 
                       type="submit" 
                       disabled={isLoading}
-                      className="vauntico-btn h-12 px-8 md:w-auto"
+                      className="vauntico-btn h-12 px-8 md:w-auto hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
                       aria-label={isLoading ? 'Joining VIP list...' : 'Join VIP list'}
                     >
                       {isLoading ? 'Joining...' : 'Join VIP List'}
@@ -226,7 +226,7 @@ const VaultsPage = () => {
           {!isSubmitted && (
             <Button 
               onClick={() => document.querySelector('input[type="email"]')?.focus()}
-              className="vauntico-btn"
+              className="vauntico-btn hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
             >
               Join VIP List Above
             </Button>
