@@ -5,7 +5,7 @@ import CTAButton from '@/components/ui/CTAButton';
 const VaunticoPricingPage = () => {
   return (
     <div className="pricing-page">
-      {/* Hero Section */}
+      {/* 🧠 Hero Section */}
       <section className="hero-section">
         <h1 className="main-headline">
           Vauntico Pricing: Your Journey to Limitless Impact
@@ -14,28 +14,28 @@ const VaunticoPricingPage = () => {
           Unlock Your True Potential. Automate Your Ascent. Forge Your Legacy.
         </p>
         <p className="hero-description">
-          At Vauntico, we believe in empowering visionaries like you to transcend the ordinary. 
-          Our meticulously crafted tiers are designed to align with your spiritual journey, 
+          At Vauntico, we believe in empowering visionaries like you to transcend the ordinary.
+          Our meticulously crafted tiers are designed to align with your spiritual journey,
           automate your path to greatness, and ensure your legacy resonates for generations.
         </p>
       </section>
 
-      {/* Pricing Tiers */}
+      {/* 💎 Pricing Tiers */}
       <section className="pricing-tiers">
-        
-        {/* Awaken Tier */}
-        <div className="tier-card awaken-tier">
+
+        {/* 🌅 Awaken Tier */}
+        <div className="tier-card awaken-tier hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
           <h2 className="tier-name">Awaken</h2>
           <p className="tier-subtitle">Free Tier</p>
           <p className="tier-tagline">
             <strong>Embrace the Dawn of Your Spiritual Journey.</strong>
           </p>
           <p className="tier-description">
-            Begin your transformation with the foundational tools to connect, explore, 
-            and set your intentions. Awaken is your first step towards a life of purpose 
+            Begin your transformation with the foundational tools to connect, explore,
+            and set your intentions. Awaken is your first step towards a life of purpose
             and clarity, offering a glimpse into the power of Vauntico.
           </p>
-          
+
           <h3 className="features-title">Features:</h3>
           <ul className="features-list">
             <li><strong>Core Spiritual Insights:</strong> Daily affirmations and guided meditations.</li>
@@ -43,7 +43,9 @@ const VaunticoPricingPage = () => {
             <li><strong>Community Access:</strong> Connect with fellow seekers on their journey.</li>
             <li><strong>Personalized Intention Setting:</strong> Define your path forward.</li>
           </ul>
-          
+
+          <p className="bank-id">BankID: RB-2025-001</p>
+
           <CTAButton
             to="/checkout"
             label="Start Your Awakening"
@@ -54,20 +56,20 @@ const VaunticoPricingPage = () => {
           </CTAButton>
         </div>
 
-        {/* Ascend Tier */}
-        <div className="tier-card ascend-tier featured">
+        {/* 🚀 Ascend Tier */}
+        <div className="tier-card ascend-tier featured hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
           <h2 className="tier-name">Ascend</h2>
           <p className="tier-subtitle">Premium Tier</p>
           <p className="tier-tagline">
             <strong>Elevate Your Existence. Master Your Domain.</strong>
           </p>
           <p className="tier-description">
-            For those ready to deepen their impact and accelerate their growth, 
-            Ascend provides advanced automation, profound spiritual tools, and strategic insights. 
-            This tier is for the ambitious soul, ready to command their destiny and manifest 
+            For those ready to deepen their impact and accelerate their growth,
+            Ascend provides advanced automation, profound spiritual tools, and strategic insights.
+            This tier is for the ambitious soul, ready to command their destiny and manifest
             their vision with unparalleled efficiency.
           </p>
-          
+
           <h3 className="features-title">Features:</h3>
           <ul className="features-list">
             <li><strong>All Awaken Features, PLUS:</strong></li>
@@ -77,7 +79,9 @@ const VaunticoPricingPage = () => {
             <li><strong>Dedicated Success Coach:</strong> Personalized guidance for accelerated growth.</li>
             <li><strong>Impact Analytics:</strong> Measure and optimize your legacy-driven initiatives.</li>
           </ul>
-          
+
+          <p className="bank-id">BankID: RB-2025-002</p>
+
           <CTAButton
             to="/checkout"
             label="Ascend to Greatness"
@@ -88,20 +92,20 @@ const VaunticoPricingPage = () => {
           </CTAButton>
         </div>
 
-        {/* Transcend Tier */}
-        <div className="tier-card transcend-tier">
+        {/* 🕊️ Transcend Tier */}
+        <div className="tier-card transcend-tier hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
           <h2 className="tier-name">Transcend</h2>
           <p className="tier-subtitle">Legacy Tier</p>
           <p className="tier-tagline">
             <strong>Forge an Everlasting Legacy. Shape the Future.</strong>
           </p>
           <p className="tier-description">
-            Transcend is the pinnacle of empowerment, designed for those committed to 
-            leaving an indelible mark on the world. This bespoke tier offers ultimate automation, 
-            unparalleled spiritual integration, and direct access to Vauntico's innovation lab 
+            Transcend is the pinnacle of empowerment, designed for those committed to
+            leaving an indelible mark on the world. This bespoke tier offers ultimate automation,
+            unparalleled spiritual integration, and direct access to Vauntico's innovation lab
             to co-create your legacy. It's not just a service; it's a partnership in destiny.
           </p>
-          
+
           <h3 className="features-title">Features:</h3>
           <ul className="features-list">
             <li><strong>All Ascend Features, PLUS:</strong></li>
@@ -111,7 +115,9 @@ const VaunticoPricingPage = () => {
             <li><strong>Global Impact Network:</strong> Leverage Vauntico's ecosystem for amplified reach.</li>
             <li><strong>Bespoke Legacy Blueprinting:</strong> Co-create a personalized, enduring impact strategy.</li>
           </ul>
-          
+
+          <p className="bank-id">BankID: RB-2025-003</p>
+
           <CTAButton
             to="/checkout"
             label="Forge Your Legacy"
@@ -123,15 +129,15 @@ const VaunticoPricingPage = () => {
         </div>
       </section>
 
-      {/* Final CTA Section */}
+      {/* 🔮 Final CTA Section */}
       <section className="final-cta-section">
         <h2 className="final-cta-headline">Ready to Transform Your Reality?</h2>
         <p className="final-cta-description">
-          Choose the path that resonates with your soul's calling. Your journey to spiritual 
-          empowerment, automated success, and a lasting legacy begins now. Join the Vauntico 
+          Choose the path that resonates with your soul's calling. Your journey to spiritual
+          empowerment, automated success, and a lasting legacy begins now. Join the Vauntico
           movement and redefine what's possible.
         </p>
-        
+
         <div className="cta-buttons-row">
           <CTAButton to="/checkout" label="Start Your Awakening" trackEvent="pricing_click_awaken" className="cta-button awaken-cta">
             Start Your Awakening
@@ -144,6 +150,11 @@ const VaunticoPricingPage = () => {
           </CTAButton>
         </div>
       </section>
+
+      {/* 🧾 Ethical Footer */}
+      <footer className="ethical-footer text-center text-xs text-gray-500 mt-12">
+        Ethical Footer: All tiers are designed with traceable intent, spiritual clarity, and legacy alignment.
+      </footer>
     </div>
   );
 };
