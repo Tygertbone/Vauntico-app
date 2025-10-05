@@ -1,13 +1,115 @@
-import React from 'react';
+import { Link } from "react-router-dom";
+import VaultCard from "../components/VaultCard";
+import CTAButton from "@/components/ui/CTAButton";
+import { Badge } from "@/components/ui/badge";
+import { Sparkles, Crown } from "lucide-react";
 
-const Homepage = () => {
+export default function Homepage() {
   return (
-    <div className="homepage">
-      <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
-        Explore Vauntico
-      </button>
+    <div className="bg-black text-white min-h-screen px-6 py-12">
+      <header className="text-center mb-12">
+        <h1 className="text-4xl font-bold text-vauntico-gold">Awaken. Build. Transcend.</h1>
+        <p className="mt-4 text-lg text-gray-300">Vauntico is where ideas become income.</p>
+        
+        {/* ✅ NEW: Featured Ascension Codex Banner */}
+        <div className="mt-8 max-w-3xl mx-auto">
+          <Link to="/ascension-codex">
+            <div className="bg-gradient-to-r from-purple-900 via-purple-700 to-vauntico-gold p-8 rounded-xl border-2 border-vauntico-gold hover:scale-105 transition-all duration-300 cursor-pointer shadow-2xl hover:shadow-vauntico-glow">
+              <Badge className="mb-4 bg-vauntico-gold text-black px-3 py-1">
+                <Sparkles className="w-4 h-4 inline mr-1" />
+                NEW RELEASE
+              </Badge>
+              <h2 className="text-3xl font-bold mb-3 text-white">
+                The Ascension Codex
+              </h2>
+              <p className="text-lg text-gray-200 mb-4">
+                Your Daily Transmission from the Infinite
+              </p>
+              <p className="text-gray-300 mb-6">
+                AI-powered spiritual growth sequences for founders & creators. Personalized wisdom delivered daily. From $9/month.
+              </p>
+              <div className="flex items-center justify-center gap-2 text-vauntico-gold font-semibold">
+                <Crown className="w-5 h-5" />
+                <span>Begin Your Ascension →</span>
+              </div>
+            </div>
+          </Link>
+        </div>
+
+        {/* Original CTA */}
+        <div className="mt-6">
+          <CTAButton 
+            label="Get Your Creator Pass" 
+            to="/creator-pass"
+            className="mt-6"
+          />
+        </div>
+      </header>
+
+      {/* Quick Links */}
+      <section className="grid md:grid-cols-2 gap-6 mb-16">
+        <Link to="/prompt-vault" className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition">
+          <h3 className="text-xl font-bold text-vauntico-gold mb-2">Explore Vaults</h3>
+          <p className="text-gray-300">Browse our collection of premium prompt libraries</p>
+        </Link>
+        <Link to="/pricing" className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition">
+          <h3 className="text-xl font-bold text-vauntico-gold mb-2">View Pricing</h3>
+          <p className="text-gray-300">Find the perfect plan for your creative journey</p>
+        </Link>
+      </section>
+
+      {/* Vault Cards */}
+      <section className="grid md:grid-cols-3 gap-6 mb-24">
+        <VaultCard
+          title="Creator's Toolkit"
+          price="$49"
+          description="Essential prompts for content creators and influencers"
+          buttonText="Coming Soon"
+        />
+        <VaultCard
+          title="Agency Arsenal"
+          price="$99"
+          description="Professional workflows for marketing agencies"
+          buttonText="Coming Soon"
+        />
+        <VaultCard
+          title="E-commerce Empire"
+          price="$149"
+          description="Product descriptions and branding for online stores"
+          buttonText="Coming Soon"
+        />
+      </section>
+
+      {/* Email Capture Section */}
+      <div className="mt-24 px-6">
+        <h2 className="text-3xl font-bold text-vauntico-gold mb-4 text-center">
+          Join the Vauntico Movement
+        </h2>
+        <p className="text-gray-300 mb-6 text-center">
+          Get early access to new vaults, creator tools, and exclusive drops.
+        </p>
+        <form
+          name="vauntico-email-capture"
+          method="POST"
+          data-netlify="true"
+          className="max-w-xl mx-auto"
+        >
+          <input type="hidden" name="form-name" value="vauntico-email-capture" />
+          <input
+            type="email"
+            name="email"
+            placeholder="you@example.com"
+            required
+            className="w-full px-4 py-3 rounded bg-white text-black border border-vauntico-gold placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-vauntico-gold"
+          />
+          <button
+            type="submit"
+            className="mt-4 bg-vauntico-gold text-black px-6 py-3 rounded font-semibold hover:bg-yellow-400 transition w-full"
+          >
+            Subscribe
+          </button>
+        </form>
+      </div>
     </div>
   );
-};
-
-export default Homepage;
+}

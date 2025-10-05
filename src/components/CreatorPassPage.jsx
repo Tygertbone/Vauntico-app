@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Head from "next/head";
+import { Helmet } from "react-helmet";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -43,13 +43,13 @@ const CreatorPassPage = () => {
 
   return (
     <>
-      <Head>
+      <Helmet>
         <title>Creator Pass | Vauntico</title>
         <meta
           name="description"
           content="Join the exclusive circle of creators with early access to Vauntico vaults, founder pricing, and VIP support."
         />
-      </Head>
+      </Helmet>
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
         {/* Header */}

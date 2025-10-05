@@ -1,0 +1,61 @@
+{
+  "version": "1.0.0",
+  "name": "vauntico-mvp",
+  "dependencies": {
+    "autoprefixer": {
+      "version": "10.4.21",
+      "resolved": "https://registry.npmmirror.com/autoprefixer/-/autoprefixer-10.4.21.tgz",
+      "overridden": false
+    },
+    "dotenv": {
+      "version": "17.2.2",
+      "resolved": "https://registry.npmmirror.com/dotenv/-/dotenv-17.2.2.tgz",
+      "overridden": false
+    },
+    "eslint": {
+      "version": "8.57.1",
+      "resolved": "https://registry.npmmirror.com/eslint/-/eslint-8.57.1.tgz",
+      "overridden": false
+    },
+    "postcss": {
+      "version": "8.5.6",
+      "resolved": "https://registry.npmmirror.com/postcss/-/postcss-8.5.6.tgz",
+      "overridden": false
+    },
+    "prop-types": {
+      "version": "15.8.1",
+      "resolved": "https://registry.npmmirror.com/prop-types/-/prop-types-15.8.1.tgz",
+      "overridden": false
+    },
+    "react-dom": {
+      "version": "18.3.1",
+      "resolved": "https://registry.npmmirror.com/react-dom/-/react-dom-18.3.1.tgz",
+      "overridden": false
+    },
+    "react-helmet-async": {
+      "version": "2.0.5",
+      "resolved": "https://registry.npmmirror.com/react-helmet-async/-/react-helmet-async-2.0.5.tgz",
+      "overridden": false
+    },
+    "react-router-dom": {
+      "version": "6.30.1",
+      "resolved": "https://registry.npmmirror.com/react-router-dom/-/react-router-dom-6.30.1.tgz",
+      "overridden": false
+    },
+    "react": {
+      "version": "18.3.1",
+      "resolved": "https://registry.npmmirror.com/react/-/react-18.3.1.tgz",
+      "overridden": false
+    },
+    "tailwindcss": {
+      "version": "3.4.17",
+      "resolved": "https://registry.npmmirror.com/tailwindcss/-/tailwindcss-3.4.17.tgz",
+      "overridden": false
+    },
+    "vite": {
+      "version": "5.4.20",
+      "resolved": "https://registry.npmmirror.com/vite/-/vite-5.4.20.tgz",
+      "overridden": false
+    }
+  }
+}
