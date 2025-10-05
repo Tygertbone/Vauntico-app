@@ -3,14 +3,13 @@
 
 echo "🔧 Running Vauntico Branded Standards Enforcement..."
 
-# Run audit and lint checks
-npm run audit
-node vauntico-lint.cjs
+# Fail fast on any error
+set -e
 
-# Check exit codes
-if [ $? -ne 0 ]; then
+# Run audit and lint checks; block commit if either fails
+if npm run audit && node vauntico-lint.cjs; then
+  echo "✅ Vauntico standards enforced - commit allowed"
+else
   echo "❌ Commit blocked: Vauntico branded standards not met"
   exit 1
 fi
-
-echo "✅ Vauntico standards enforced - commit allowed"

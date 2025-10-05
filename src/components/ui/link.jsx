@@ -9,7 +9,7 @@ const Link = ({ className = "", children, ...props }) => {
     <RouterLink
       className={clsx(
         className,
-        "hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
+        "hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 rounded"
       )}
       {...props}
     >

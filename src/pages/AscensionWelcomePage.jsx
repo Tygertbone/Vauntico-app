@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -45,16 +46,21 @@ Tomorrow, we go deeper.
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black text-white px-4 py-12">
-      <div className="max-w-4xl mx-auto">
+      <Helmet>
+        <title>Welcome — Vauntico Ascension</title>
+        <meta name="description" content="Your ascension begins now. Access transmissions, rituals, and your active subscription details." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
+      <main role="main" className="max-w-4xl mx-auto">
         {/* Success Header */}
         <div className="text-center mb-12">
-          <div className="text-4xl font-bold text-[#D4AF37] mb-6">VAUNTICO</div>
+          <div className="text-4xl font-bold text-[var(--vauntico-gold-text)] mb-6">VAUNTICO</div>
           
           <div className="inline-flex items-center justify-center w-20 h-20 bg-green-500 bg-opacity-20 rounded-full mb-6">
             <CheckCircle className="w-12 h-12 text-green-400" />
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-[#D4AF37] bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-[var(--vauntico-gold-text)] bg-clip-text text-transparent">
             Your Ascension Begins Now ✨
           </h1>
           
@@ -62,17 +68,17 @@ Tomorrow, we go deeper.
             Welcome to the inner circle of visionaries who dare to dream bigger.
           </p>
           
-          <Badge className="bg-[#D4AF37] text-black px-4 py-2 text-sm font-semibold">
+          <Badge className="bg-[var(--vauntico-gold)] text-black px-4 py-2 text-sm font-semibold">
             <Crown className="w-4 h-4 inline mr-2" />
             Active Subscription
           </Badge>
         </div>
 
         {/* What Happens Next */}
-        <Card className="bg-gray-900 border-[#D4AF37] border-2 mb-8">
+        <Card className="bg-gray-900 border-[var(--vauntico-gold)] border-2 mb-8">
           <CardHeader>
             <CardTitle className="text-2xl text-white flex items-center gap-2">
-              <Sparkles className="w-6 h-6 text-[#D4AF37]" />
+              <Sparkles className="w-6 h-6 text-[var(--vauntico-gold-text)]" />
               What Happens Next
             </CardTitle>
           </CardHeader>
@@ -107,8 +113,8 @@ Tomorrow, we go deeper.
 
             <div className="flex gap-4">
               <div className="flex-shrink-0">
-                <div className="w-10 h-10 bg-[#D4AF37] bg-opacity-20 rounded-full flex items-center justify-center">
-                  <Book className="w-5 h-5 text-[#D4AF37]" />
+                <div className="w-10 h-10 bg-[var(--vauntico-gold)] bg-opacity-20 rounded-full flex items-center justify-center">
+                  <Book className="w-5 h-5 text-[var(--vauntico-gold-text)]" />
                 </div>
               </div>
               <div>
@@ -168,7 +174,7 @@ Tomorrow, we go deeper.
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
             onClick={() => window.location.href = '/'}
-            className="bg-gradient-to-r from-[#D4AF37] to-yellow-600 text-black font-semibold px-8 py-6 text-lg rounded-lg hover:scale-105 transition-transform"
+            className="bg-gradient-to-r from-[var(--vauntico-gold)] to-[var(--vauntico-gold-hover)] text-black font-semibold px-8 py-6 text-lg rounded-lg hover:scale-105 transition-transform"
           >
             Return to Dashboard
           </Button>
@@ -189,7 +195,8 @@ Tomorrow, we go deeper.
             Email: support@vauntico.com | Response time: Within 24 hours
           </p>
         </div>
-      </div>
+      </main>
+      <footer role="contentinfo" className="text-center text-xs text-gray-500 mt-12">© Vauntico — Ascension Active</footer>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Helmet } from 'react-helmet'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -72,8 +73,14 @@ const VaultsPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
-      {/* Header */}
-      <section className="py-16 px-4">
+      <Helmet>
+        <title>Vaults — Vauntico</title>
+        <meta name="description" content="Explore upcoming Vauntico vaults and join the VIP list for early access and founder pricing." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
+      <main role="main">
+        {/* Header */}
+        <section className="py-16 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-8">
             <img 
@@ -96,7 +103,7 @@ const VaultsPage = () => {
             Be the first to know when they launch.
           </p>
         </div>
-      </section>
+        </section>
 
       {/* Email Capture */}
       <section className="px-4 mb-16">
@@ -213,7 +220,7 @@ const VaultsPage = () => {
           </div>
         </div>
       </section>
-
+      
       {/* Footer CTA */}
       <section className="bg-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center">
@@ -233,6 +240,8 @@ const VaultsPage = () => {
           )}
         </div>
       </section>
+      </main>
+      <footer role="contentinfo" className="text-center text-xs text-gray-500 mt-12">© Vauntico — Vaults</footer>
     </div>
   )
 }

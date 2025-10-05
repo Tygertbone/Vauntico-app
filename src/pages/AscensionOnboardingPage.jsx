@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Label } from '@/components/ui/label';
@@ -81,11 +82,16 @@ const AscensionOnboardingPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black text-white px-4 py-12">
-      <div className="max-w-3xl mx-auto">
+      <Helmet>
+        <title>Onboarding — Vauntico Ascension</title>
+        <meta name="description" content="Create your soul profile to personalize transmissions. Your ascension begins here." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
+      <main role="main" className="max-w-3xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="text-4xl font-bold text-[#D4AF37] mb-6">VAUNTICO</div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-white to-[#D4AF37] bg-clip-text text-transparent">
+          <div className="text-4xl font-bold text-[var(--vauntico-gold-text)] mb-6">VAUNTICO</div>
+          <h1 className="text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-white to-[var(--vauntico-gold-text)] bg-clip-text text-transparent">
             Create Your Soul Profile
           </h1>
           <p className="text-gray-400">
@@ -101,7 +107,7 @@ const AscensionOnboardingPage = () => {
           </div>
           <div className="w-full bg-gray-700 rounded-full h-2">
             <div 
-              className="bg-gradient-to-r from-purple-500 to-[#D4AF37] h-2 rounded-full transition-all duration-300"
+              className="bg-gradient-to-r from-purple-500 to-[var(--vauntico-gold)] h-2 rounded-full transition-all duration-300"
               style={{ width: `${(step / 4) * 100}%` }}
             />
           </div>
@@ -132,7 +138,7 @@ const AscensionOnboardingPage = () => {
                   </div>
                 ))}
               </RadioGroup>
-              <Button onClick={handleNext} className="w-full mt-6 bg-gradient-to-r from-[#D4AF37] to-yellow-600 text-black font-semibold rounded-lg hover:scale-105 transition-transform">
+              <Button onClick={handleNext} className="w-full mt-6 bg-gradient-to-r from-[var(--vauntico-gold)] to-[var(--vauntico-gold-hover)] text-black font-semibold rounded-lg hover:scale-105 transition-transform">
                 Continue →
               </Button>
             </CardContent>
@@ -168,7 +174,7 @@ const AscensionOnboardingPage = () => {
                 <Button onClick={() => setStep(1)} className="flex-1 border-2 border-gray-600 bg-transparent text-white hover:bg-gray-800 rounded-lg">
                   ← Back
                 </Button>
-                <Button onClick={handleNext} className="flex-1 bg-gradient-to-r from-[#D4AF37] to-yellow-600 text-black font-semibold rounded-lg hover:scale-105 transition-transform">
+                <Button onClick={handleNext} className="flex-1 bg-gradient-to-r from-[var(--vauntico-gold)] to-[var(--vauntico-gold-hover)] text-black font-semibold rounded-lg hover:scale-105 transition-transform">
                   Continue →
                 </Button>
               </div>
@@ -205,7 +211,7 @@ const AscensionOnboardingPage = () => {
                 <Button onClick={() => setStep(2)} className="flex-1 border-2 border-gray-600 bg-transparent text-white hover:bg-gray-800 rounded-lg">
                   ← Back
                 </Button>
-                <Button onClick={handleNext} className="flex-1 bg-gradient-to-r from-[#D4AF37] to-yellow-600 text-black font-semibold rounded-lg hover:scale-105 transition-transform">
+                <Button onClick={handleNext} className="flex-1 bg-gradient-to-r from-[var(--vauntico-gold)] to-[var(--vauntico-gold-hover)] text-black font-semibold rounded-lg hover:scale-105 transition-transform">
                   Continue →
                 </Button>
               </div>
@@ -257,7 +263,7 @@ const AscensionOnboardingPage = () => {
                 <Button 
                   onClick={handleSubmit} 
                   disabled={isSubmitting || !soulProfile.seasonWord}
-                  className="flex-1 bg-gradient-to-r from-[#D4AF37] to-yellow-600 text-black font-semibold rounded-lg hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 bg-gradient-to-r from-[var(--vauntico-gold)] to-[var(--vauntico-gold-hover)] text-black font-semibold rounded-lg hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? 'Creating Your Journey...' : 'Complete Profile ✨'}
                 </Button>
@@ -265,7 +271,8 @@ const AscensionOnboardingPage = () => {
             </CardContent>
           </Card>
         )}
-      </div>
+      </main>
+      <footer role="contentinfo" className="text-center text-xs text-gray-500 mt-12">© Vauntico — Transmission Sealed</footer>
     </div>
   );
 };

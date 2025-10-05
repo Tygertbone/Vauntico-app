@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -75,10 +76,15 @@ const CheckoutPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black text-white px-4 py-12">
-      <div className="max-w-4xl mx-auto">
+      <Helmet>
+        <title>Checkout — Vauntico Ascension</title>
+        <meta name="description" content="Complete your ascension. Secure payment via Paystack with instant access to transmissions." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
+      <main role="main" className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="text-4xl font-bold text-[#D4AF37] mb-6">VAUNTICO</div>
+          <div className="text-4xl font-bold text-[var(--vauntico-gold-text)] mb-6">VAUNTICO</div>
           <h1 className="text-3xl md:text-4xl font-bold mb-2">
             Complete Your Ascension
           </h1>
@@ -89,10 +95,10 @@ const CheckoutPage = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Order Summary */}
-          <Card className="bg-gray-900 border-[#D4AF37] border-2">
+          <Card className="bg-gray-900 border-[var(--vauntico-gold)] border-2">
             <CardHeader>
               <CardTitle className="text-2xl text-white flex items-center gap-2">
-                <Sparkles className="w-6 h-6 text-[#D4AF37]" />
+                <Sparkles className="w-6 h-6 text-[var(--vauntico-gold-text)]" />
                 {currentPlan.name} Tier
               </CardTitle>
             </CardHeader>
@@ -100,7 +106,7 @@ const CheckoutPage = () => {
               <div className="space-y-4">
                 <div className="flex justify-between items-center pb-4 border-b border-gray-700">
                   <span className="text-gray-300">Monthly Subscription</span>
-                  <span className="text-2xl font-bold text-[#D4AF37]">
+                  <span className="text-2xl font-bold text-[var(--vauntico-gold-text)]">
                     ${currentPlan.price}
                   </span>
                 </div>
@@ -163,7 +169,7 @@ const CheckoutPage = () => {
                 <Button
                   onClick={handlePayment}
                   disabled={isLoading || !email}
-                  className="w-full bg-gradient-to-r from-[#D4AF37] to-yellow-600 text-black font-semibold h-12 text-lg rounded-lg hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-gradient-to-r from-[var(--vauntico-gold)] to-[var(--vauntico-gold-hover)] text-black font-semibold h-12 text-lg rounded-lg hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isLoading ? (
                     <span className="flex items-center gap-2">
@@ -203,7 +209,8 @@ const CheckoutPage = () => {
             Questions? Email support@vauntico.com
           </p>
         </div>
-      </div>
+      </main>
+      <footer role="contentinfo" className="text-center text-xs text-gray-500 mt-12">Secure by Paystack</footer>
     </div>
   );
 };

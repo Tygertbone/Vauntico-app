@@ -7,12 +7,18 @@
 
 /* CSS Variables */
 :root {
-  --vauntico-gold: #D4AF37;
-  --vauntico-gold-hover: #B8941F;
-  --vauntico-pink: #E91E63;
-  --vauntico-dark: #1a1a1a;
-  --vauntico-gray: #2d2d2d;
+  /* Brand golds and accessible variants */
+  --vauntico-gold: #C29B4B;        /* brand surface */
+  --vauntico-gold-hover: #FFD700;  /* hover/focus */
+  --vauntico-gold-text: #E6B800;   /* text accents on dark */
+
+  /* Brand neutrals (accessible grays) */
+  --vauntico-dark: #1A1A1A;
+  --vauntico-gray: #333333;
+  --vauntico-muted: #666666;
   --vauntico-light: #f8f8f8;
+
+  --vauntico-pink: #E91E63;
 }
 
 /* Dark mode variant */
@@ -26,7 +32,7 @@
 /* Custom utility classes - use @layer to make them valid */
 @layer components {
   .vauntico-btn {
-    background: linear-gradient(to right, #D4AF37, #B8941F);
+    background: linear-gradient(to right, var(--vauntico-gold), var(--vauntico-gold-hover));
     color: black;
     font-weight: 600;
     padding: 0.75rem 1.5rem;
@@ -37,7 +43,7 @@
   
   .vauntico-btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 10px #D4AF37;
+    box-shadow: 0 0 10px var(--vauntico-gold-hover);
   }
   
   .vauntico-btn:focus-visible {

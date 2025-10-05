@@ -1,10 +1,16 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { SidebarInset } from '../components/ui/sidebar';
 
 export default function VaultSuccessPage() {
   return (
     <SidebarInset>
       <div className="bg-black text-white min-h-screen px-6 py-12">
+        <Helmet>
+          <title>Vault Unlocked — Vauntico</title>
+          <meta name="description" content="Success. Your Vauntico vault is unlocked. Access premium templates and workflows to accelerate your ascent." />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Helmet>
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl font-bold text-vauntico-gold mb-6">Vault Unlocked ✅</h1>
           <p className="text-gray-300 mb-4">

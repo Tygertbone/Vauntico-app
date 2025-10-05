@@ -1,12 +1,19 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import '@/styles/landing.css'; // Optional: for custom styles
 import CTAButton from '@/components/ui/CTAButton';
 
 const LandingPage = () => {
   return (
     <div className="landing-page bg-gradient-to-br from-vauntico-dark via-black to-gray-900 text-white min-h-screen">
-      {/* 🧠 Hero Section */}
-      <section className="hero-section py-20 px-6 text-center">
+      <Helmet>
+        <title>Vauntico Landing — Conscious Coder’s Conversion Kit</title>
+        <meta name="description" content="Build with intention. Vauntico’s landing system showcases branded flows that turn clarity into legacy." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
+      <main role="main">
+        {/* 🧠 Hero Section */}
+        <section className="hero-section py-20 px-6 text-center">
         <h1 className="text-5xl font-bold mb-4 text-vauntico-gold drop-shadow-md">
           The Conscious Coder’s Conversion Kit
         </h1>
@@ -22,20 +29,18 @@ const LandingPage = () => {
         <CTAButton
           to="/checkout"
           label="Get Started"
-          trackEvent="landing_click_cta"
+          trackEvent="landing_click_get_started"
           className="bg-vauntico-gold text-black font-semibold px-6 py-3 rounded hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
         >
           Get Started
         </CTAButton>
-
-        <footer className="mt-12 text-xs text-gray-500 text-center">
-          Ethical Footer: This section was generated with traceable intent, spiritual clarity, and legacy alignment.
-        </footer>
-      </section>
+        </section>
+      </main>
+      <footer role="contentinfo" className="mt-12 text-xs text-gray-500 text-center px-6 pb-8">
+        Ethical Footer: This section was generated with traceable intent, spiritual clarity, and legacy alignment.
+      </footer>
     </div>
   );
 };
 
 export default LandingPage;
-  </footer>
-</section>C:\Users\admin\.ollama\id_ed2551

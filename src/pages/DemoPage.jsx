@@ -1,12 +1,20 @@
+import { Helmet } from 'react-helmet';
+
 export default function DemoPage() {
   return (
     <div className="bg-black text-white min-h-screen px-6 py-12">
-      <header className="text-center mb-12">
+      <Helmet>
+        <title>Demo — Vauntico System UX</title>
+        <meta name="description" content="Explore Vauntico’s System UX: funnel showcase, emotional design, and core UX principles." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
+      <main role="main">
+        <header className="text-center mb-12">
         <h1 className="text-4xl font-bold text-vauntico-gold">System UX</h1>
         <p className="mt-4 text-lg text-gray-300">
           Every page in Vauntico is designed to feel alive — clean, centered, and emotionally intelligent.
         </p>
-      </header>
+        </header>
 
       <section className="bg-gray-900 p-6 rounded-lg mb-12">
         <h2 className="text-2xl font-semibold text-vauntico-gold mb-4">🎯 Funnel Showcase</h2>
@@ -39,6 +47,8 @@ export default function DemoPage() {
           [Optional: Link to Figma file or UX doc]
         </div>
       </section>
+      </main>
+      <footer role="contentinfo" className="text-center text-xs text-gray-500 mt-12">© Vauntico</footer>
     </div>
   );
 }

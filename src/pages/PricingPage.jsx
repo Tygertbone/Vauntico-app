@@ -1,12 +1,19 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import '@/styles/pricing.css';
 import CTAButton from '@/components/ui/CTAButton';
 
 const VaunticoPricingPage = () => {
   return (
     <div className="pricing-page">
-      {/* 🧠 Hero Section */}
-      <section className="hero-section">
+      <Helmet>
+        <title>Pricing — Vauntico</title>
+        <meta name="description" content="Choose your Vauntico path: Awaken, Ascend, or Transcend. Spiritual-tech tiers for every stage of your journey." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
+      <main role="main">
+        {/* 🧠 Hero Section */}
+        <section className="hero-section">
         <h1 className="main-headline">
           Vauntico Pricing: Your Journey to Limitless Impact
         </h1>
@@ -18,10 +25,10 @@ const VaunticoPricingPage = () => {
           Our meticulously crafted tiers are designed to align with your spiritual journey,
           automate your path to greatness, and ensure your legacy resonates for generations.
         </p>
-      </section>
+        </section>
 
-      {/* 💎 Pricing Tiers */}
-      <section className="pricing-tiers">
+        {/* 💎 Pricing Tiers */}
+        <section className="pricing-tiers" aria-label="Pricing tiers">
 
         {/* 🌅 Awaken Tier */}
         <div className="tier-card awaken-tier hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
@@ -127,10 +134,10 @@ const VaunticoPricingPage = () => {
             Forge Your Legacy
           </CTAButton>
         </div>
-      </section>
+        </section>
 
-      {/* 🔮 Final CTA Section */}
-      <section className="final-cta-section">
+        {/* 🔮 Final CTA Section */}
+        <section className="final-cta-section">
         <h2 className="final-cta-headline">Ready to Transform Your Reality?</h2>
         <p className="final-cta-description">
           Choose the path that resonates with your soul's calling. Your journey to spiritual
@@ -149,10 +156,11 @@ const VaunticoPricingPage = () => {
             Forge Your Legacy
           </CTAButton>
         </div>
-      </section>
+        </section>
+      </main>
 
       {/* 🧾 Ethical Footer */}
-      <footer className="ethical-footer text-center text-xs text-gray-500 mt-12">
+      <footer role="contentinfo" className="ethical-footer text-center text-xs text-gray-500 mt-12">
         Ethical Footer: All tiers are designed with traceable intent, spiritual clarity, and legacy alignment.
       </footer>
     </div>

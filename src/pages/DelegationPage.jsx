@@ -1,6 +1,13 @@
+import { Helmet } from 'react-helmet'
+
 export default function DelegationPage() {
   return (
     <div className="bg-black text-white min-h-screen px-6 py-12">
+      <Helmet>
+        <title>Delegation — Vauntico AI Collaboration</title>
+        <meta name="description" content="Delegate with precision. Orchestrate AI agents like teammates and scale your impact." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
       <header className="text-center mb-12">
         <h1 className="text-4xl font-bold text-vauntico-gold">AI Collaboration</h1>
         <p className="mt-4 text-lg text-gray-300">
