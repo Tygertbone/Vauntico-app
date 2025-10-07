@@ -24,13 +24,23 @@ import CreatorPassPage from './components/CreatorPassPage';
 // UI Shell
 import { Sidebar, SidebarProvider, SidebarInset } from './components/ui/sidebar';
 
+// 🚀 NEW: Transmission Pages
+import TransmissionPage from './pages/codex/TransmissionPage';
+import TodayPage from './pages/codex/TodayPage';   
+import ArchivePage from './pages/codex/ArchivePage';   // ✅ NEW
+
 import './App.css';
 
 function App() {
   return (
     <SidebarProvider>
       <Sidebar />
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-black text-white px-3 py-2 rounded">Skip to content</a>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-black text-white px-3 py-2 rounded"
+      >
+        Skip to content
+      </a>
       <SidebarInset>
         <Router>
           <Routes>
@@ -59,6 +69,11 @@ function App() {
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/ascension-onboarding" element={<AscensionOnboardingPage />} />
             <Route path="/ascension-welcome" element={<AscensionWelcomePage />} />
+
+            {/* 🚀 Ascension Codex Transmissions */}
+            <Route path="/codex/:week/:day" element={<TransmissionPage />} />
+            <Route path="/codex/today" element={<TodayPage />} />
+            <Route path="/codex/archive" element={<ArchivePage />} />   {/* ✅ NEW */}
           </Routes>
         </Router>
       </SidebarInset>

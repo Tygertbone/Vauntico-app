@@ -10,6 +10,9 @@ const AscensionWelcomePage = () => {
   const [firstTransmission, setFirstTransmission] = useState('');
 
   useEffect(() => {
+    // ✅ Ensure Creator Pass is active (client-side unlock; replace with server validation later)
+    localStorage.setItem('creatorPass', 'true');
+
     // Load soul profile from localStorage
     const profile = JSON.parse(localStorage.getItem('soul_profile') || '{}');
     setSoulProfile(profile);
@@ -48,26 +51,30 @@ Tomorrow, we go deeper.
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black text-white px-4 py-12">
       <Helmet>
         <title>Welcome — Vauntico Ascension</title>
-        <meta name="description" content="Your ascension begins now. Access transmissions, rituals, and your active subscription details." />
+        <meta
+          name="description"
+          content="Your ascension begins now. Access transmissions, rituals, and your active subscription details."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Helmet>
+
       <main role="main" className="max-w-4xl mx-auto">
         {/* Success Header */}
         <div className="text-center mb-12">
           <div className="text-4xl font-bold text-[var(--vauntico-gold-text)] mb-6">VAUNTICO</div>
-          
+
           <div className="inline-flex items-center justify-center w-20 h-20 bg-green-500 bg-opacity-20 rounded-full mb-6">
             <CheckCircle className="w-12 h-12 text-green-400" />
           </div>
-          
+
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-white to-[var(--vauntico-gold-text)] bg-clip-text text-transparent">
             Your Ascension Begins Now ✨
           </h1>
-          
+
           <p className="text-xl text-gray-300 mb-4">
             Welcome to the inner circle of visionaries who dare to dream bigger.
           </p>
-          
+
           <Badge className="bg-[var(--vauntico-gold)] text-black px-4 py-2 text-sm font-semibold">
             <Crown className="w-4 h-4 inline mr-2" />
             Active Subscription
@@ -134,9 +141,7 @@ Tomorrow, we go deeper.
               <Sparkles className="w-6 h-6 text-purple-400" />
               Your First Transmission (Preview)
             </CardTitle>
-            <p className="text-gray-400 text-sm">
-              Here's a taste of what's coming tomorrow...
-            </p>
+            <p className="text-gray-400 text-sm">Here's a taste of what's coming tomorrow...</p>
           </CardHeader>
           <CardContent>
             <div className="bg-black bg-opacity-50 p-6 rounded-lg">
@@ -150,30 +155,20 @@ Tomorrow, we go deeper.
         {/* Important Information */}
         <Card className="bg-yellow-900 bg-opacity-30 border-yellow-600 border-2 mb-8">
           <CardHeader>
-            <CardTitle className="text-xl text-white flex items-center gap-2">
-              📌 Important: Save This Page
-            </CardTitle>
+            <CardTitle className="text-xl text-white flex items-center gap-2">📌 Important: Save This Page</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-gray-200">
-            <p>
-              • <strong>Bookmark this URL</strong> for quick access to your account settings
-            </p>
-            <p>
-              • <strong>Whitelist our email</strong> (transmissions@vauntico.com) to ensure delivery
-            </p>
-            <p>
-              • <strong>Check spam folder</strong> if you don't see your first transmission tomorrow
-            </p>
-            <p>
-              • <strong>Manage subscription</strong> anytime at vauntico.com/account
-            </p>
+            <p>• <strong>Bookmark this URL</strong> for quick access to your account settings</p>
+            <p>• <strong>Whitelist our email</strong> (transmissions@vauntico.com) to ensure delivery</p>
+            <p>• <strong>Check spam folder</strong> if you don't see your first transmission tomorrow</p>
+            <p>• <strong>Manage subscription</strong> anytime at vauntico.com/account</p>
           </CardContent>
         </Card>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <Button
-            onClick={() => window.location.href = '/'}
+            onClick={() => (window.location.href = '/')}
             className="bg-gradient-to-r from-[var(--vauntico-gold)] to-[var(--vauntico-gold-hover)] text-black font-semibold px-8 py-6 text-lg rounded-lg hover:scale-105 transition-transform"
           >
             Return to Dashboard
@@ -188,15 +183,16 @@ Tomorrow, we go deeper.
 
         {/* Footer Message */}
         <div className="text-center mt-12 space-y-4">
-          <p className="text-gray-400">
-            Questions? We're here to help.
-          </p>
+          <p className="text-gray-400">Questions? We're here to help.</p>
           <p className="text-sm text-gray-500">
             Email: support@vauntico.com | Response time: Within 24 hours
           </p>
         </div>
       </main>
-      <footer role="contentinfo" className="text-center text-xs text-gray-500 mt-12">© Vauntico — Ascension Active</footer>
+
+      <footer role="contentinfo" className="text-center text-xs text-gray-500 mt-12">
+        © Vauntico — Ascension Active
+      </footer>
     </div>
   );
 };

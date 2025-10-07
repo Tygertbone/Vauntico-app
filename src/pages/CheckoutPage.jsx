@@ -10,34 +10,29 @@ const CheckoutPage = () => {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [plan, setPlan] = useState('ascension-seeker');
-  const [amount, setAmount] = useState(9);
 
   useEffect(() => {
-    // Parse URL parameters
     const params = new URLSearchParams(window.location.search);
     const planParam = params.get('plan') || 'ascension-seeker';
-    const amountParam = parseFloat(params.get('amount')) || 9;
-    
     setPlan(planParam);
-    setAmount(amountParam);
   }, []);
 
   const planDetails = {
     'ascension-seeker': {
       name: 'Seeker',
       price: 9,
-      features: ['Daily transmissions', 'Email delivery', 'Archive access']
+      features: ['Daily transmissions', 'Email delivery', 'Archive access'],
     },
     'ascension-alchemist': {
       name: 'Alchemist',
       price: 29,
-      features: ['Everything in Seeker', 'AI voice meditations', 'Moon phase rituals', 'Priority support']
+      features: ['Everything in Seeker', 'AI voice meditations', 'Moon phase rituals', 'Priority support'],
     },
     'ascension-oracle': {
       name: 'Oracle',
       price: 79,
-      features: ['Everything in Alchemist', 'Quarterly legacy reports', 'Private community', '1:1 guidance calls']
-    }
+      features: ['Everything in Alchemist', 'Quarterly legacy reports', 'Private community', '1:1 guidance calls'],
+    },
   };
 
   const currentPlan = planDetails[plan] || planDetails['ascension-seeker'];
@@ -50,21 +45,23 @@ const CheckoutPage = () => {
 
     setIsLoading(true);
 
-    // Initialize Paystack payment
     initializePaystackPayment(
       email,
       currentPlan.price,
       (response) => {
         console.log('Payment successful:', response);
-        
-        // Save email for onboarding
+
+        // Persist purchaser context
         localStorage.setItem('ascension_email', email);
         localStorage.setItem('ascension_plan', plan);
-        
+
+        // Unlock Codex (client-side flag; will be superseded by server validation later)
+        localStorage.setItem('creatorPass', 'true');
+
         // Redirect to onboarding
         setTimeout(() => {
           window.location.href = '/ascension-onboarding';
-        }, 1500);
+        }, 1000);
       },
       () => {
         console.log('Payment cancelled');
@@ -78,19 +75,19 @@ const CheckoutPage = () => {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black text-white px-4 py-12">
       <Helmet>
         <title>Checkout — Vauntico Ascension</title>
-        <meta name="description" content="Complete your ascension. Secure payment via Paystack with instant access to transmissions." />
+        <meta
+          name="description"
+          content="Complete your ascension. Secure payment via Paystack with instant access to transmissions."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Helmet>
+
       <main role="main" className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <div className="text-4xl font-bold text-[var(--vauntico-gold-text)] mb-6">VAUNTICO</div>
-          <h1 className="text-3xl md:text-4xl font-bold mb-2">
-            Complete Your Ascension
-          </h1>
-          <p className="text-gray-400">
-            One step away from your daily transmissions
-          </p>
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">Complete Your Ascension</h1>
+          <p className="text-gray-400">One step away from your daily transmissions</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -142,9 +139,7 @@ const CheckoutPage = () => {
           {/* Payment Form */}
           <Card className="bg-gray-900 border-purple-500 border-2">
             <CardHeader>
-              <CardTitle className="text-2xl text-white">
-                Payment Details
-              </CardTitle>
+              <CardTitle className="text-2xl text-white">Payment Details</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-6">
@@ -161,9 +156,7 @@ const CheckoutPage = () => {
                     className="bg-gray-800 border-gray-700 text-white h-12"
                     required
                   />
-                  <p className="text-xs text-gray-400 mt-2">
-                    Your transmissions will be sent to this email
-                  </p>
+                  <p className="text-xs text-gray-400 mt-2">Your transmissions will be sent to this email.</p>
                 </div>
 
                 <Button
@@ -183,13 +176,13 @@ const CheckoutPage = () => {
 
                 <div className="text-center">
                   <p className="text-xs text-gray-400">
-                    By continuing, you agree to our Terms of Service and Privacy Policy
+                    By continuing, you agree to our Terms of Service and Privacy Policy.
                   </p>
                 </div>
 
                 <div className="pt-4 border-t border-gray-700">
                   <button
-                    onClick={() => window.location.href = '/ascension-codex'}
+                    onClick={() => (window.location.href = '/ascension-codex')}
                     className="text-sm text-gray-400 hover:text-white transition-colors"
                   >
                     ← Back to plans
@@ -202,15 +195,14 @@ const CheckoutPage = () => {
 
         {/* Trust Signals */}
         <div className="mt-12 text-center">
-          <p className="text-gray-400 text-sm mb-4">
-            🔒 Secure payment processing powered by Paystack
-          </p>
-          <p className="text-gray-500 text-xs">
-            Questions? Email support@vauntico.com
-          </p>
+          <p className="text-gray-400 text-sm mb-4">🔒 Secure payment processing powered by Paystack</p>
+          <p className="text-gray-500 text-xs">Questions? Email support@vauntico.com</p>
         </div>
       </main>
-      <footer role="contentinfo" className="text-center text-xs text-gray-500 mt-12">Secure by Paystack</footer>
+
+      <footer role="contentinfo" className="text-center text-xs text-gray-500 mt-12">
+        Secure by Paystack
+      </footer>
     </div>
   );
 };
