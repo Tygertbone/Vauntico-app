@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
-import index from "../../../codex/index.json";
+import index from "./index.json"; // ✅ fixed path
 
 const TransmissionPage = () => {
   const { week, day } = useParams();
@@ -26,7 +26,7 @@ const TransmissionPage = () => {
     }
 
     // Load the JSON file dynamically
-    import(`../../../codex/${week}/${day}.json`)
+    import(`./${week}/${day}.json`) // ✅ fixed path
       .then((module) => {
         setContent(module.default);
       })
