@@ -1,4 +1,4 @@
-import index from "../../../codex/index.json";
+import index from "./index.json"; // ✅ fixed path
 import { Link } from "react-router-dom";
 
 export default function ArchivePage() {
