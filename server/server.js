@@ -16,7 +16,12 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-// ✅ Verify Paystack payment and update Supabase
+// Health check
+app.get("/", (req, res) => {
+  res.send("✅ Vauntico backend is running");
+});
+
+// Verify Paystack payment and update Supabase
 app.post("/api/verify-payment", async (req, res) => {
   const { reference, email } = req.body;
   if (!reference || !email) {
@@ -33,7 +38,6 @@ app.post("/api/verify-payment", async (req, res) => {
     const data = await response.json();
 
     if (data.status && data.data.status === "success") {
-      // ✅ Upsert user into Supabase
       const { error } = await supabase.from("users").upsert({
         email,
         has_creator_pass: true,
@@ -44,7 +48,9 @@ app.post("/api/verify-payment", async (req, res) => {
 
       return res.json({ success: true, hasCreatorPass: true });
     } else {
-      return res.status(400).json({ success: false, error: "Payment not verified" });
+      return res
+        .status(400)
+        .json({ success: false, error: "Payment not verified" });
     }
   } catch (err) {
     console.error("Paystack verification error:", err);
@@ -52,7 +58,7 @@ app.post("/api/verify-payment", async (req, res) => {
   }
 });
 
-// ✅ Check user subscription status
+// Check user subscription status
 app.get("/api/user-status", async (req, res) => {
   const { email } = req.query;
   if (!email) return res.status(400).json({ error: "Missing email" });
@@ -67,4 +73,5 @@ app.get("/api/user-status", async (req, res) => {
   return res.json({ hasCreatorPass: data.has_creator_pass, plan: data.plan });
 });
 
-app.listen(5000, () => console.log("✅ Server running on port 5000"));
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
