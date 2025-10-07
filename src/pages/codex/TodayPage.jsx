@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import index from "../../../codex/index.json"; // pulls from your content index
+import index from "./index.json"; // ✅ fixed path
 
 export default function TodayPage() {
   const [target, setTarget] = useState(null);
