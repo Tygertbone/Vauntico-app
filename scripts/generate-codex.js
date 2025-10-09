@@ -1,52 +1,40 @@
-import fs from "fs";
-import path from "path";
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-// CONFIG: how many weeks and days you want
-const TOTAL_WEEKS = 7;   // adjust as needed
-const DAYS_PER_WEEK = 7; // adjust as needed
+// Resolve __dirname in ES module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
-// Base directory for codex
-const baseDir = path.join(process.cwd(), "src/pages/codex");
+// Parse CLI args
+const args = process.argv.slice(2);
+const weekRange = args.find(arg => arg.startsWith('--weeks='))?.split('=')[1] || '1-7';
+const dropRange = args.find(arg => arg.startsWith('--drops='))?.split('=')[1] || '1-7';
 
-// Ensure base directory exists
-if (!fs.existsSync(baseDir)) {
-  fs.mkdirSync(baseDir, { recursive: true });
-}
+const [weekStart, weekEnd] = weekRange.split('-').map(Number);
+const [dropStart, dropEnd] = dropRange.split('-').map(Number);
 
-// Build index.json structure
-const index = {};
+const codexPath = path.join(__dirname, '../src/pages/codex');
 
-for (let w = 1; w <= TOTAL_WEEKS; w++) {
-  const weekKey = `week-${String(w).padStart(2, "0")}`;
-  const weekDir = path.join(baseDir, weekKey);
+for (let week = weekStart; week <= weekEnd; week++) {
+  const weekFolder = path.join(codexPath, `week-${String(week).padStart(2, '0')}`);
+  if (!fs.existsSync(weekFolder)) fs.mkdirSync(weekFolder, { recursive: true });
 
-  if (!fs.existsSync(weekDir)) {
-    fs.mkdirSync(weekDir, { recursive: true });
-  }
+  for (let drop = dropStart; drop <= dropEnd; drop++) {
+    const filePath = path.join(weekFolder, `drop-${drop}.json`);
+    if (fs.existsSync(filePath)) continue;
 
-  index[weekKey] = [];
+    const transmission = {
+      title: `Week ${week} · Drop ${drop}`,
+      body: [
+        "This is a placeholder transmission.",
+        "Replace with real content when ready."
+      ]
+    };
 
-  for (let d = 1; d <= DAYS_PER_WEEK; d++) {
-    const dayKey = `day-${String(d).padStart(2, "0")}`;
-    index[weekKey].push(dayKey);
-
-    const filePath = path.join(weekDir, `${dayKey}.json`);
-
-    if (!fs.existsSync(filePath)) {
-      const placeholder = {
-        title: `Transmission — ${weekKey} / ${dayKey}`,
-        subtitle: "A fragment of the Codex",
-        body: "<<< Insert Vauntico voice here >>>"
-      };
-      fs.writeFileSync(filePath, JSON.stringify(placeholder, null, 2));
-    }
+    fs.writeFileSync(filePath, JSON.stringify(transmission, null, 2));
+    console.log(`✅ Created: week-${week}/drop-${drop}.json`);
   }
 }
 
-// Write index.json
-fs.writeFileSync(
-  path.join(baseDir, "index.json"),
-  JSON.stringify(index, null, 2)
-);
-
-console.log(`✅ Codex scaffold generated: ${TOTAL_WEEKS} weeks × ${DAYS_PER_WEEK} days`);
+console.log(`\n✅ Codex scaffold complete: Weeks ${weekStart}-${weekEnd} × Drops ${dropStart}-${dropEnd}`);
