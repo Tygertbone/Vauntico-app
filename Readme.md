@@ -27,6 +27,8 @@ Learn the origin story behind Vauntico — the questions, the chaos, and the cla
 
 ## 🚀 Setup
 
+Note: Tailwind v4 requires the @tailwindcss/postcss plugin in postcss.config.cjs.
+
 Install dependencies and start the local dev environment:
 
 ```bash

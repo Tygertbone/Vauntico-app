@@ -6,6 +6,7 @@
     "dev": "vite",
     "build": "vite build",
     "start": "vite preview",
+    "audit": "pnpm audit",
     "generate-codex": "node scripts/generate-codex.js",
     "audit:fix": "node vauntico-auto-fix.cjs",
     "polish:fix": "node vauntico-polish-fix.cjs",
