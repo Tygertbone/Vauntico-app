@@ -71,47 +71,95 @@ Affirmation: "I rise again, stronger than before."
   };
 
   return (
-    <div className="bg-black text-white p-6 rounded-lg max-w-2xl mx-auto">
-      <h2 className="text-2xl font-bold text-vauntico-gold mb-4">
+    <section 
+      className="bg-black text-white p-6 rounded-lg max-w-2xl mx-auto"
+      role="main"
+      aria-labelledby="transmission-generator-title"
+    >
+      <h2 id="transmission-generator-title" className="text-2xl font-bold text-vauntico-gold mb-4">
         Generate Your Transmission
       </h2>
 
-      <div className="space-y-4 mb-6">
-        <input
-          type="text"
-          placeholder="Phase (growth/transition/resilience)"
-          value={phase}
-          onChange={(e) => setPhase(e.target.value)}
-          className="w-full px-4 py-2 rounded bg-gray-800 text-white"
-        />
-        <input
-          type="text"
-          placeholder="Your main challenge"
-          value={challenge}
-          onChange={(e) => setChallenge(e.target.value)}
-          className="w-full px-4 py-2 rounded bg-gray-800 text-white"
-        />
-        <input
-          type="text"
-          placeholder="Your word for this season"
-          value={seasonWord}
-          onChange={(e) => setSeasonWord(e.target.value)}
-          className="w-full px-4 py-2 rounded bg-gray-800 text-white"
-        />
+      <form 
+        className="space-y-4 mb-6"
+        onSubmit={(e) => { e.preventDefault(); generateTransmission(); }}
+        role="form"
+        aria-labelledby="transmission-generator-title"
+      >
+        <div>
+          <label htmlFor="phase-input" className="sr-only">
+            Life Phase (growth, transition, or resilience)
+          </label>
+          <input
+            id="phase-input"
+            type="text"
+            placeholder="Phase (growth/transition/resilience)"
+            value={phase}
+            onChange={(e) => setPhase(e.target.value)}
+            aria-label="Enter your current life phase"
+            aria-describedby="phase-help"
+            className="w-full px-4 py-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-vauntico-gold"
+          />
+          <div id="phase-help" className="sr-only">
+            Choose from growth, transition, or resilience to match your current spiritual journey
+          </div>
+        </div>
+        
+        <div>
+          <label htmlFor="challenge-input" className="sr-only">
+            Your Current Challenge
+          </label>
+          <input
+            id="challenge-input"
+            type="text"
+            placeholder="Your main challenge"
+            value={challenge}
+            onChange={(e) => setChallenge(e.target.value)}
+            aria-label="Describe your current main challenge"
+            className="w-full px-4 py-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-vauntico-gold"
+          />
+        </div>
+        
+        <div>
+          <label htmlFor="season-word-input" className="sr-only">
+            Your Guiding Word for This Season
+          </label>
+          <input
+            id="season-word-input"
+            type="text"
+            placeholder="Your word for this season"
+            value={seasonWord}
+            onChange={(e) => setSeasonWord(e.target.value)}
+            aria-label="Enter your guiding word for this season"
+            className="w-full px-4 py-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-vauntico-gold"
+          />
+        </div>
+        
         <button
+          type="submit"
           onClick={generateTransmission}
-          className="bg-vauntico-gold text-black px-6 py-2 rounded font-semibold hover:bg-yellow-400 transition"
+          data-cta="transmission-generator-generate"
+          aria-label="Generate your personalized spiritual transmission"
+          className="bg-vauntico-gold text-black px-6 py-2 rounded font-semibold hover:bg-yellow-400 transition hover:scale-[1.02] duration-200"
         >
-          Generate
+          Generate Transmission
         </button>
-      </div>
+      </form>
 
       {transmission && (
-        <div className="bg-gray-900 p-6 rounded-lg whitespace-pre-wrap">
+        <div 
+          className="bg-gray-900 p-6 rounded-lg whitespace-pre-wrap"
+          role="region"
+          aria-labelledby="generated-transmission-title"
+          aria-live="polite"
+        >
+          <h3 id="generated-transmission-title" className="sr-only">
+            Your Generated Transmission
+          </h3>
           {transmission}
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

@@ -57,6 +57,8 @@ const VaunticoPricingPage = () => {
             to="/checkout"
             label="Start Your Awakening"
             trackEvent="pricing_click_awaken"
+            data-cta="pricing-awaken-tier"
+            aria-label="Choose Awaken tier - Free spiritual journey starter"
             className="cta-button awaken-cta"
           >
             Start Your Awakening
@@ -93,6 +95,8 @@ const VaunticoPricingPage = () => {
             to="/checkout"
             label="Ascend to Greatness"
             trackEvent="pricing_click_ascend"
+            data-cta="pricing-ascend-tier"
+            aria-label="Choose Ascend tier - Premium spiritual empowerment"
             className="cta-button ascend-cta"
           >
             Ascend to Greatness
@@ -129,6 +133,8 @@ const VaunticoPricingPage = () => {
             to="/checkout"
             label="Forge Your Legacy"
             trackEvent="pricing_click_transcend"
+            data-cta="pricing-transcend-tier"
+            aria-label="Choose Transcend tier - Ultimate legacy builder"
             className="cta-button transcend-cta"
           >
             Forge Your Legacy

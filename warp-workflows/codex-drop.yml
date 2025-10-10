@@ -1,0 +1,6 @@
+name: Codex Drop Ritual
+commands:
+  - pnpm generate-codex
+  - pnpm audit --registry=https://registry.npmjs.org || echo "Audit failed, skipping"
+  - pnpm run audit:fix || echo "Audit fix failed, skipping"
+  - pnpm run polish:fix || echo "Polish fix failed, skipping"

@@ -97,10 +97,10 @@ const AscensionCodexPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black text-white">
       {/* Hero Section */}
-      <section className="px-4 py-16">
+      <section className="px-4 py-16" role="banner">
         <div className="max-w-6xl mx-auto text-center">
           <div className="mb-8">
-            <div className="text-4xl font-bold text-[#D4AF37] mb-4">VAUNTICO</div>
+            <div className="text-4xl font-bold text-[#D4AF37] mb-4" role="heading" aria-level="1">VAUNTICO</div>
           </div>
 
           <Badge className="mb-6 bg-[#D4AF37] text-black px-4 py-2 text-sm font-semibold">
@@ -120,13 +120,15 @@ const AscensionCodexPage = () => {
             AI-powered spiritual growth sequences designed for founders, creators, and seekers building legacy.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center" role="group" aria-label="Call to action buttons">
             <Button
               onClick={() => document.getElementById('tiers')?.scrollIntoView({ behavior: 'smooth' })}
+              data-cta="ascension-hero-begin"
+              aria-label="Scroll to pricing tiers to begin your ascension journey"
               className="bg-gradient-to-r from-[#D4AF37] to-yellow-600 text-black font-semibold px-8 py-6 text-lg rounded-lg hover:scale-105 transition-transform"
             >
               Begin Your Ascension
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="ml-2 w-5 h-5" aria-hidden="true" />
             </Button>
           </div>
         </div>
@@ -219,10 +221,15 @@ const AscensionCodexPage = () => {
                 </CardHeader>
 
                 <CardContent>
-                  <ul className="space-y-3 mb-6">
+                  <ul 
+                    id={`tier-${tier.id}-features`}
+                    className="space-y-3 mb-6" 
+                    role="list" 
+                    aria-label={`Features included in ${tier.name} tier`}
+                  >
                     {tier.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start text-white">
-                        <span className="text-[#D4AF37] mr-2">✦</span>
+                      <li key={idx} className="flex items-start text-white" role="listitem">
+                        <span className="text-[#D4AF37] mr-2" aria-hidden="true">✦</span>
                         <span className="text-sm">{feature}</span>
                       </li>
                     ))}
@@ -231,6 +238,9 @@ const AscensionCodexPage = () => {
                   <Button
                     onClick={() => handleTierSelect(tier)}
                     disabled={isLoading && selectedTier?.id === tier.id}
+                    data-cta={`ascension-tier-${tier.id}`}
+                    aria-label={`Select ${tier.name} tier for ${tier.price} per month`}
+                    aria-describedby={`tier-${tier.id}-features`}
                     className="w-full bg-white text-black hover:bg-gray-200 font-semibold py-6 text-lg rounded-lg"
                   >
                     {isLoading && selectedTier?.id === tier.id ? 'Processing...' : tier.cta}
@@ -264,18 +274,30 @@ const AscensionCodexPage = () => {
               <p className="text-gray-300">Check your email for your first sample transmission.</p>
             </div>
           ) : (
-            <form onSubmit={handleEarlyAccess} className="flex flex-col sm:flex-row gap-4">
+            <form 
+              onSubmit={handleEarlyAccess} 
+              className="flex flex-col sm:flex-row gap-4"
+              role="form"
+              aria-labelledby="early-access-title"
+            >
+              <label htmlFor="early-access-email" className="sr-only">
+                Email address for free sample transmissions
+              </label>
               <Input
+                id="early-access-email"
                 type="email"
                 placeholder="your@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                aria-label="Enter your email address for free sample transmissions"
                 className="flex-1 h-12 bg-white text-black border-0"
                 required
               />
               <Button
                 type="submit"
                 disabled={isLoading}
+                data-cta="ascension-free-samples"
+                aria-label="Sign up for free sample transmissions"
                 className="bg-[#D4AF37] text-black hover:bg-yellow-600 h-12 px-8 font-semibold rounded-lg"
               >
                 {isLoading ? 'Joining...' : 'Get Free Samples'}

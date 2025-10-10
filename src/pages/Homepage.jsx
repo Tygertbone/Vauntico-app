@@ -28,7 +28,11 @@ export default function Homepage() {
           {/* ✅ Featured Ascension Codex Banner */}
           <div className="mt-8 max-w-3xl mx-auto">
             {/* 🔗 Updated to go straight to today's transmission */}
-            <Link to="/codex/today">
+            <Link 
+              to="/codex/today"
+              data-cta="homepage-ascension-codex-banner"
+              aria-label="Begin your ascension with today's transmission"
+            >
               <div className="bg-gradient-to-r from-purple-900 via-purple-700 to-[var(--vauntico-gold)] p-8 rounded-xl border-2 border-[var(--vauntico-gold)] hover:scale-105 transition-all duration-300 cursor-pointer shadow-2xl hover:shadow-vauntico-glow">
                 <Badge className="mb-4 bg-[var(--vauntico-gold)] text-black px-3 py-1">
                   <Sparkles className="w-4 h-4 inline mr-1" />
@@ -55,6 +59,8 @@ export default function Homepage() {
             <div className="mt-4 text-center">
               <Link
                 to="/codex/archive"
+                data-cta="homepage-codex-archive"
+                aria-label="View the complete Codex archive"
                 className="inline-block px-6 py-3 rounded bg-gray-900 hover:bg-gray-800 text-[var(--vauntico-gold-text)] font-semibold transition"
               >
                 View Codex Archive
@@ -80,6 +86,8 @@ export default function Homepage() {
         >
           <Link
             to="/prompt-vault"
+            data-cta="homepage-explore-vaults"
+            aria-label="Explore our premium prompt vault collection"
             className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition"
           >
             <h3 className="text-xl font-bold text-vauntico-gold mb-2">
@@ -91,6 +99,8 @@ export default function Homepage() {
           </Link>
           <Link
             to="/pricing"
+            data-cta="homepage-view-pricing"
+            aria-label="View pricing plans for your creative journey"
             className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition"
           >
             <h3 className="text-xl font-bold text-vauntico-gold mb-2">
@@ -155,6 +165,8 @@ export default function Homepage() {
             />
             <button
               type="submit"
+              data-cta="homepage-email-subscribe"
+              aria-label="Subscribe to Vauntico updates and early access"
               className="mt-4 bg-[var(--vauntico-gold)] text-black px-6 py-3 rounded font-semibold hover:bg-[var(--vauntico-gold-hover)] transition w-full"
             >
               Subscribe

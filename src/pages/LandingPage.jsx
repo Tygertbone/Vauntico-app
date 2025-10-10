@@ -30,6 +30,8 @@ const LandingPage = () => {
           to="/checkout"
           label="Get Started"
           trackEvent="landing_click_get_started"
+          data-cta="landing-hero-get-started"
+          aria-label="Get started with Vauntico's conscious coder conversion kit"
           className="bg-vauntico-gold text-black font-semibold px-6 py-3 rounded hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
         >
           Get Started
