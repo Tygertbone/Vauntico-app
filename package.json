@@ -7,6 +7,7 @@
     "build": "vite build",
     "start": "vite preview",
     "audit": "pnpm audit",
+    "prepare": "husky",
     "generate-codex": "node scripts/generate-codex.js",
     "audit:fix": "node vauntico-auto-fix.cjs",
     "polish:fix": "node vauntico-polish-fix.cjs",
@@ -27,12 +28,17 @@
     "react-helmet": "^6.1.0",
     "react-router-dom": "^7.9.4"
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "node scripts/vauntico-lint-staged.cjs"
+  },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.14",
     "@vitejs/plugin-react": "^5.0.4",
     "autoprefixer": "^10.4.21",
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.3",
     "nodemon": "^3.1.0",
     "tailwindcss": "^4.1.14",
     "vite": "^7.1.9"

@@ -8,7 +8,7 @@ echo "🔧 Running Vauntico Branded Standards Enforcement..."
 # Run audit but do not block commits if the registry lacks an audit endpoint
 pnpm run -s audit || true
 
-# Run Vauntico lint — this should block the commit on failure
-node vauntico-lint.cjs
+# Run staged lint (blocks commit on failure)
+pnpm exec lint-staged
 
 echo "✅ Vauntico standards enforced - commit allowed"
