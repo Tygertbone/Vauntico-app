@@ -1,0 +1,2082 @@
+[
+  {
+    "week": 1,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-01/drop-1.json",
+        "title": "Week 1 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-01/drop-2.json",
+        "title": "Week 1 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-01/drop-3.json",
+        "title": "Week 1 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-01/drop-4.json",
+        "title": "Week 1 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-01/drop-5.json",
+        "title": "Week 1 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-01/drop-6.json",
+        "title": "Week 1 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-01/drop-7.json",
+        "title": "Week 1 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 2,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-02/drop-1.json",
+        "title": "Week 2 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-02/drop-2.json",
+        "title": "Week 2 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-02/drop-3.json",
+        "title": "Week 2 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-02/drop-4.json",
+        "title": "Week 2 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-02/drop-5.json",
+        "title": "Week 2 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-02/drop-6.json",
+        "title": "Week 2 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-02/drop-7.json",
+        "title": "Week 2 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 3,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-03/drop-1.json",
+        "title": "Week 3 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-03/drop-2.json",
+        "title": "Week 3 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-03/drop-3.json",
+        "title": "Week 3 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-03/drop-4.json",
+        "title": "Week 3 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-03/drop-5.json",
+        "title": "Week 3 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-03/drop-6.json",
+        "title": "Week 3 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-03/drop-7.json",
+        "title": "Week 3 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 4,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-04/drop-1.json",
+        "title": "Week 4 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-04/drop-2.json",
+        "title": "Week 4 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-04/drop-3.json",
+        "title": "Week 4 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-04/drop-4.json",
+        "title": "Week 4 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-04/drop-5.json",
+        "title": "Week 4 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-04/drop-6.json",
+        "title": "Week 4 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-04/drop-7.json",
+        "title": "Week 4 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 5,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-05/drop-1.json",
+        "title": "Week 5 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-05/drop-2.json",
+        "title": "Week 5 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-05/drop-3.json",
+        "title": "Week 5 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-05/drop-4.json",
+        "title": "Week 5 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-05/drop-5.json",
+        "title": "Week 5 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-05/drop-6.json",
+        "title": "Week 5 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-05/drop-7.json",
+        "title": "Week 5 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 6,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-06/drop-1.json",
+        "title": "Week 6 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-06/drop-2.json",
+        "title": "Week 6 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-06/drop-3.json",
+        "title": "Week 6 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-06/drop-4.json",
+        "title": "Week 6 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-06/drop-5.json",
+        "title": "Week 6 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-06/drop-6.json",
+        "title": "Week 6 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-06/drop-7.json",
+        "title": "Week 6 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 7,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-07/drop-1.json",
+        "title": "Week 7 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-07/drop-2.json",
+        "title": "Week 7 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-07/drop-3.json",
+        "title": "Week 7 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-07/drop-4.json",
+        "title": "Week 7 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-07/drop-5.json",
+        "title": "Week 7 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-07/drop-6.json",
+        "title": "Week 7 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-07/drop-7.json",
+        "title": "Week 7 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 8,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-08/drop-1.json",
+        "title": "Week 8 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-08/drop-2.json",
+        "title": "Week 8 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-08/drop-3.json",
+        "title": "Week 8 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-08/drop-4.json",
+        "title": "Week 8 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-08/drop-5.json",
+        "title": "Week 8 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-08/drop-6.json",
+        "title": "Week 8 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-08/drop-7.json",
+        "title": "Week 8 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 9,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-09/drop-1.json",
+        "title": "Week 9 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-09/drop-2.json",
+        "title": "Week 9 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-09/drop-3.json",
+        "title": "Week 9 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-09/drop-4.json",
+        "title": "Week 9 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-09/drop-5.json",
+        "title": "Week 9 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-09/drop-6.json",
+        "title": "Week 9 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-09/drop-7.json",
+        "title": "Week 9 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 10,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-10/drop-1.json",
+        "title": "Week 10 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-10/drop-2.json",
+        "title": "Week 10 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-10/drop-3.json",
+        "title": "Week 10 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-10/drop-4.json",
+        "title": "Week 10 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-10/drop-5.json",
+        "title": "Week 10 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-10/drop-6.json",
+        "title": "Week 10 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-10/drop-7.json",
+        "title": "Week 10 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 11,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-11/drop-1.json",
+        "title": "Week 11 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-11/drop-2.json",
+        "title": "Week 11 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-11/drop-3.json",
+        "title": "Week 11 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-11/drop-4.json",
+        "title": "Week 11 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-11/drop-5.json",
+        "title": "Week 11 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-11/drop-6.json",
+        "title": "Week 11 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-11/drop-7.json",
+        "title": "Week 11 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 12,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-12/drop-1.json",
+        "title": "Week 12 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-12/drop-2.json",
+        "title": "Week 12 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-12/drop-3.json",
+        "title": "Week 12 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-12/drop-4.json",
+        "title": "Week 12 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-12/drop-5.json",
+        "title": "Week 12 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-12/drop-6.json",
+        "title": "Week 12 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-12/drop-7.json",
+        "title": "Week 12 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 13,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-13/drop-1.json",
+        "title": "Week 13 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-13/drop-2.json",
+        "title": "Week 13 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-13/drop-3.json",
+        "title": "Week 13 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-13/drop-4.json",
+        "title": "Week 13 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-13/drop-5.json",
+        "title": "Week 13 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-13/drop-6.json",
+        "title": "Week 13 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-13/drop-7.json",
+        "title": "Week 13 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 14,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-14/drop-1.json",
+        "title": "Week 14 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-14/drop-2.json",
+        "title": "Week 14 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-14/drop-3.json",
+        "title": "Week 14 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-14/drop-4.json",
+        "title": "Week 14 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-14/drop-5.json",
+        "title": "Week 14 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-14/drop-6.json",
+        "title": "Week 14 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-14/drop-7.json",
+        "title": "Week 14 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 15,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-15/drop-1.json",
+        "title": "Week 15 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-15/drop-2.json",
+        "title": "Week 15 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-15/drop-3.json",
+        "title": "Week 15 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-15/drop-4.json",
+        "title": "Week 15 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-15/drop-5.json",
+        "title": "Week 15 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-15/drop-6.json",
+        "title": "Week 15 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-15/drop-7.json",
+        "title": "Week 15 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 16,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-16/drop-1.json",
+        "title": "Week 16 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-16/drop-2.json",
+        "title": "Week 16 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-16/drop-3.json",
+        "title": "Week 16 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-16/drop-4.json",
+        "title": "Week 16 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-16/drop-5.json",
+        "title": "Week 16 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-16/drop-6.json",
+        "title": "Week 16 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-16/drop-7.json",
+        "title": "Week 16 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 17,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-17/drop-1.json",
+        "title": "Week 17 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-17/drop-2.json",
+        "title": "Week 17 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-17/drop-3.json",
+        "title": "Week 17 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-17/drop-4.json",
+        "title": "Week 17 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-17/drop-5.json",
+        "title": "Week 17 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-17/drop-6.json",
+        "title": "Week 17 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-17/drop-7.json",
+        "title": "Week 17 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 18,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-18/drop-1.json",
+        "title": "Week 18 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-18/drop-2.json",
+        "title": "Week 18 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-18/drop-3.json",
+        "title": "Week 18 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-18/drop-4.json",
+        "title": "Week 18 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-18/drop-5.json",
+        "title": "Week 18 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-18/drop-6.json",
+        "title": "Week 18 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-18/drop-7.json",
+        "title": "Week 18 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 19,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-19/drop-1.json",
+        "title": "Week 19 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-19/drop-2.json",
+        "title": "Week 19 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-19/drop-3.json",
+        "title": "Week 19 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-19/drop-4.json",
+        "title": "Week 19 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-19/drop-5.json",
+        "title": "Week 19 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-19/drop-6.json",
+        "title": "Week 19 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-19/drop-7.json",
+        "title": "Week 19 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 20,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-20/drop-1.json",
+        "title": "Week 20 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-20/drop-2.json",
+        "title": "Week 20 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-20/drop-3.json",
+        "title": "Week 20 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-20/drop-4.json",
+        "title": "Week 20 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-20/drop-5.json",
+        "title": "Week 20 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-20/drop-6.json",
+        "title": "Week 20 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-20/drop-7.json",
+        "title": "Week 20 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 21,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-21/drop-1.json",
+        "title": "Week 21 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-21/drop-2.json",
+        "title": "Week 21 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-21/drop-3.json",
+        "title": "Week 21 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-21/drop-4.json",
+        "title": "Week 21 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-21/drop-5.json",
+        "title": "Week 21 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-21/drop-6.json",
+        "title": "Week 21 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-21/drop-7.json",
+        "title": "Week 21 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 22,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-22/drop-1.json",
+        "title": "Week 22 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-22/drop-2.json",
+        "title": "Week 22 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-22/drop-3.json",
+        "title": "Week 22 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-22/drop-4.json",
+        "title": "Week 22 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-22/drop-5.json",
+        "title": "Week 22 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-22/drop-6.json",
+        "title": "Week 22 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-22/drop-7.json",
+        "title": "Week 22 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 23,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-23/drop-1.json",
+        "title": "Week 23 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-23/drop-2.json",
+        "title": "Week 23 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-23/drop-3.json",
+        "title": "Week 23 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-23/drop-4.json",
+        "title": "Week 23 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-23/drop-5.json",
+        "title": "Week 23 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-23/drop-6.json",
+        "title": "Week 23 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-23/drop-7.json",
+        "title": "Week 23 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 24,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-24/drop-1.json",
+        "title": "Week 24 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-24/drop-2.json",
+        "title": "Week 24 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-24/drop-3.json",
+        "title": "Week 24 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-24/drop-4.json",
+        "title": "Week 24 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-24/drop-5.json",
+        "title": "Week 24 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-24/drop-6.json",
+        "title": "Week 24 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-24/drop-7.json",
+        "title": "Week 24 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 25,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-25/drop-1.json",
+        "title": "Week 25 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-25/drop-2.json",
+        "title": "Week 25 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-25/drop-3.json",
+        "title": "Week 25 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-25/drop-4.json",
+        "title": "Week 25 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-25/drop-5.json",
+        "title": "Week 25 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-25/drop-6.json",
+        "title": "Week 25 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-25/drop-7.json",
+        "title": "Week 25 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 26,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-26/drop-1.json",
+        "title": "Week 26 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-26/drop-2.json",
+        "title": "Week 26 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-26/drop-3.json",
+        "title": "Week 26 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-26/drop-4.json",
+        "title": "Week 26 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-26/drop-5.json",
+        "title": "Week 26 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-26/drop-6.json",
+        "title": "Week 26 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-26/drop-7.json",
+        "title": "Week 26 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 27,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-27/drop-1.json",
+        "title": "Week 27 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-27/drop-2.json",
+        "title": "Week 27 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-27/drop-3.json",
+        "title": "Week 27 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-27/drop-4.json",
+        "title": "Week 27 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-27/drop-5.json",
+        "title": "Week 27 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-27/drop-6.json",
+        "title": "Week 27 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-27/drop-7.json",
+        "title": "Week 27 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 28,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-28/drop-1.json",
+        "title": "Week 28 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-28/drop-2.json",
+        "title": "Week 28 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-28/drop-3.json",
+        "title": "Week 28 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-28/drop-4.json",
+        "title": "Week 28 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-28/drop-5.json",
+        "title": "Week 28 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-28/drop-6.json",
+        "title": "Week 28 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-28/drop-7.json",
+        "title": "Week 28 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 29,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-29/drop-1.json",
+        "title": "Week 29 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-29/drop-2.json",
+        "title": "Week 29 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-29/drop-3.json",
+        "title": "Week 29 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-29/drop-4.json",
+        "title": "Week 29 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-29/drop-5.json",
+        "title": "Week 29 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-29/drop-6.json",
+        "title": "Week 29 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-29/drop-7.json",
+        "title": "Week 29 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 30,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-30/drop-1.json",
+        "title": "Week 30 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-30/drop-2.json",
+        "title": "Week 30 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-30/drop-3.json",
+        "title": "Week 30 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-30/drop-4.json",
+        "title": "Week 30 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-30/drop-5.json",
+        "title": "Week 30 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-30/drop-6.json",
+        "title": "Week 30 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-30/drop-7.json",
+        "title": "Week 30 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 31,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-31/drop-1.json",
+        "title": "Week 31 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-31/drop-2.json",
+        "title": "Week 31 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-31/drop-3.json",
+        "title": "Week 31 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-31/drop-4.json",
+        "title": "Week 31 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-31/drop-5.json",
+        "title": "Week 31 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-31/drop-6.json",
+        "title": "Week 31 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-31/drop-7.json",
+        "title": "Week 31 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 32,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-32/drop-1.json",
+        "title": "Week 32 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-32/drop-2.json",
+        "title": "Week 32 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-32/drop-3.json",
+        "title": "Week 32 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-32/drop-4.json",
+        "title": "Week 32 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-32/drop-5.json",
+        "title": "Week 32 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-32/drop-6.json",
+        "title": "Week 32 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-32/drop-7.json",
+        "title": "Week 32 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 33,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-33/drop-1.json",
+        "title": "Week 33 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-33/drop-2.json",
+        "title": "Week 33 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-33/drop-3.json",
+        "title": "Week 33 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-33/drop-4.json",
+        "title": "Week 33 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-33/drop-5.json",
+        "title": "Week 33 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-33/drop-6.json",
+        "title": "Week 33 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-33/drop-7.json",
+        "title": "Week 33 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 34,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-34/drop-1.json",
+        "title": "Week 34 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-34/drop-2.json",
+        "title": "Week 34 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-34/drop-3.json",
+        "title": "Week 34 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-34/drop-4.json",
+        "title": "Week 34 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-34/drop-5.json",
+        "title": "Week 34 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-34/drop-6.json",
+        "title": "Week 34 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-34/drop-7.json",
+        "title": "Week 34 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 35,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-35/drop-1.json",
+        "title": "Week 35 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-35/drop-2.json",
+        "title": "Week 35 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-35/drop-3.json",
+        "title": "Week 35 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-35/drop-4.json",
+        "title": "Week 35 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-35/drop-5.json",
+        "title": "Week 35 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-35/drop-6.json",
+        "title": "Week 35 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-35/drop-7.json",
+        "title": "Week 35 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 36,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-36/drop-1.json",
+        "title": "Week 36 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-36/drop-2.json",
+        "title": "Week 36 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-36/drop-3.json",
+        "title": "Week 36 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-36/drop-4.json",
+        "title": "Week 36 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-36/drop-5.json",
+        "title": "Week 36 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-36/drop-6.json",
+        "title": "Week 36 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-36/drop-7.json",
+        "title": "Week 36 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 37,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-37/drop-1.json",
+        "title": "Week 37 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-37/drop-2.json",
+        "title": "Week 37 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-37/drop-3.json",
+        "title": "Week 37 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-37/drop-4.json",
+        "title": "Week 37 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-37/drop-5.json",
+        "title": "Week 37 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-37/drop-6.json",
+        "title": "Week 37 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-37/drop-7.json",
+        "title": "Week 37 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 38,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-38/drop-1.json",
+        "title": "Week 38 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-38/drop-2.json",
+        "title": "Week 38 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-38/drop-3.json",
+        "title": "Week 38 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-38/drop-4.json",
+        "title": "Week 38 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-38/drop-5.json",
+        "title": "Week 38 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-38/drop-6.json",
+        "title": "Week 38 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-38/drop-7.json",
+        "title": "Week 38 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 39,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-39/drop-1.json",
+        "title": "Week 39 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-39/drop-2.json",
+        "title": "Week 39 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-39/drop-3.json",
+        "title": "Week 39 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-39/drop-4.json",
+        "title": "Week 39 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-39/drop-5.json",
+        "title": "Week 39 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-39/drop-6.json",
+        "title": "Week 39 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-39/drop-7.json",
+        "title": "Week 39 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 40,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-40/drop-1.json",
+        "title": "Week 40 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-40/drop-2.json",
+        "title": "Week 40 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-40/drop-3.json",
+        "title": "Week 40 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-40/drop-4.json",
+        "title": "Week 40 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-40/drop-5.json",
+        "title": "Week 40 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-40/drop-6.json",
+        "title": "Week 40 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-40/drop-7.json",
+        "title": "Week 40 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 41,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-41/drop-1.json",
+        "title": "Week 41 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-41/drop-2.json",
+        "title": "Week 41 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-41/drop-3.json",
+        "title": "Week 41 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-41/drop-4.json",
+        "title": "Week 41 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-41/drop-5.json",
+        "title": "Week 41 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-41/drop-6.json",
+        "title": "Week 41 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-41/drop-7.json",
+        "title": "Week 41 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 42,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-42/drop-1.json",
+        "title": "Week 42 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-42/drop-2.json",
+        "title": "Week 42 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-42/drop-3.json",
+        "title": "Week 42 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-42/drop-4.json",
+        "title": "Week 42 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-42/drop-5.json",
+        "title": "Week 42 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-42/drop-6.json",
+        "title": "Week 42 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-42/drop-7.json",
+        "title": "Week 42 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 43,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-43/drop-1.json",
+        "title": "Week 43 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-43/drop-2.json",
+        "title": "Week 43 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-43/drop-3.json",
+        "title": "Week 43 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-43/drop-4.json",
+        "title": "Week 43 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-43/drop-5.json",
+        "title": "Week 43 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-43/drop-6.json",
+        "title": "Week 43 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-43/drop-7.json",
+        "title": "Week 43 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 44,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-44/drop-1.json",
+        "title": "Week 44 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-44/drop-2.json",
+        "title": "Week 44 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-44/drop-3.json",
+        "title": "Week 44 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-44/drop-4.json",
+        "title": "Week 44 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-44/drop-5.json",
+        "title": "Week 44 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-44/drop-6.json",
+        "title": "Week 44 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-44/drop-7.json",
+        "title": "Week 44 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 45,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-45/drop-1.json",
+        "title": "Week 45 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-45/drop-2.json",
+        "title": "Week 45 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-45/drop-3.json",
+        "title": "Week 45 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-45/drop-4.json",
+        "title": "Week 45 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-45/drop-5.json",
+        "title": "Week 45 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-45/drop-6.json",
+        "title": "Week 45 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-45/drop-7.json",
+        "title": "Week 45 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 46,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-46/drop-1.json",
+        "title": "Week 46 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-46/drop-2.json",
+        "title": "Week 46 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-46/drop-3.json",
+        "title": "Week 46 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-46/drop-4.json",
+        "title": "Week 46 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-46/drop-5.json",
+        "title": "Week 46 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-46/drop-6.json",
+        "title": "Week 46 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-46/drop-7.json",
+        "title": "Week 46 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 47,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-47/drop-1.json",
+        "title": "Week 47 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-47/drop-2.json",
+        "title": "Week 47 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-47/drop-3.json",
+        "title": "Week 47 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-47/drop-4.json",
+        "title": "Week 47 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-47/drop-5.json",
+        "title": "Week 47 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-47/drop-6.json",
+        "title": "Week 47 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-47/drop-7.json",
+        "title": "Week 47 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 48,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-48/drop-1.json",
+        "title": "Week 48 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-48/drop-2.json",
+        "title": "Week 48 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-48/drop-3.json",
+        "title": "Week 48 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-48/drop-4.json",
+        "title": "Week 48 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-48/drop-5.json",
+        "title": "Week 48 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-48/drop-6.json",
+        "title": "Week 48 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-48/drop-7.json",
+        "title": "Week 48 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 49,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-49/drop-1.json",
+        "title": "Week 49 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-49/drop-2.json",
+        "title": "Week 49 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-49/drop-3.json",
+        "title": "Week 49 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-49/drop-4.json",
+        "title": "Week 49 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-49/drop-5.json",
+        "title": "Week 49 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-49/drop-6.json",
+        "title": "Week 49 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-49/drop-7.json",
+        "title": "Week 49 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 50,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-50/drop-1.json",
+        "title": "Week 50 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-50/drop-2.json",
+        "title": "Week 50 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-50/drop-3.json",
+        "title": "Week 50 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-50/drop-4.json",
+        "title": "Week 50 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-50/drop-5.json",
+        "title": "Week 50 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-50/drop-6.json",
+        "title": "Week 50 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-50/drop-7.json",
+        "title": "Week 50 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 51,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-51/drop-1.json",
+        "title": "Week 51 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-51/drop-2.json",
+        "title": "Week 51 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-51/drop-3.json",
+        "title": "Week 51 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-51/drop-4.json",
+        "title": "Week 51 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-51/drop-5.json",
+        "title": "Week 51 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-51/drop-6.json",
+        "title": "Week 51 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-51/drop-7.json",
+        "title": "Week 51 · Drop 7"
+      }
+    ]
+  },
+  {
+    "week": 52,
+    "drops": [
+      {
+        "id": 1,
+        "path": "week-52/drop-1.json",
+        "title": "Week 52 · Drop 1"
+      },
+      {
+        "id": 2,
+        "path": "week-52/drop-2.json",
+        "title": "Week 52 · Drop 2"
+      },
+      {
+        "id": 3,
+        "path": "week-52/drop-3.json",
+        "title": "Week 52 · Drop 3"
+      },
+      {
+        "id": 4,
+        "path": "week-52/drop-4.json",
+        "title": "Week 52 · Drop 4"
+      },
+      {
+        "id": 5,
+        "path": "week-52/drop-5.json",
+        "title": "Week 52 · Drop 5"
+      },
+      {
+        "id": 6,
+        "path": "week-52/drop-6.json",
+        "title": "Week 52 · Drop 6"
+      },
+      {
+        "id": 7,
+        "path": "week-52/drop-7.json",
+        "title": "Week 52 · Drop 7"
+      }
+    ]
+  }
+]

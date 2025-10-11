@@ -1,0 +1,37 @@
+[33m303fc513[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mresearchbank-init[m[33m, [m[1;31morigin/researchbank-init[m[33m)[m Apply contrast + dialog ARIA sweep
+[33m8aee14b5[m Add all missing UI utility packages
+[33m12cf0275[m Add clsx and tailwind-merge
+[33md92f0b01[m Add missing UI dependencies
+[33m3b74e80c[m Add lucide-react dependency
+[33md83d6797[m Remove unused tw-animate-css import
+[33md7b67547[m Apply Vauntico auto-fix: CTA tracking + hover polish
+[33m83ce2754[m Fix Vercel build: switch to ESM config
+[33m0bd52305[m Add vite plugin-react for Vercel build
+[33mda2072b8[m Sync dependencies for deployment
+[33m1614e9b7[m Fix typo in research bank filename — rename to .json
+[33m3bc7660d[m Auto-fix Vauntico audit polish
+[33m8cc35f3d[m Apply Vauntico hover polish and BankID traceability to PricingPage
+[33mc1e93359[m Add Vauntico identity files — manifesto, founder letter, CI badge
+[33mdd1a0e09[m[33m ([m[1;32mstaging-audit-fixes[m[33m)[m Audit pass: hover polish + CTA enforcement
+[33mcbbfceeb[m Apply Vauntico global hover polish and CTA enforcement
+[33m641999e2[m Enforce Vauntico hover polish globally in Button, CTAButton, and Link
+[33m1b885764[m[33m ([m[1;31morigin/main[m[33m, [m[1;32mmain[m[33m)[m Apply branded CTA props, hover polish, and enforcement agents for Vauntico launch
+[33mc179d093[m Add CI audit workflow
+[33mb7d37b6b[m Test audit hook
+[33m129f7a5c[m Update .gitignore to exclude .pnpm
+[33maf05e50d[m Initial commit
+[33m4363b648[m Initial MVP commit
+[33m1145036d[m Final audit complete: Vauntico MVP ready for deployment
+[33md60dc8d6[m[33m ([m[1;33mtag: [m[1;33mv1.0[m[33m)[m Ignore node_modules and clean up tracked files
+[33m929bdfae[m Added missing config and documentation files
+[33mece96043[m Add Vercel rewrite rules for React Router
+[33m4e8da672[m Finalize spiritual build and deploy Vauntico MVP
+[33m66d71662[m Remove legacy package-lock.json for pnpm consistency
+[33mfc21eecf[m Signal patch to match Vercel identity
+[33m74446dd7[m Merge branch 'main' of https://github.com/Tygertbone/vauntico-mvp
+[33mbda74266[m Clean merge conflicts, confirm local build
+[33mf13278a7[m update
+[33m9226d993[m update
+[33mc6f56db3[m update
+[33m3f3affdb[m update
+[33mbd0e3b89[m Initial commit: Vauntico Prompt Vault static site

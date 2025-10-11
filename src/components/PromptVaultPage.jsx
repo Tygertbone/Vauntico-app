@@ -1,17 +1,31 @@
 import React from 'react'
+import { Helmet } from 'react-helmet'
 import '../App.css'
 
 const PromptVaultPage = () => {
   return (
     <div className="bg-background text-foreground">
-      {/* Hero Section */}
-      <section className="hero-gradient text-center py-20 px-6">
-        <h1 className="text-5xl font-bold text-vauntico-gold mb-4">Unlock Your Creative Power</h1>
+      <Helmet>
+        <title>Prompt Vault — Vauntico</title>
+        <meta name="description" content="Unlock your creative power with Vauntico’s Prompt Vaults, brand kits, and sprint playbooks." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Helmet>
+      <main role="main">
+        {/* Hero Section */}
+        <section className="hero-gradient text-center py-20 px-6">
+        <h1 className="text-5xl font-bold text-[var(--vauntico-gold-text)] mb-4">Unlock Your Creative Power</h1>
         <p className="text-lg text-muted max-w-2xl mx-auto mb-6">
           Vauntico is a movement. A vault. A creator’s command center. Join us to build, monetize, and leave a legacy.
         </p>
-        <a href="/creator-pass" className="vauntico-btn">Get Your Creator Pass</a>
-      </section>
+        <a 
+          href="/creator-pass" 
+          data-cta="prompt-vault-hero-creator-pass"
+          aria-label="Get your Vauntico Creator Pass for full access"
+          className="vauntico-btn hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
+        >
+          Get Your Creator Pass
+        </a>
+        </section>
 
       {/* Feature Cards */}
       <section className="py-16 px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -20,7 +34,7 @@ const PromptVaultPage = () => {
             key={index}
             className="bg-[#111] border border-[var(--sidebar-border)] rounded-xl p-6 hover:shadow-xl transition-all duration-300"
           >
-            <h3 className="text-xl font-semibold text-vauntico-gold mb-2">{feature.title}</h3>
+            <h3 className="text-xl font-semibold text-[var(--vauntico-gold-text)] mb-2">{feature.title}</h3>
             <p className="text-muted">{feature.description}</p>
           </div>
         ))}
@@ -33,6 +47,8 @@ const PromptVaultPage = () => {
           Trusted by creators, powered by AI, and designed for legacy. Vauntico is where ideas become income.
         </p>
       </section>
+      </main>
+      <footer role="contentinfo" className="text-center text-xs text-gray-500 mt-12">© Vauntico — Prompt Vault</footer>
     </div>
   )
 }

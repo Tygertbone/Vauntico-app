@@ -1,40 +1,36 @@
-import CTAButton from "./CTAButton";
+import React from 'react';
+import CTAButton from '@/components/ui/CTAButton';
 
-export default function PricingTable() {
+const PricingTable = () => {
   return (
-    <div className="grid md:grid-cols-2 gap-6">
-      <div className="bg-gray-900 p-6 rounded-lg hover:shadow-xl hover:shadow-vauntico-glow hover:scale-[1.02] transition-all duration-300 ease-in-out">
-        <h3 className="text-xl font-bold text-vauntico-gold mb-2">Monthly</h3>
-        <p className="text-white text-lg mb-2">$29/month</p>
-        <ul className="text-gray-300 text-sm mb-4 list-disc list-inside">
-          <li>All vaults</li>
-          <li>Branding kit</li>
-          <li>Onboarding sprint</li>
-          <li>VIP community</li>
-        </ul>
-        <CTAButton
-          label="Join Monthly"
-          to="/checkout?plan=monthly"
-          trackEvent={true}
-          className="w-full mt-4"
-        />
+    <div className="pricing-table space-y-6" role="table" aria-label="Vauntico Pricing Plans">
+      <div className="pricing-row bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-vauntico-gold hover:shadow-lg transition-all duration-300">
+        <h3 className="text-xl font-semibold text-vauntico-gold mb-4" role="columnheader">Starter Plan</h3>
+        <p className="text-gray-300 mb-6">Perfect for getting started with Vauntico</p>
+        <CTAButton 
+          onClick={() => console.log('Starter plan selected')}
+          data-cta="pricing-starter-select"
+          aria-label="Select Starter Plan"
+          className="hover:bg-vauntico-gold hover:text-black transition-colors duration-200"
+        >
+          Get Started
+        </CTAButton>
       </div>
-
-      <div className="bg-gray-900 p-6 rounded-lg hover:shadow-xl hover:shadow-vauntico-glow hover:scale-[1.02] transition-all duration-300 ease-in-out">
-        <h3 className="text-xl font-bold text-vauntico-gold mb-2">Yearly</h3>
-        <p className="text-white text-lg mb-2">$199/year</p>
-        <ul className="text-gray-300 text-sm mb-4 list-disc list-inside">
-          <li>Everything in monthly</li>
-          <li>2 bonus vaults</li>
-          <li>Priority support</li>
-        </ul>
-        <CTAButton
-          label="Join Yearly"
-          to="/checkout?plan=yearly"
-          trackEvent={true}
-          className="w-full mt-4"
-        />
+      
+      <div className="pricing-row bg-gray-900 p-6 rounded-lg border border-gray-800 hover:border-vauntico-gold hover:shadow-lg transition-all duration-300">
+        <h3 className="text-xl font-semibold text-vauntico-gold mb-4" role="columnheader">Premium Plan</h3>
+        <p className="text-gray-300 mb-6">Full access to all Vauntico features</p>
+        <CTAButton 
+          onClick={() => console.log('Premium plan selected')}
+          data-cta="pricing-premium-select"
+          aria-label="Select Premium Plan"
+          className="hover:bg-vauntico-gold hover:text-black transition-colors duration-200"
+        >
+          Go Premium
+        </CTAButton>
       </div>
     </div>
   );
-}
+};
+
+export default PricingTable;

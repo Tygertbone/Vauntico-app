@@ -95,7 +95,7 @@ function Sidebar({ children }) {
   }
 
   return (
-    <div className="flex w-[var(--sidebar-width)] flex-col border-r border-[var(--sidebar-border)] shadow-md">
+    <div className="flex w-[var(--sidebar-width)] flex-col border-r border-[var(--sidebar-border)] shadow-md" role="navigation" aria-label="Primary">
       <div className="p-4 text-xl font-bold text-[var(--sidebar-accent)]">Vauntico</div>
       <nav className="flex flex-col gap-2 px-4">
         <SidebarLink href="/prompt-vault" icon={<FolderIcon />} label="Prompt Vault" />
@@ -117,7 +117,8 @@ function SidebarLink({ href, icon, label }) {
             "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
             isActive
               ? "bg-[var(--sidebar-accent)] text-[var(--sidebar-accent-foreground)]"
-              : "hover:bg-[var(--sidebar-accent)] hover:text-[var(--sidebar-accent-foreground)]"
+              : "hover:bg-[var(--sidebar-accent)] hover:text-[var(--sidebar-accent-foreground)]",
+            "hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
           )}
         >
           {icon}
@@ -150,6 +151,7 @@ function SidebarInset({ className, ...props }) {
   return (
     <main
       data-slot="sidebar-inset"
+      id="main-content"
       className={cn(
         "relative flex w-full flex-1 flex-col bg-background",
         "md:peer-data-[variant=inset]:m-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow-sm md:peer-data-[variant=inset]:peer-data-[state=collapsed]:ml-2",

@@ -1,0 +1,5 @@
+name: Paid Codex Drop
+commands:
+  - cd server
+  - pnpm start
+  - pnpm run codex:paid
