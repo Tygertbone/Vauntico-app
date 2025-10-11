@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import VaultCard from "../components/VaultCard";
 import CTAButton from "@/components/ui/CTAButton";
 import { Badge } from "@/components/ui/badge";

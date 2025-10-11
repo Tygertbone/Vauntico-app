@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import '@/styles/landing.css'; // Optional: for custom styles
 import CTAButton from '@/components/ui/CTAButton';
 
