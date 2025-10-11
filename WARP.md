@@ -97,6 +97,13 @@ Key files to know
 - .env.example: Documents expected env vars.
 - .github/workflows/cta-audit.yml: CI lint workflow.
 
+Pre-commit hooks (Husky + lint-staged)
+- Hooks install on clone via: pnpm run prepare
+- Pre-commit runs:
+  - pnpm run -s audit || true (non-blocking if the registry doesn’t support audit)
+  - lint-staged → scripts/vauntico-lint-staged.cjs (blocks commit when staged files violate CTA/hover/import rules)
+- Bypass in emergencies: git commit --no-verify (avoid routinely)
+
 Gotchas/nuances for Warp
 - Next vs Vite: Scripts target Next while sources are Vite-style. If dev/build fail, align scripts by adding Vite deps (@vitejs/plugin-react, vite) and using vite/vite build, or refactor the app to Next’s app/pages patterns. Do not assume Next pages/app dirs exist.
 - Path aliases: Use @/… imports; Vite and tsconfig are set up for this.
