@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Head from "next/head";
+import { Helmet } from "react-helmet";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -43,13 +43,13 @@ const CreatorPassPage = () => {
 
   return (
     <>
-      <Head>
+      <Helmet>
         <title>Creator Pass | Vauntico</title>
         <meta
           name="description"
           content="Join the exclusive circle of creators with early access to Vauntico vaults, founder pricing, and VIP support."
         />
-      </Head>
+      </Helmet>
 
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
         {/* Header */}
@@ -121,7 +121,7 @@ const CreatorPassPage = () => {
                 <Button
                   onClick={handleJoinWaitlist}
                   disabled={isLoading}
-                  className="vauntico-btn text-lg px-8 py-4"
+                  className="vauntico-btn text-lg px-8 py-4 hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
                   aria-label="Join Creator Pass waitlist"
                 >
                   {isLoading ? "Redirecting..." : "Join Waitlist"}
