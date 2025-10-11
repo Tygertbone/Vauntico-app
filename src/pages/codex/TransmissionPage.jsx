@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet";
+import { Helmet } from 'react-helmet-async';
 import index from "./index.json"; // ✅ fixed path
 
 const TransmissionPage = () => {
