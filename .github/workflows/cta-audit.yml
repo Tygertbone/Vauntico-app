@@ -25,7 +25,7 @@ on:
       - '.github/workflows/**'
 
 jobs:
-  audit:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -44,5 +44,32 @@ jobs:
             ${{ runner.os }}-node-18-pnpm-
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Run Vauntico lint
-        run: node vauntico-lint.cjs
+      - name: Run Vauntico lint with annotations
+        run: node scripts/ci-annotate-vauntico-lint.cjs
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Enable Corepack (pnpm)
+        run: corepack enable
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-node-18-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-node-18-pnpm-
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Build
+        run: pnpm build
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
