@@ -31,6 +31,8 @@ Note: Tailwind v4 requires the @tailwindcss/postcss plugin in postcss.config.cjs
 
 Pre-commit hooks: Run pnpm run prepare after clone to install Husky hooks. Commits run pnpm audit (non-blocking) and a staged-only Vauntico lint via lint-staged. Use --no-verify only in emergencies.
 
+CI notes: GitHub Actions use pnpm via Corepack with dependency caching. See .github/workflows/cta-audit.yml.
+
 Install dependencies and start the local dev environment:
 
 ```bash
