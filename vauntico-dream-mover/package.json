@@ -1,0 +1,49 @@
+{
+  "name": "vauntico-dream-mover",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "dream-mover": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "ts-node src/cli.ts",
+    "scan": "node dist/cli.js scan --drive C --output logs/report.json",
+    "simulate": "node dist/cli.js simulate --plan plans/vauntico.sample.yml --report logs/report.json",
+    "migrate": "node dist/cli.js migrate --manifest logs/manifest.json --checkpoint --verify=hash",
+    "verify": "node dist/cli.js verify --last-run",
+    "rollback": "node dist/cli.js rollback --last",
+    "validate:plans": "node dist/cli.js validate-plans --dir plans",
+    "marketplace:pull": "node dist/cli.js marketplace-pull --plan developer-storage.sample.yml --source marketplace/index.json",
+    "tier:check": "node dist/cli.js tier-check --output logs/tier.json",
+    "test": "jest",
+    "phase2:test": "jest"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "js-yaml": "^4.1.0",
+    "fs-extra": "^11.2.0",
+    "fast-glob": "^3.3.2",
+    "winreg": "^1.2.5"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "ts-node": "^10.9.2",
+    "ajv": "^8.12.0",
+    "@types/jest": "^29.5.12",
+    "@types/fs-extra": "^11.0.4",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "mermaid": "^11.3.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "roots": ["<rootDir>/src/__tests__"],
+    "moduleFileExtensions": ["ts", "js"],
+    "transform": {
+      "^.+\\.(ts|tsx)$": ["ts-jest", {"tsconfig": "tsconfig.json"}]
+    }
+  }
+}

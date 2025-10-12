@@ -1,0 +1,45 @@
+workflows:
+  - name: Dream Mover • Cosmic Picker (categories)
+    command: |
+      pwsh -NoProfile -Command "
+        Write-Host 'Categories:';
+        Write-Host '1) Novice (guided basics)';
+        Write-Host '2) Dev (cache links)';
+        Write-Host '3) Creator (media)';
+        Write-Host '4) Sysadmin (bulk)';
+        $choice = Read-Host 'Choose category (1-4)';
+        switch ($choice) {
+          1 { $plan='vauntico-dream-mover/plans/vauntico.sample.yml' }
+          2 { $plan='vauntico-dream-mover/plans/dev-cache.sample.yml' }
+          3 { $plan='vauntico-dream-mover/plans/media-cleanup.sample.yml' }
+          4 { $plan='vauntico-dream-mover/plans/docker-volumes.sample.yml' }
+          Default { $plan='vauntico-dream-mover/plans/developer-storage.sample.yml' }
+        }
+        node vauntico-dream-mover/dist/cli.js simulate --plan $plan --report vauntico-dream-mover/logs/report.json --out vauntico-dream-mover/logs/manifest.json
+      "
+    description: A guided picker that maps persona → plan and runs simulate
+    tags: [vauntico, rituals, cosmic, picker]
+
+  - name: Dream Mover • Marketplace (pull)
+    command: node vauntico-dream-mover/dist/cli.js marketplace-pull -- --plan {{plan}} --source vauntico-dream-mover/marketplace/index.json
+    description: Pull a marketplace plan into local plans/
+    tags: [vauntico, rituals, marketplace]
+    arguments:
+      - name: plan
+        description: Plan name (see marketplace/index.json)
+        default: developer-storage.sample.yml
+
+  - name: Dream Mover • Tier check (stub)
+    command: node vauntico-dream-mover/dist/cli.js tier-check -- --output vauntico-dream-mover/logs/tier.json
+    description: Output current tier limits to logs/tier.json (Seeker defaults)
+    tags: [vauntico, rituals, tiers]
+
+  - name: Dream Mover • Phase 2 Sim (shadow map)
+    command: |
+      pwsh -NoProfile -Command "
+        $plan = 'vauntico-dream-mover/plans/developer-storage.sample.yml';
+        node vauntico-dream-mover/dist/cli.js simulate --plan $plan --report vauntico-dream-mover/logs/report.json --out vauntico-dream-mover/logs/manifest.json;
+        Write-Host 'Mermaid shadow map written to vauntico-dream-mover/logs/shadow-map.mmd';
+      "
+    description: Run simulate and generate Mermaid shadow-map.mmd (Phase 2 stub)
+    tags: [vauntico, rituals, phase2]

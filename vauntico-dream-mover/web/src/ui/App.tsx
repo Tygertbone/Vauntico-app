@@ -1,0 +1,47 @@
+import React, { useMemo, useState } from 'react'
+
+import { Dashboard } from '../components/Dashboard'
+import { AuditSummary } from '../components/AuditSummary'
+
+export function App() {
+  const [plan, setPlan] = useState('vauntico-dream-mover/plans/developer-storage.sample.yml')
+  const [manifestPath, setManifestPath] = useState('vauntico-dream-mover/logs/manifest.json')
+
+  const tips = useMemo(() => [
+    'Simulate first. Migrate only after reading the report.',
+    'Keep dryRun true for first rehearsals.',
+    'Use rollback with last-run.json to restore deterministically.'
+  ], [])
+
+  return (
+    <div style={{ fontFamily: 'Inter, system-ui, sans-serif', padding: 24 }}>
+      <h1>Dream Mover • Eternal Ritual Nexus</h1>
+      <p style={{ opacity: 0.8 }}>Migrate with ceremony. Rollback with confidence.</p>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Ritual Picker</h2>
+        <Dashboard plan={plan} onPlanChange={setPlan} onRunHint={() => {
+          const cmd = `node vauntico-dream-mover/dist/cli.js simulate --plan ${plan} --report vauntico-dream-mover/logs/report.json --out vauntico-dream-mover/logs/manifest.json`
+          alert(`Run via Warp:\n${cmd}`)
+        }} />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Audit Summary</h2>
+        <AuditSummary manifestUrl={"/dm-logs/manifest.json"} lastRunUrl={"/dm-logs/last-run.json"} fallbackHint="Serve logs via localhost:3000 or open directly from vauntico-dream-mover/logs" />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Tips</h2>
+        <ul>
+          {tips.map((t, i) => (<li key={i}>{t}</li>))}
+        </ul>
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Analytics (stub)</h2>
+        <p>Planned: time saved, space freed, risk scores, collision previews, shadow maps.</p>
+      </section>
+    </div>
+  )
+}
