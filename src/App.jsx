@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 // Core Pages
 import Homepage from './pages/Homepage.jsx';
@@ -21,6 +21,13 @@ import PromptVaultPage from './components/PromptVaultPage.jsx';
 import VaultsPage from './components/VaultsPage.jsx';
 import CreatorPassPage from './components/CreatorPassPage.jsx';
 
+// SSO pages
+import AccountPage from './pages/AccountPage.jsx';
+import LinkRitesPage from './pages/LinkRitesPage.jsx';
+import DreamMoverBridgePage from './pages/DreamMoverBridgePage.jsx';
+import VaultPage from './pages/VaultPage.jsx';
+import RitesPage from './pages/RitesPage.jsx';
+
 // UI Shell
 import { Sidebar, SidebarProvider, SidebarInset } from './components/ui/sidebar.jsx';
 
@@ -30,6 +37,7 @@ import TodayPage from './pages/codex/TodayPage.jsx';
 import ArchivePage from './pages/codex/ArchivePage.jsx';   // ✅ FIXED
 
 import './App.css';
+import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
 
 function App() {
   return (
@@ -41,6 +49,17 @@ function App() {
       >
         Skip to content
       </a>
+      <header className="w-full bg-black text-white border-b border-gray-800 px-4 py-2 flex items-center justify-between">
+        <Link to="/" className="font-semibold hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">Vauntico</Link>
+        <div className="flex items-center gap-3">
+          <SignedOut>
+            <Link to="/account" className="text-sm underline hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">Sign in</Link>
+          </SignedOut>
+          <SignedIn>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
+        </div>
+      </header>
       <SidebarInset>
         <Router>
           <Routes>
@@ -52,6 +71,8 @@ function App() {
             <Route path="/vaults" element={<VaultsPage />} />
             <Route path="/vaults/:slug" element={<VaultDetailPage />} />
             <Route path="/vault-success" element={<VaultSuccessPage />} />
+            <Route path="/vault" element={<VaultPage />} />
+            <Route path="/rites" element={<RitesPage />} />
 
             {/* Creator / Pricing */}
             <Route path="/pricing" element={<PricingPage />} />
@@ -74,6 +95,11 @@ function App() {
             <Route path="/codex/:week/:day" element={<TransmissionPage />} />
             <Route path="/codex/today" element={<TodayPage />} />
             <Route path="/codex/archive" element={<ArchivePage />} />   {/* ✅ FIXED */}
+
+            {/* Auth */}
+            <Route path="/account" element={<AccountPage />} />
+            <Route path="/link-rites" element={<LinkRitesPage />} />
+            <Route path="/dream-mover" element={<DreamMoverBridgePage />} />
           </Routes>
         </Router>
       </SidebarInset>
