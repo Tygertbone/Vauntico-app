@@ -31,8 +31,15 @@ export class NodeFsDriver implements MigrationDriver {
   }
 
   async createLink(src: string, dstRoot: string): Promise<void> {
-    // On Windows, create junction at src pointing to relocated path (dstRoot)
-    createJunction(src, dstRoot)
+    // Create OS-appropriate link from src to dstRoot
+    if (process.platform === 'win32') {
+      createJunction(src, dstRoot)
+    } else {
+      const target = path.join(dstRoot, path.basename(src))
+      fse.ensureDirSync(dstRoot)
+      try { fs.rmSync(src, { recursive: true, force: true }) } catch {}
+      fs.symlinkSync(target, src, 'dir')
+    }
   }
 
   async verifyHash(p: string, mode: VerifyMode): Promise<string | ''> {
@@ -43,6 +50,14 @@ export class NodeFsDriver implements MigrationDriver {
       return hashFolderSample(p)
     }
     return hashFolder(p)
+  }
+
+  async verifyPermissions(p: string, kind: Array<'read'|'write'|'exec'> = ['read','write']): Promise<{ granted: boolean, hurdles: string[] }> {
+    const hurdles: string[] = []
+    try { fs.accessSync(p, fs.constants.R_OK) } catch { if (kind.includes('read')) hurdles.push('read') }
+    try { fs.accessSync(p, fs.constants.W_OK) } catch { if (kind.includes('write')) hurdles.push('write') }
+    // exec is non-essential here; stub
+    return { granted: hurdles.length === 0, hurdles }
   }
 }
 

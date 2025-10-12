@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react'
 
 import { Dashboard } from '../components/Dashboard'
 import { AuditSummary } from '../components/AuditSummary'
+import { ShadowViewer } from '../components/ShadowViewer'
 
 export function App() {
   const [plan, setPlan] = useState('vauntico-dream-mover/plans/developer-storage.sample.yml')
@@ -29,6 +30,11 @@ export function App() {
       <section style={{ marginTop: 24 }}>
         <h2>Audit Summary</h2>
         <AuditSummary manifestUrl={"/dm-logs/manifest.json"} lastRunUrl={"/dm-logs/last-run.json"} fallbackHint="Serve logs via localhost:3000 or open directly from vauntico-dream-mover/logs" />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Shadow Map</h2>
+        <ShadowViewer mmdUrl="/dm-logs/shadow-map.mmd" />
       </section>
 
       <section style={{ marginTop: 24 }}>

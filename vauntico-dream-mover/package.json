@@ -18,14 +18,17 @@
     "marketplace:pull": "node dist/cli.js marketplace-pull --plan developer-storage.sample.yml --source marketplace/index.json",
     "tier:check": "node dist/cli.js tier-check --output logs/tier.json",
     "test": "jest",
-    "phase2:test": "jest"
+    "phase2:test": "jest",
+    "phase3:test": "jest"
   },
   "dependencies": {
     "commander": "^12.0.0",
     "js-yaml": "^4.1.0",
     "fs-extra": "^11.2.0",
     "fast-glob": "^3.3.2",
-    "winreg": "^1.2.5"
+    "winreg": "^1.2.5",
+    "chalk": "^5.3.0",
+    "graceful-fs": "^4.2.11"
   },
   "devDependencies": {
     "typescript": "^5.6.3",

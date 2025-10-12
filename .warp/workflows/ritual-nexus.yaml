@@ -43,3 +43,13 @@ workflows:
       "
     description: Run simulate and generate Mermaid shadow-map.mmd (Phase 2 stub)
     tags: [vauntico, rituals, phase2]
+
+  - name: Dream Mover • Phase 3 Render (Mermaid + Risks)
+    command: |
+      pwsh -NoProfile -Command "
+        $plan = 'vauntico-dream-mover/plans/db-relocation.sample.yml';
+        node vauntico-dream-mover/dist/cli.js simulate --plan $plan --report vauntico-dream-mover/logs/report.json --out vauntico-dream-mover/logs/manifest.json;
+        Write-Host 'Open web dashboard and Gaze Shadows to render logs/shadow-map.mmd';
+      "
+    description: Simulate DB relocation to spike service-lock risk and view Mermaid render in web dashboard
+    tags: [vauntico, rituals, phase3]

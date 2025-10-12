@@ -13,4 +13,5 @@ export interface MigrationDriver {
   relocate(src: string, dstRoot: string): Promise<void>
   createLink(src: string, dstRoot: string): Promise<void>
   verifyHash(path: string, mode: VerifyMode): Promise<string | ''>
+  verifyPermissions(p: string, kind?: Array<'read'|'write'|'exec'>): Promise<{ granted: boolean, hurdles: string[] }>
 }
