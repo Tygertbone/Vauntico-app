@@ -12,4 +12,5 @@ Assets
 - Phase 5: Cert launch ($249), SA-friendly Paystack flow for Practitioner, 10% conversion target.
 - Phase 8: Oracle ($750/user bulk) on-prem + white-label banners; SOC2/SLA discussions.
 - Phase 10: Marketplace $100K GMV target; services $200/hr consults.
+- Phase 12: Scale & Sustain (Rust rigor, Monitoring sigils).
 - Whitepapers, demo scripts, ROI calculators, plan marketplace spotlights.

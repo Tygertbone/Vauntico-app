@@ -24,7 +24,9 @@
     "phase4:rust": "cargo build --manifest-path rust-core/Cargo.toml",
     "phase5:tiers": "jest --findRelatedTests src/tiers/gatekeeper.ts src/certs/exam-renderer.ts",
     "phase6:runes": "jest --findRelatedTests src/compliance/rune-weaver.ts",
-    "phase6:stride": "jest --findRelatedTests src/runtime/rust-bridge.ts"
+    "phase6:stride": "jest --findRelatedTests src/runtime/rust-bridge.ts",
+    "phase12:scale": "jest --findRelatedTests src/runtime/rust-bridge.ts",
+    "phase12:sustain": "jest --findRelatedTests src/monitoring/sigil-mender.ts"
   },
   "dependencies": {
     "commander": "^12.0.0",
