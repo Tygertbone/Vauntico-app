@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { CheckCircle, Sparkles } from 'lucide-react';
 import { initializePaystackPayment } from '../utils/paystack';
+import { useUser } from '@clerk/clerk-react';
 
 const CheckoutPage = () => {
   const [email, setEmail] = useState('');
@@ -37,6 +38,8 @@ const CheckoutPage = () => {
 
   const currentPlan = planDetails[plan] || planDetails['ascension-seeker'];
 
+  const { user } = useUser();
+
   const handlePayment = () => {
     if (!email) {
       alert('Please enter your email address');
@@ -67,7 +70,10 @@ const CheckoutPage = () => {
         console.log('Payment cancelled');
         alert('Payment was cancelled');
         setIsLoading(false);
-      }
+      },
+      undefined,
+      undefined,
+      { clerkUserId: user?.id || null }
     );
   };
 

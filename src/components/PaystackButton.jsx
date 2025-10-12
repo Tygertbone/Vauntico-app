@@ -4,6 +4,7 @@ import { initializePaystackPayment, redirectToSuccess } from '../utils/paystack'
 const PaystackButton = ({ 
   amount = 97, // Default price in USD
   email = '',
+  metadata = {},
   className = 'vauntico-btn',
   children = 'Buy with Apple Pay'
 }) => {
@@ -32,7 +33,9 @@ const PaystackButton = ({
         // Payment cancelled
         console.log('Payment cancelled')
         setIsLoading(false)
-      }
+      },
+      undefined,
+      metadata
     )
   }
 
