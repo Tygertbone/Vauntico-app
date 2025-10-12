@@ -6,12 +6,18 @@
     "dev": "vite",
     "build": "vite build",
     "start": "vite preview",
+    "preview": "vite preview --host",
+    "lint": "pnpm run ritual:qa",
     "audit": "pnpm audit",
-    "prepare": "husky",
+  "prepare": "husky install",
     "generate-codex": "node scripts/generate-codex.js",
+    "generate:codex": "node scripts/generate-codex.js",
     "audit:fix": "node vauntico-auto-fix.cjs",
     "polish:fix": "node vauntico-polish-fix.cjs",
-    "ritual:qa": "node vauntico-ritual-qa.cjs"
+    "ritual:qa": "node scripts/vauntico-ritual-qa.cjs",
+    "metrics:snapshot": "node scripts/metrics-snapshot.mjs",
+    "metrics:snapshot:series": "node scripts/metrics-snapshot-series.mjs",
+    "paystack:ping": "node scripts/paystack-ping.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.75.0",

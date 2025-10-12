@@ -1,29 +1,36 @@
 // Paystack Integration Utility
-const PAYSTACK_PUBLIC_KEY = 'pk_live_6170742d40545d6ee122fb1d8878be1cf4eb1b4e'
+const PAYSTACK_PUBLIC_KEY = import.meta.env.VITE_PAYSTACK_PUBLIC_KEY
 
-export const initializePaystackPayment = (email, amount, onSuccess, onClose) => {
+export const initializePaystackPayment = (email, amountZAR, onSuccess, onClose, planCode, metadata = {}) => {
+  if (!PAYSTACK_PUBLIC_KEY) {
+    console.error('Missing VITE_PAYSTACK_PUBLIC_KEY. Set it in your env.');
+    alert('Payment configuration error. Please try again later.');
+    return;
+  }
   // Load Paystack script if not already loaded
   if (!window.PaystackPop) {
     const script = document.createElement('script')
     script.src = 'https://js.paystack.co/v1/inline.js'
     script.onload = () => {
-      startPayment(email, amount, onSuccess, onClose)
+      startPayment(email, amountZAR, onSuccess, onClose, planCode, metadata)
     }
     document.head.appendChild(script)
   } else {
-    startPayment(email, amount, onSuccess, onClose)
+    startPayment(email, amountZAR, onSuccess, onClose, planCode, metadata)
   }
 }
 
-const startPayment = (email, amount, onSuccess, onClose) => {
+const startPayment = (email, amountZAR, onSuccess, onClose, planCode, metadata) => {
   const handler = window.PaystackPop.setup({
     key: PAYSTACK_PUBLIC_KEY,
     email: email,
-    amount: amount * 100, // Paystack expects amount in kobo (cents)
-    currency: 'USD',
+    amount: amountZAR * 100, // Paystack expects amount in kobo (cents)
+    currency: 'ZAR',
     ref: 'vault_' + Math.floor((Math.random() * 1000000000) + 1),
+    ...(planCode ? { plan: planCode } : {}),
     metadata: {
-      product: 'Vauntico Prompt Vault - Founders Edition'
+      product: 'Vauntico Prompt Vault',
+      ...metadata
     },
     callback: function(response) {
       // Payment successful
@@ -41,4 +48,3 @@ const startPayment = (email, amount, onSuccess, onClose) => {
 export const redirectToSuccess = () => {
   window.location.href = '/vault-success'
 }
-

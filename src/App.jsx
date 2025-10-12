@@ -21,6 +21,12 @@ import PromptVaultPage from './components/PromptVaultPage.jsx';
 import VaultsPage from './components/VaultsPage.jsx';
 import CreatorPassPage from './components/CreatorPassPage.jsx';
 
+// New pages
+import VaultPage from './pages/VaultPage.jsx';
+import RitesPage from './pages/RitesPage.jsx';
+import ScrollsPage from './pages/ScrollsPage.jsx';
+import HearthPage from './pages/HearthPage.jsx';
+
 // UI Shell
 import { Sidebar, SidebarProvider, SidebarInset } from './components/ui/sidebar.jsx';
 
@@ -28,6 +34,7 @@ import { Sidebar, SidebarProvider, SidebarInset } from './components/ui/sidebar.
 import TransmissionPage from './pages/codex/TransmissionPage.jsx';
 import TodayPage from './pages/codex/TodayPage.jsx';   
 import ArchivePage from './pages/codex/ArchivePage.jsx';   // ✅ FIXED
+import MetricsPage from './pages/admin/Metrics.jsx';
 
 import './App.css';
 
@@ -57,6 +64,12 @@ function App() {
             <Route path="/pricing" element={<PricingPage />} />
             <Route path="/creator-pass" element={<CreatorPassPage />} />
 
+            {/* New: Vault + Site Map pages */}
+            <Route path="/vault" element={<VaultPage />} />
+            <Route path="/rites" element={<RitesPage />} />
+            <Route path="/scrolls" element={<ScrollsPage />} />
+            <Route path="/hearth" element={<HearthPage />} />
+
             {/* Generic Onboarding */}
             <Route path="/onboarding" element={<OnboardingPage />} />
 
@@ -74,6 +87,9 @@ function App() {
             <Route path="/codex/:week/:day" element={<TransmissionPage />} />
             <Route path="/codex/today" element={<TodayPage />} />
             <Route path="/codex/archive" element={<ArchivePage />} />   {/* ✅ FIXED */}
+
+            {/* Admin */}
+            <Route path="/admin/metrics" element={<MetricsPage />} />
           </Routes>
         </Router>
       </SidebarInset>
