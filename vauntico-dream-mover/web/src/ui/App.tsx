@@ -10,6 +10,10 @@ import { SSOSentinel } from '../components/SSOSentinel'
 import { CovenCollab } from '../components/CovenCollab'
 import { OnPremBanner } from '../components/OnPremBanner'
 import { WhiteLabelWizard } from '../components/WhiteLabelWizard'
+import { ApiPortal } from '../components/ApiPortal'
+import { CronRite } from '../components/CronRite'
+import { BazaarUpload } from '../components/BazaarUpload'
+import { ServicesSigil } from '../components/ServicesSigil'
 
 export function App() {
   const [plan, setPlan] = useState('vauntico-dream-mover/plans/developer-storage.sample.yml')
@@ -72,6 +76,20 @@ export function App() {
         <OnPremBanner />
         <div style={{ height: 8 }} />
         <WhiteLabelWizard />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>API & Cron</h2>
+        <ApiPortal />
+        <div style={{ height: 8 }} />
+        <CronRite />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Bazaar & Services</h2>
+        <BazaarUpload />
+        <div style={{ height: 8 }} />
+        <ServicesSigil />
       </section>
 
       <section style={{ marginTop: 24 }}>

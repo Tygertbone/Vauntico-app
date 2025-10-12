@@ -115,3 +115,13 @@ workflows:
       "
     description: Serve API (stub) and schedule cron infusion
     tags: [vauntico, rituals, phase9]
+
+  - name: Dream Mover • Phase 10 Bazaar & Boon
+    command: |
+      pwsh -NoProfile -Command "
+        node vauntico-dream-mover/dist/cli.js marketplace-upload --plan vauntico-dream-mover/plans/monorepo-ai-links.gdpr.yml --price 10;
+        node vauntico-dream-mover/dist/cli.js services-consult --org 'Vauntico' --hours 4 --out vauntico-dream-mover/services/consult.yml;
+        Write-Host 'Marketplace: uploaded plan (stub) and generated services consult.';
+      "
+    description: Upload GDPR monorepo plan and generate consult service YAML (stubs)
+    tags: [vauntico, rituals, phase10]

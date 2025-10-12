@@ -511,4 +511,31 @@ program
     console.log('Scheduled →', JSON.stringify(res, null, 2))
   });
 
+program
+  .command('marketplace-upload')
+  .requiredOption('--plan <path>')
+  .requiredOption('--price <usd>')
+  .option('--user <id>', 'User ID', 'u-local')
+  .action(async (opts) => {
+    const { uploadPlan } = await import('./marketplace/full-bazaar.js')
+    const entry = uploadPlan(opts.plan, opts.user, parseFloat(opts.price))
+    console.log('Uploaded →', JSON.stringify(entry, null, 2))
+  });
+
+program
+  .command('services-consult')
+  .option('--org <name>', 'Organization', 'Vauntico')
+  .option('--hours <n>', 'Hours', '4')
+  .option('--out <path>', 'Output path', 'vauntico-dream-mover/services/consult.yml')
+  .action(async (opts) => {
+    const fs = await import('fs')
+    const pathMod = await import('path')
+    const { generateConsult } = await import('./services/sigil-weaver.js')
+    const y = generateConsult(opts.org, 200, parseInt(opts.hours))
+    const outPath = opts.out
+    fs.default.mkdirSync(pathMod.default.dirname(outPath), { recursive: true })
+    fs.default.writeFileSync(outPath, y)
+    console.log('Consult SLA →', outPath)
+  });
+
 program.parseAsync(process.argv);
