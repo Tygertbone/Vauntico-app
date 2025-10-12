@@ -1,0 +1,31 @@
+version: 1
+targetDrive: "D:"
+modes:
+  safety: "advanced"
+  linking: "preferred"
+
+rules:
+  - name: Link monorepo caches (Windows)
+    match:
+      patterns:
+        - "\\.git\\objects\\"
+        - "\\.cache\\"
+      sizeMinMB: 100
+    action:
+      type: link
+      destination: "D:\\Dev\\MonorepoCache"
+      linkType: junction
+      verify: sample
+      rollback: auto
+  - name: Link build artifacts (Windows)
+    match:
+      patterns:
+        - "\\dist\\"
+        - "\\build\\"
+      sizeMinMB: 200
+    action:
+      type: link
+      destination: "D:\\Dev\\Artifacts"
+      linkType: junction
+      verify: sample
+      rollback: auto

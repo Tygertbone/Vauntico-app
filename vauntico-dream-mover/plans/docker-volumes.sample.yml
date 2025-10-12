@@ -1,0 +1,17 @@
+version: 1
+targetDrive: "D:"
+modes:
+  safety: "cautious"
+  linking: "preferred"
+
+rules:
+  - name: Relocate Docker volumes (Windows)
+    match:
+      paths:
+        - "C:\\ProgramData\\Docker\\volumes"
+    action:
+      type: relocate
+      destination: "D:\\Dev\\DockerVolumes"
+      verify: none
+      dryRun: true
+      notes: "Caution: ensure Docker Desktop is stopped before migration."

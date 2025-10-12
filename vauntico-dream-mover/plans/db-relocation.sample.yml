@@ -1,0 +1,17 @@
+version: 1
+targetDrive: "D:"
+modes:
+  safety: "advanced"
+  linking: "preferred"
+
+rules:
+  - name: Relocate PostgreSQL data directory (Windows)
+    match:
+      paths:
+        - "C:\\Program Files\\PostgreSQL\\*\\data"
+    action:
+      type: relocate
+      destination: "D:\\Data\\Postgres"
+      verify: hash
+      dryRun: true
+      notes: "DANGER: Stop PostgreSQL service before migration. Backup snapshots recommended."
