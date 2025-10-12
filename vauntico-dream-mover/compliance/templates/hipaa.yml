@@ -1,0 +1,5 @@
+phiProtect:
+  encryptAtRest: true
+  restrictAccess: true
+accessLogs:
+  enabled: true

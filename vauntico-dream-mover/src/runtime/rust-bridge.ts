@@ -10,6 +10,14 @@ export interface RustFsDriverLike {
 }
 
 export async function getRustDriver(): Promise<RustFsDriverLike> {
+  // Feature flag gate: require DM_USE_RUST=true and DM_RUST_LIB set to attempt native
+  const useRust = process.env.DM_USE_RUST === 'true'
+  if (!useRust) {
+    return {
+      available: false,
+      async relocate() {}, async createLink() {}, async verifyHash() { return '' }, async verifyPermissions() { return { granted: false, hurdles: ['rust-disabled'] } }
+    }
+  }
   try {
     // POC: check env for native lib path; do not actually load non-existent lib
     const lib = process.env.DM_RUST_LIB

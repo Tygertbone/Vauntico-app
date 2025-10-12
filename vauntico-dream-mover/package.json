@@ -21,7 +21,10 @@
     "phase2:test": "jest",
     "phase3:test": "jest",
     "phase4:vet": "node dist/marketplace/vetter.js --dir plans",
-    "phase4:rust": "cargo build --manifest-path rust-core/Cargo.toml"
+    "phase4:rust": "cargo build --manifest-path rust-core/Cargo.toml",
+    "phase5:tiers": "jest --findRelatedTests src/tiers/gatekeeper.ts src/certs/exam-renderer.ts",
+    "phase6:runes": "jest --findRelatedTests src/compliance/rune-weaver.ts",
+    "phase6:stride": "jest --findRelatedTests src/runtime/rust-bridge.ts"
   },
   "dependencies": {
     "commander": "^12.0.0",
@@ -40,7 +43,8 @@
     "@types/fs-extra": "^11.0.4",
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5",
-    "mermaid": "^11.3.0"
+    "mermaid": "^11.3.0",
+    "@neondatabase/serverless": "^0.6.4"
   },
   "jest": {
     "preset": "ts-jest",

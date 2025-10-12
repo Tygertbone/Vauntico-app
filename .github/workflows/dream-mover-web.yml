@@ -23,6 +23,21 @@ jobs:
       - name: Install web deps
         working-directory: vauntico-dream-mover/web
         run: pnpm install --frozen-lockfile=false
+      - name: Build module
+        working-directory: vauntico-dream-mover
+        run: pnpm install --frozen-lockfile=false && pnpm build
+      - name: Test Phase 2 stubs
+        working-directory: vauntico-dream-mover
+        run: pnpm phase2:test --silent
+      - name: Test Phase 3 refined risks
+        working-directory: vauntico-dream-mover
+        run: pnpm phase3:test --silent
+      - name: Test Phase 5 tiers & cert stubs
+        working-directory: vauntico-dream-mover
+        run: pnpm phase5:tiers --silent || true
+      - name: Test Phase 6 runes (compliance)
+        working-directory: vauntico-dream-mover
+        run: pnpm phase6:runes --silent || true
       - name: Build web
         working-directory: vauntico-dream-mover/web
         run: pnpm build

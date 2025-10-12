@@ -73,3 +73,14 @@ workflows:
       "
     description: Check tier, simulate monorepo plan, then visit web to upgrade and attempt cert quest (stubs)
     tags: [vauntico, rituals, phase5]
+
+  - name: Dream Mover • Phase 6 Bridge & Runes
+    command: |
+      pwsh -NoProfile -Command "
+        $env:DM_USE_RUST='true';
+        node vauntico-dream-mover/dist/cli.js simulate --plan vauntico-dream-mover/plans/db-relocation.sample.yml --report vauntico-dream-mover/logs/report.json --out vauntico-dream-mover/logs/manifest.json --use-rust;
+        node vauntico-dream-mover/dist/cli.js rune-infuse --template gdpr --plan vauntico-dream-mover/plans/db-relocation.sample.yml --out vauntico-dream-mover/plans/db-relocation.gdpr.yml;
+        Write-Host 'GDPR infused plan written. Open web and use ComplianceWizard to review.';
+      "
+    description: Use Rust-gated simulate and weave GDPR runes into DB plan (stubs, safe)
+    tags: [vauntico, rituals, phase6]

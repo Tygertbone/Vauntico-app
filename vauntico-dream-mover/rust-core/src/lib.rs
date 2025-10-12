@@ -1,5 +1,8 @@
 use sha2::{Digest, Sha256};
 
+// NOTE: This is a POC. Full MigrationDriver functions to be exported in a future neon/N-API binding.
+// The exported function below remains safe and side-effect free for dry-run testing.
+
 #[no_mangle]
 pub extern "C" fn dm_hash_str(input: *const u8, len: usize) -> *mut u8 {
     // POC: hash input bytes and return hex string as heap-allocated C string

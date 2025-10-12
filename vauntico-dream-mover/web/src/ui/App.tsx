@@ -5,6 +5,7 @@ import { AuditSummary } from '../components/AuditSummary'
 import { ShadowViewer } from '../components/ShadowViewer'
 import { TierGate } from '../components/TierGate'
 import { CertQuest } from '../components/CertQuest'
+import { ComplianceWizard } from '../components/ComplianceWizard'
 
 export function App() {
   const [plan, setPlan] = useState('vauntico-dream-mover/plans/developer-storage.sample.yml')
@@ -48,6 +49,11 @@ export function App() {
       <section style={{ marginTop: 24 }}>
         <h2>Certification</h2>
         <CertQuest />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Compliance</h2>
+        <ComplianceWizard />
       </section>
 
       <section style={{ marginTop: 24 }}>

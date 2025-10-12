@@ -1,0 +1,5 @@
+auditTrail:
+  immutable: true
+consent:
+  prompt: true
+  scope: minimal

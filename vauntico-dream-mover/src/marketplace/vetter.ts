@@ -37,6 +37,10 @@ export function vetPlan(filePath: string, rulesCfg: any): VetIssue[] {
       issues.push({ file: filePath, rule: 'service-lock-note', message: 'Missing adequate service lock note (notes >= 30 chars)' })
     }
   }
+  // Compliance badge: presence of compliance.gdpr or compliance.hipaa qualifies
+  if (doc.compliance && (doc.compliance.gdpr || doc.compliance.hipaa)) {
+    // no issue; could add a positive marker in the future
+  }
   return issues
 }
 

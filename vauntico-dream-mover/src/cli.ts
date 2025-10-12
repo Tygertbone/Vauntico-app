@@ -66,9 +66,17 @@ program
 
     // Phase 4: Rust core POC
     if (opts.useRust) {
-      const { getRustDriver } = await import('./runtime/rust-bridge.js')
-      const rust = await getRustDriver()
-      console.log(`Rust core available: ${rust.available}`)
+      // Tier gate: require Practitioner or above for --use-rust
+      const { checkTier } = await import('./tiers/gatekeeper.js');
+      const prof = checkTier('local');
+      const isAllowed = (prof.level === 'Practitioner' || prof.level === 'Guild' || prof.level === 'Oracle');
+      if (!isAllowed) {
+        console.warn('Tier gate: --use-rust requires Practitioner+. Continuing with Node driver.');
+      } else {
+        const { getRustDriver } = await import('./runtime/rust-bridge.js')
+        const rust = await getRustDriver()
+        console.log(`Rust core available: ${rust.available}`)
+      }
     }
 
     // Reflective prompt (stub)
@@ -412,6 +420,17 @@ program
     fs.mkdirSync(path.dirname(out), { recursive: true });
     fs.writeFileSync(out, JSON.stringify(profile, null, 2));
     console.log('Tier profile →', out);
+  });
+
+program
+  .command('rune-infuse')
+  .requiredOption('--template <name>', 'gdpr|hipaa')
+  .requiredOption('--plan <path>', 'Plan YAML path')
+  .option('--out <path>', 'Output path (optional)')
+  .action(async (opts) => {
+    const { infusePlan } = await import('./compliance/rune-weaver.js');
+    const res = infusePlan(opts.plan, opts.template, opts.out)
+    console.log('Infused →', res.out)
   });
 
 program.parseAsync(process.argv);
