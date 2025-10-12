@@ -1,0 +1,27 @@
+
+---
+eternalCulmination:
+  blitz:
+    from: C
+    to: D
+  viral:
+    platform: x
+    scoreHint: 95
+  legacy: sim
+  npsHint: 9
+  steps:
+    - step: 1
+      action: onboard
+      note: C→D teaching (ultimate)
+    - step: 2
+      action: share
+      note: Viral on x (real stub)
+    - step: 3
+      action: lore
+      note: Legacy rite sim
+    - step: 4
+      action: audit
+      note: SOC2 immutable appended
+    - step: 5
+      action: nps
+      note: Uplift from share and lore recorded

@@ -1,15 +1,15 @@
 {
   "entries": [
-    { "name": "developer-storage", "file": "../plans/developer-storage.sample.yml", "category": "umbrella" },
-    { "name": "dev-cache", "file": "../plans/dev-cache.sample.yml", "category": "dev" },
-    { "name": "vs-code", "file": "../plans/vs-code.sample.yml", "category": "dev" },
-    { "name": "docker-cache", "file": "../plans/docker-cache.sample.yml", "category": "dev" },
-    { "name": "media-cleanup", "file": "../plans/media-cleanup.sample.yml", "category": "creator" },
-    { "name": "rehome", "file": "../plans/rehome.sample.yml", "category": "sysadmin" },
-    { "name": "vauntico", "file": "../plans/vauntico.sample.yml", "category": "novice" },
-    { "name": "docker-volumes", "file": "../plans/docker-volumes.sample.yml", "category": "dev" },
-    { "name": "db-relocation", "file": "../plans/db-relocation.sample.yml", "category": "sysadmin" },
-    { "name": "cloud-transition", "file": "../plans/cloud-transition.sample.yml", "category": "creator" },
-    { "name": "monorepo-ai-links", "file": "../plans/monorepo-ai-links.sample.yml", "category": "dev" }
+    { "name": "developer-storage", "file": "../plans/developer-storage.sample.yml", "category": "umbrella", "certified": true },
+    { "name": "dev-cache", "file": "../plans/dev-cache.sample.yml", "category": "dev", "certified": true },
+    { "name": "vs-code", "file": "../plans/vs-code.sample.yml", "category": "dev", "certified": true },
+    { "name": "docker-cache", "file": "../plans/docker-cache.sample.yml", "category": "dev", "certified": false },
+    { "name": "media-cleanup", "file": "../plans/media-cleanup.sample.yml", "category": "creator", "certified": true },
+    { "name": "rehome", "file": "../plans/rehome.sample.yml", "category": "sysadmin", "certified": false },
+    { "name": "vauntico", "file": "../plans/vauntico.sample.yml", "category": "novice", "certified": true },
+    { "name": "docker-volumes", "file": "../plans/docker-volumes.sample.yml", "category": "dev", "certified": false },
+    { "name": "db-relocation", "file": "../plans/db-relocation.sample.yml", "category": "sysadmin", "certified": false },
+    { "name": "cloud-transition", "file": "../plans/cloud-transition.sample.yml", "category": "creator", "certified": true },
+    { "name": "monorepo-ai-links", "file": "../plans/monorepo-ai-links.sample.yml", "category": "dev", "certified": true }
   ]
 }

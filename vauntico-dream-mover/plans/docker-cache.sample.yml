@@ -1,0 +1,38 @@
+version: 1
+targetDrive: "D:"
+modes:
+  safety: "advanced"
+  linking: "preferred"
+
+# CAUTION:
+# - Docker Desktop and services may hold files open.
+# - Start with dryRun: true to inspect intended changes.
+# - Consider stopping Docker Desktop before executing a real move.
+# - Paths vary by install; adjust as needed.
+
+rules:
+  # Relocate per-user Docker cache (LocalAppData) — DRY-RUN by default
+  - name: Move user Docker cache (LocalAppData)
+    match:
+      paths:
+        - "C:\\Users\\%USER%\\AppData\\Local\\Docker"
+      sizeMinMB: 200
+    action:
+      type: relocate
+      destination: "D:\\Dev\\DockerLocal"
+      verify: none
+      dryRun: true       # start safely; set to false only after reviewing simulate output
+      rollback: auto
+
+  # Relocate system Docker data (ProgramData) — DRY-RUN by default
+  - name: Move system Docker data (ProgramData)
+    match:
+      paths:
+        - "C:\\ProgramData\\Docker"
+      sizeMinMB: 200
+    action:
+      type: relocate
+      destination: "D:\\Dev\\DockerProgramData"
+      verify: none
+      dryRun: true       # requires elevation and stopping services; keep dry-run initially
+      rollback: auto

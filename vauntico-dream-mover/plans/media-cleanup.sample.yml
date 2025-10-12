@@ -1,0 +1,33 @@
+version: 1
+targetDrive: "D:"
+modes:
+  safety: "advanced"
+  linking: "preferred"
+
+rules:
+  # Relocate Downloads to D:\UserMedia with minimal verification (none)
+  - name: Move Downloads
+    match:
+      paths:
+        - "C:\\Users\\%USER%\\Downloads"  # Windows
+        # - "$HOME/Downloads"                # Linux/macOS (uncomment to use)
+      sizeMinMB: 20
+    action:
+      type: relocate
+      destination: "D:\\UserMedia"
+      verify: none       # non-critical, easily re-downloaded
+      rollback: auto
+
+  # Relocate Videos to D:\UserMedia
+  - name: Move Videos
+    match:
+      paths:
+        - "C:\\Users\\%USER%\\Videos"   # Windows
+        # - "$HOME/Videos"                 # Linux (uncomment to use)
+        # - "$HOME/Movies"                 # macOS (uncomment to use)
+      sizeMinMB: 50
+    action:
+      type: relocate
+      destination: "D:\\UserMedia"
+      verify: none
+      rollback: auto

@@ -1,0 +1,23 @@
+
+---
+betaBlitz:
+  blitz:
+    from: C
+    to: D
+  viral:
+    platform: x
+    scoreHint: 90
+  npsHint: 9
+  steps:
+    - step: 1
+      action: onboard
+      note: C→D teaching
+    - step: 2
+      action: share
+      note: Viral on x
+    - step: 3
+      action: nps
+      note: Log post‑share NPS 9
+    - step: 4
+      action: audit
+      note: SOC2 immutable appended earlier

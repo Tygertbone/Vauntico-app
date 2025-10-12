@@ -1,0 +1,77 @@
+workflows:
+  - name: Dream Mover • Bootstrap & simulate (Windows)
+    command: pwsh -File workflows/windows.ps1 -TargetDrive D
+    description: Install deps, build, scan C:, simulate plan to D:
+    tags: [vauntico, mover, windows]
+  - name: Dream Mover • Bootstrap (Unix)
+    command: bash workflows/unix.sh
+    description: Install deps and build on Unix; Windows-first features
+    tags: [vauntico, mover, unix]
+  - name: Dream Mover • Simulate (pick plan)
+    command: node dist/cli.js simulate -- --plan {{plan}} --report logs/report.json --out logs/manifest.json
+    description: Pick a plan file and simulate; writes report.json and manifest.json and prints a summary
+    tags: [vauntico, mover, simulate]
+    arguments:
+      - name: plan
+        description: Path to a plan in ./plans
+        default: plans/developer-storage.sample.yml
+  - name: Dream Mover • Migrate (manifest)
+    command: node dist/cli.js migrate -- --manifest logs/manifest.json --checkpoint --verify=hash
+    description: Execute transactional migrate using last simulated manifest
+    tags: [vauntico, mover, run]
+
+  - name: Dream Mover • Migrate (pick manifest)
+    command: >
+      pwsh -NoProfile -Command "
+        $manifest = Read-Host 'Enter manifest path (default: logs/manifest.json)';
+        if (-not $manifest) { $manifest = 'logs/manifest.json' };
+        if (-not (Test-Path $manifest)) { Write-Error 'Manifest not found'; exit 1 };
+        node dist/cli.js migrate --manifest $manifest --verify=hash
+      "
+    description: Prompt for a manifest path, then run migrate with audit and rollback safety
+    tags: [vauntico, mover, migrate, picker]
+
+  - name: Dream Mover • Rollback (pick run manifest)
+    command: >
+      pwsh -NoProfile -Command "
+        $run = Read-Host 'Enter run manifest path (default: logs/last-run.json)';
+        if (-not $run) { $run = 'logs/last-run.json' };
+        if (-not (Test-Path $run)) { Write-Error 'Run manifest not found'; exit 1 };
+        node dist/cli.js rollback --manifest $run
+      "
+    description: Prompt for a run manifest, then rollback deterministically using capsulePath pointers
+    tags: [vauntico, mover, rollback, picker]
+
+  - name: Dream Mover • Simulate (picker, Unix)
+    command: |
+      bash -lc '
+        read -p "Enter plan path (default: plans/developer-storage.sample.yml): " plan;
+        [ -z "$plan" ] && plan="plans/developer-storage.sample.yml";
+        if [ ! -f "$plan" ]; then echo "Plan file not found"; exit 1; fi;
+        node dist/cli.js simulate --plan "$plan" --report logs/report.json --out logs/manifest.json
+      '
+    description: Pick a plan file and simulate (Unix-friendly)
+    tags: [vauntico, mover, simulate, unix, picker]
+
+  - name: Dream Mover • Migrate (picker, Unix)
+    command: |
+      bash -lc '
+        read -p "Enter manifest path (default: logs/manifest.json): " manifest;
+        [ -z "$manifest" ] && manifest="logs/manifest.json";
+        if [ ! -f "$manifest" ]; then echo "Manifest not found"; exit 1; fi;
+        node dist/cli.js migrate --manifest "$manifest" --verify=hash
+      '
+    description: Pick a manifest and migrate (Unix-friendly)
+    tags: [vauntico, mover, migrate, unix, picker]
+
+  - name: Dream Mover • Rollback (picker, Unix)
+    command: |
+      bash -lc '
+        read -p "Enter run manifest path (default: logs/last-run.json): " run;
+        [ -z "$run" ] && run="logs/last-run.json";
+        if [ ! -f "$run" ]; then echo "Run manifest not found"; exit 1; fi;
+        node dist/cli.js rollback --manifest "$run"
+      '
+    description: Pick a run manifest and rollback (Unix-friendly)
+    tags: [vauntico, mover, rollback, unix, picker]
+

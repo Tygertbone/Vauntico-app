@@ -1,0 +1,116 @@
+version: 1
+targetDrive: "D:"
+modes:
+  safety: "advanced"
+  linking: "preferred"
+
+# Developer Storage umbrella plan
+# Purpose:
+# - Provide a one-click, safety-first (dryRun: true) rehearsal of common developer storage moves.
+# - Includes dev caches, VS Code, and Docker caches.
+# - Per-rule verify tuned for speed/safety; flip dryRun to false after reviewing simulate output.
+
+rules:
+  # --- Dev caches -----------------------------------------------------------
+  - name: Link global npm (Roaming)
+    match:
+      paths:
+        - "C:\\Users\\%USER%\\AppData\\Roaming\\npm"   # Windows
+        # - "$HOME/.npm"                                      # Linux/macOS (uncomment to use)
+        # - "$HOME/.npm-global"                               # Alternative npm prefix
+      sizeMinMB: 10
+    action:
+      type: link
+      destination: "D:\\Dev\\Node"
+      linkType: junction             # On Linux/macOS, change to: symlink
+      verify: sample
+      dryRun: true
+      rollback: auto
+
+  - name: Link pnpm store
+    match:
+      paths:
+        - "C:\\Users\\%USER%\\AppData\\Local\\pnpm\\store"  # Windows
+        # - "$HOME/.pnpm-store"                                    # Linux/macOS (uncomment to use)
+      sizeMinMB: 50
+    action:
+      type: link
+      destination: "D:\\Dev\\pnpm"
+      linkType: junction             # On Linux/macOS, change to: symlink
+      verify: sample
+      dryRun: true
+      rollback: auto
+
+  - name: Link project node_modules
+    match:
+      patterns:
+        - "\\node_modules\\"     # Windows
+        # - "/node_modules/"      # Linux/macOS (uncomment to use)
+      sizeMinMB: 50
+    action:
+      type: link
+      destination: "D:\\Dev\\Node"
+      linkType: junction             # On Linux/macOS, change to: symlink
+      verify: sample
+      dryRun: true
+      rollback: auto
+
+  # --- VS Code --------------------------------------------------------------
+  - name: Link VS Code User settings
+    match:
+      paths:
+        - "C:\\Users\\%USER%\\AppData\\Roaming\\Code\\User"   # Windows
+        # - "$HOME/.config/Code/User"                                # Linux
+        # - "$HOME/Library/Application Support/Code/User"            # macOS
+      sizeMinMB: 1
+    action:
+      type: link
+      destination: "D:\\Dev\\VSCode"
+      linkType: junction             # On Linux/macOS, change to: symlink
+      verify: sample
+      dryRun: true
+      rollback: auto
+
+  - name: Link VS Code extensions (optional)
+    match:
+      paths:
+        - "C:\\Users\\%USER%\\.vscode\\extensions"   # Windows
+        # - "$HOME/.vscode/extensions"                    # Linux/macOS
+      sizeMinMB: 50
+    action:
+      type: link
+      destination: "D:\\Dev\\VSCodeExtensions"
+      linkType: junction             # On Linux/macOS, change to: symlink
+      verify: sample
+      dryRun: true
+      rollback: auto
+
+  # --- Docker caches (CAUTION) ---------------------------------------------
+  # Notes:
+  # - Docker Desktop/services may hold files open. Stop Docker Desktop first.
+  # - Paths vary by install; adjust as needed. Start with dryRun: true.
+  - name: Move user Docker cache (LocalAppData)
+    match:
+      paths:
+        - "C:\\Users\\%USER%\\AppData\\Local\\Docker"  # Windows
+        # - "$HOME/.docker"                                  # Linux/macOS
+      sizeMinMB: 200
+    action:
+      type: relocate
+      destination: "D:\\Dev\\DockerLocal"
+      verify: none
+      dryRun: true
+      rollback: auto
+
+  - name: Move system Docker data (ProgramData)
+    match:
+      paths:
+        - "C:\\ProgramData\\Docker"   # Windows
+        # - "/var/lib/docker"           # Linux (requires root; use with caution)
+      sizeMinMB: 200
+    action:
+      type: relocate
+      destination: "D:\\Dev\\DockerProgramData"
+      verify: none
+      dryRun: true
+      rollback: auto

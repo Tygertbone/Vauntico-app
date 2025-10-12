@@ -14,6 +14,26 @@ import { ApiPortal } from '../components/ApiPortal'
 import { CronRite } from '../components/CronRite'
 import { BazaarUpload } from '../components/BazaarUpload'
 import { ServicesSigil } from '../components/ServicesSigil'
+import { WebhookWizard } from '../components/WebhookWizard'
+import { BetaLoop } from '../components/BetaLoop'
+import { PolishPanel } from '../components/PolishPanel'
+import { GlobalGilder } from '../components/GlobalGilder'
+import { ViralVector } from '../components/ViralVector'
+import { WebhookLiveWizard } from '../components/WebhookLiveWizard'
+import { ScaleElevator } from '../components/ScaleElevator'
+import { LegacyLinger } from '../components/LegacyLinger'
+import { AuditAbide } from '../components/AuditAbide'
+import { MVPLauncher } from '../components/MVPLauncher'
+import { NexusCaller } from '../components/NexusCaller'
+import { LiveScaleElevator } from '../components/LiveScaleElevator'
+import { CosmicCulminator } from '../components/CosmicCulminator'
+import { MVPPolisher } from '../components/MVPPolisher'
+import { EternalEnder } from '../components/EternalEnder'
+import { UltimatePolisher } from '../components/UltimatePolisher'
+import { EternalCulminator } from '../components/EternalCulminator'
+import { TranslationTooltip } from '../components/TranslationTooltip'
+import { EternalPolisher } from '../components/EternalPolisher'
+import { CosmicEternaler } from '../components/CosmicEternaler'
 
 export function App() {
   const [plan, setPlan] = useState('vauntico-dream-mover/plans/developer-storage.sample.yml')
@@ -102,6 +122,98 @@ export function App() {
       <section style={{ marginTop: 24 }}>
         <h2>Analytics (stub)</h2>
         <p>Planned: time saved, space freed, risk scores, collision previews, shadow maps.</p>
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Link & Light</h2>
+        <WebhookWizard />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Beta Buzz</h2>
+        <BetaLoop />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Launch Polish</h2>
+        <PolishPanel />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Global Glory</h2>
+        <GlobalGilder />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Viral Vectors</h2>
+        <ViralVector />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Live Links</h2>
+        <WebhookLiveWizard />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Scale & Elevation</h2>
+        <ScaleElevator />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Legacy & Audit</h2>
+        <LegacyLinger />
+        <div style={{ height: 8 }} />
+        <AuditAbide />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Cosmic Launch</h2>
+        <MVPLauncher />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Novice Nexus</h2>
+        <NexusCaller />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Live Scale</h2>
+        <LiveScaleElevator />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Cosmic Culmination</h2>
+        <CosmicCulminator />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>MVP Polish</h2>
+        <MVPPolisher />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Eternal Launch</h2>
+        <EternalEnder />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Ultimate Polish</h2>
+        <UltimatePolisher />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Eternal Culmination</h2>
+        <EternalCulminator />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Eternal Polish</h2>
+        <EternalPolisher />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Cosmic Eternal</h2>
+        <CosmicEternaler />
       </section>
     </div>
   )

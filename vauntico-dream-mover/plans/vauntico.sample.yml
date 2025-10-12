@@ -1,0 +1,44 @@
+version: 1
+targetDrive: "D:"
+modes:
+  safety: "advanced"
+  linking: "preferred"
+
+rules:
+  - name: Move personal media
+    match:
+      paths:
+        - "C:\\Users\\%USER%\\Downloads"
+        - "C:\\Users\\%USER%\\Videos"
+      sizeMinMB: 50
+    action:
+      type: relocate
+      destination: "D:\\UserMedia"
+      verify: hash
+      rollback: auto
+
+# --- REHOME APP EXAMPLE (commented) ---
+# - name: Rehome a sample app (Windows)
+#   match:
+#     paths:
+#       - "C:\\Program Files\\SampleApp"
+#   action:
+#     type: rehome_app
+#     destination: "D:\\Apps"
+#     verify: hash           # per-rule verify overrides global (hash|sample|none)
+#     updateShortcuts: true  # repoint Start Menu/Desktop shortcuts
+#     updateServices: true   # attempt to update Windows service binPath (run elevated)
+#     dryRun: false          # set true to log without writing
+
+  - name: Dev libraries junction
+    match:
+      patterns:
+        - "C:\\Dev\\node_modules"
+        - "C:\\Users\\%USER%\\AppData\\Roaming\\npm"
+      sizeMinMB: 10
+    action:
+      type: link
+      destination: "D:\\Dev\\Node"
+      linkType: junction
+      verify: sample
+      rollback: auto

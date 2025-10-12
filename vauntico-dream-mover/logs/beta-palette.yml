@@ -1,0 +1,5 @@
+theme: beta
+tokens:
+  primary: '#6EE7FF'
+  accent: '#C084FC'
+  surface: '#0B1020'

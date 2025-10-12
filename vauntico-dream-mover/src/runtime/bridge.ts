@@ -1,10 +1,10 @@
 import fs from 'fs'
 import path from 'path'
 import fse from 'fs-extra'
-import { hashFolder } from '../verify/hash.js'
+import { hashFolder } from '../verify/hash'
 import { MigrationDriver, VerifyMode } from '../types/migration-driver.js'
-import { relocatePath } from '../migrator/relocate.js'
-import { createJunction } from '../migrator/link.js'
+import { relocatePath } from '../migrator/relocate'
+import { createJunction } from '../migrator/link'
 
 export class NodeFsDriver implements MigrationDriver {
   async simulateMove(src: string, dstRoot: string): Promise<{ exists: boolean; sizeBytes: number }> {

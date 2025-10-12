@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["version", "targetDrive", "rules"],
+  "properties": {
+    "version": { "type": "integer", "minimum": 1 },
+    "targetDrive": { "type": "string" },
+    "modes": {
+      "type": "object",
+      "properties": {
+        "safety": { "enum": ["safe", "advanced", "expert"] },
+        "linking": { "enum": ["none", "preferred", "required"] }
+      },
+      "additionalProperties": true
+    },
+    "rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "action"],
+        "properties": {
+          "name": { "type": "string" },
+          "match": {
+            "type": "object",
+            "properties": {
+              "paths": { "type": "array", "items": { "type": "string" } },
+              "patterns": { "type": "array", "items": { "type": "string" } },
+              "sizeMinMB": { "type": "number", "minimum": 0 }
+            },
+            "additionalProperties": false
+          },
+          "action": {
+            "type": "object",
+            "required": ["type", "destination"],
+"properties": {
+              "type": { "enum": ["relocate", "link", "rehome_app"] },
+              "destination": { "type": "string" },
+              "verify": { "enum": ["hash", "sample", "none" ] },
+              "linkType": { "enum": ["junction", "symlink"] },
+              "rollback": { "enum": ["auto", "manual"] },
+              "updateShortcuts": { "type": "boolean" },
+              "updateServices": { "type": "boolean" },
+              "dryRun": { "type": "boolean" }
+            },
+            "additionalProperties": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

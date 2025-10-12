@@ -1,0 +1,32 @@
+version: 1
+targetDrive: "D:"
+modes:
+  safety: "advanced"
+  linking: "preferred"
+
+rules:
+  # VS Code User settings
+  - name: Link VS Code User settings
+    match:
+      paths:
+        - "C:\\Users\\%USER%\\AppData\\Roaming\\Code\\User"
+      sizeMinMB: 1
+    action:
+      type: link
+      destination: "D:\\Dev\\VSCode"
+      linkType: junction
+      verify: sample     # fast, lightweight verification for many small files
+      rollback: auto
+
+  # VS Code extensions (optional: comment in to use)
+  - name: Link VS Code extensions
+    match:
+      paths:
+        - "C:\\Users\\%USER%\\.vscode\\extensions"
+      sizeMinMB: 50
+    action:
+      type: link
+      destination: "D:\\Dev\\VSCodeExtensions"
+      linkType: junction
+      verify: sample
+      rollback: auto

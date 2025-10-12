@@ -1,0 +1,18 @@
+version: 1
+targetDrive: "D:"
+modes:
+  safety: "advanced"
+  linking: "preferred"
+
+rules:
+  - name: Rehome Example App (Windows)
+    match:
+      paths:
+        - "C:\\Program Files\\SampleApp"
+    action:
+      type: rehome_app
+      destination: "D:\\Apps"
+      verify: hash           # hash|sample|none — per-rule verify overrides global
+      updateShortcuts: true  # repoint Start Menu/Desktop shortcuts
+      updateServices: true   # attempt to update Windows service binPath (run elevated)
+      dryRun: true           # start in dry-run mode for safety

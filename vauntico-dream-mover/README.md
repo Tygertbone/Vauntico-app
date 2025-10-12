@@ -47,6 +47,77 @@ Plans live in `vauntico-dream-mover/plans/` and are commented for cross‑platfo
 - vauntico.sample.yml: Example plan showcasing features for the Vauntico workspace
 
 ## 🛠 Ritual Console (Workflows)
+
+### Phase 14: Buzzing Betas
+
+### Phase 15: Globals Gilded
+
+### Phase 16: Empires Endured
+
+### Phase 17: Lores Lingered
+
+### Phase 18: Cosmics Closed
+
+### Phase 19: Empires Exalted
+
+### Phase 20: Ends Exalted
+
+### Phase 21: Cosmics Culminated
+
+### Phase 22: Closes Cosmic
+- Eternal MVP and Cosmic Eternal chain (stubs, safe).
+- Warp: Dream Mover • Phase 22 Close & Cosmic
+- CLI:
+  - node dist/cli.js eternal-mvp --config beta
+  - node dist/cli.js cosmic-eternal --blitz C:D: --viral x --legacy sim
+
+### Translations: Lore vs Light
+
+| Rite | Lore | Light | Why Teach |
+|---|---|---|---|
+| Exalted Empire | Go Global | Multi‑region for lag‑free experience, ZAR cost low | Users learn trade‑offs while staying safe |
+| Cosmic Culmination | Final Compliance Setup | Tie histories with audits for compliance | Revert‑ready teaching builds trust |
+- Ultimate polish and Eternal culmination chain (stubs, safe).
+- Warp: Dream Mover • Phase 21 Culmination & Cosmic
+- CLI:
+  - node dist/cli.js ultimate-polish --config beta
+  - node dist/cli.js eternal-culminate --blitz C:D: --viral x --legacy sim
+- Final i18n polish and Eternal launch chain (stubs, safe).
+- Warp: Dream Mover • Phase 20 End & Eternal
+- CLI:
+  - node dist/cli.js polish-mvp --config beta
+  - node dist/cli.js eternal-launch --blitz C:D: --viral x
+- Live scale and cosmic culmination (stubs, safe).
+- Warp: Dream Mover • Phase 19 Empire & Exalt
+- CLI:
+  - node dist/cli.js scale-live --region za
+  - node dist/cli.js cosmic-close --nexus C:D: --legacy sim
+- Launch MVP and generate onboarding teaching (stubs, safe).
+- Warp: Dream Mover • Phase 18 Cosmic & Call
+- CLI:
+  - node dist/cli.js launch-mvp --config beta
+  - node dist/cli.js onboarding-nexus --from C: --to D:
+- Record personal lore and append an eternal audit (stubs, safe).
+- Warp: Dream Mover • Phase 17 Legacy & Linger
+- CLI:
+  - node dist/cli.js legacy-lore --rite sim --user stub
+  - node dist/cli.js audit-eternal --rite sim --soc2 --controls encryption,retention
+- Mock live flip and elevate regions (stubs, safe).
+- Warp: Dream Mover • Phase 16 Eternal & Elevation
+- CLI:
+  - node dist/cli.js webhook-live --event create --key mock --amount 6
+  - node dist/cli.js scale-elevate --region za
+- Weave Afrikaans and share the rite (stubs).
+- Warp: Dream Mover • Phase 15 Glory & Gale
+- CLI:
+  - node dist/cli.js global-i18n --plan plans/docker-volumes.sample.yml --lang af
+  - node dist/cli.js viral-share --rite sim --platform x
+- Simulate docker volumes, then post a survey and apply beta polish.
+- Warp: Dream Mover • Phase 14 Beta & Buzz
+- CLI:
+  - node dist/cli.js simulate --plan plans/docker-volumes.sample.yml --report logs/report.json --out logs/manifest.json
+  - node dist/cli.js beta-survey --rite sim --score 9
+  - node dist/cli.js launch-polish --beta
 Use Warp workflows to operate Dream Mover.
 - Vauntico Rituals • Simulate (pick plan)
 - Vauntico Rituals • Migrate (pick manifest)

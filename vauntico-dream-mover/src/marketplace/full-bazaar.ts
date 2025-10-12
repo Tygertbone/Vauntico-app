@@ -1,6 +1,6 @@
 import fs from 'fs'
 import path from 'path'
-import { vetPlan } from './vetter.js'
+import { vetPlan } from './vetter'
 
 export interface UploadEntry {
   planPath: string

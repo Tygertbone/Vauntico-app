@@ -1,0 +1,58 @@
+{
+  "module": "vauntico-dream-mover",
+  "branch": "chore/ci-pnpm",
+  "commit": {
+    "hash": "e007131cde8de1766eb7d2f3bb370c402a93add0",
+    "author": "tygertbone",
+    "email": "tyatjamesd@gmail.com",
+    "date": "Sun Oct 12 01:17:26 2025 +0200",
+    "message": "docs: finalize Dream Mover glossary loop across repo"
+  },
+  "plans": [
+    "vauntico-dream-mover/plans/developer-storage.sample.yml",
+    "vauntico-dream-mover/plans/dev-cache.sample.yml",
+    "vauntico-dream-mover/plans/vs-code.sample.yml",
+    "vauntico-dream-mover/plans/docker-cache.sample.yml",
+    "vauntico-dream-mover/plans/media-cleanup.sample.yml",
+    "vauntico-dream-mover/plans/rehome.sample.yml",
+    "vauntico-dream-mover/plans/vauntico.sample.yml"
+  ],
+  "workflows": [
+    ".warp/workflows/vauntico-rituals.yaml",
+    ".warp/workflows/dream-mover.yaml",
+    ".warp/workflows/dream-mover-extended.yaml",
+    ".warp/workflows/plan-picker.yaml",
+    ".warp/workflows/migrate-rollback-picker.yaml",
+    ".warp/workflows/repo-plans.yaml",
+    ".warp/workflows/repo-plans-unix.yaml",
+    "vauntico-dream-mover/.warp/workflows.yaml"
+  ],
+  "defaults": {
+    "simulate_default_plan": "vauntico-dream-mover/plans/developer-storage.sample.yml",
+    "workflows_menu": ".warp/workflows/vauntico-rituals.yaml"
+  },
+  "safety": {
+    "verifyModes": ["hash", "sample", "none"],
+    "dryRunDefaults": {
+      "developerStorageUmbrella": true
+    }
+  },
+  "artifacts": {
+    "report": "vauntico-dream-mover/logs/report.json",
+    "manifest": "vauntico-dream-mover/logs/manifest.json",
+    "lastRun": "vauntico-dream-mover/logs/last-run.json"
+  },
+  "docs": {
+    "moduleReadme": "vauntico-dream-mover/README.md",
+    "rootReadme": "Readme.md",
+    "warp": "WARP.md",
+    "githubWorkflows": ".github/workflows/README.md"
+  },
+  "notes": [
+    "Combined Vauntico Rituals menu centralizes simulate/migrate/rollback/validate",
+    "Unix-friendly repo-wide plan validator added",
+    "Default plan for pickers set to developer-storage umbrella plan",
+    "Docs updated with glossary loop and reference tables"
+  ],
+  "lastUpdated": "2025-10-12"
+}

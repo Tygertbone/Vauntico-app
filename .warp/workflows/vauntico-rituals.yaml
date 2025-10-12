@@ -1,0 +1,148 @@
+name: Vauntico Rituals
+workflows:
+  - name: codex:drop
+    description: Run Codex generator and QA ritual
+    command: |
+      pnpm run generate:codex && pnpm run ritual:qa
+
+  - name: ritual:qa
+    description: Validate Codex index and JSON integrity
+    command: |
+      pnpm run ritual:qa
+
+  - name: deploy:bless
+    description: Deploy to staging or production with blessing
+    command: |
+      gh workflow run deploy.yml --ref main --field environment={{environment}}
+    arguments:
+      - name: environment
+        description: Target environment (staging or production)
+        default: staging
+
+  - name: metrics:pulse
+    description: Fetch admin metrics (MRR, churn, ascension distribution)
+    command: |
+      curl -s -H "Authorization: Bearer $ADMIN_TOKEN" \
+        $VITE_SERVICE_URL/api/admin/metrics | jq
+
+  - name: metrics:snapshot
+    description: Write metrics snapshot to logs/metrics-<env>-<timestamp>.json
+    command: |
+      pnpm run metrics:snapshot -- --env={{environment}}
+    arguments:
+      - name: environment
+        description: Target environment label (staging or production)
+        default: staging
+
+  - name: metrics:snapshot:series
+    description: Capture snapshots for both staging and production
+    command: |
+      pnpm run metrics:snapshot:series -- --staging-url={{staging_url}} --production-url={{production_url}}
+    arguments:
+      - name: staging_url
+        description: Staging base URL (defaults to $VITE_SERVICE_URL)
+        default: ""
+      - name: production_url
+        description: Production base URL (defaults to $VITE_SERVICE_URL)
+        default: ""
+
+  - name: paystack:ping
+    description: Send a signed test payload to your webhook endpoint
+    command: |
+      pnpm run paystack:ping -- --event={{event}} --url={{url}} --email={{email}} --plan={{plan}} --interval={{interval}} --amount={{amount}} --subscription={{subscription}}
+    arguments:
+      - name: event
+        description: Paystack event to simulate (ping.test, subscription.create, invoice.payment_failed, subscription.disable, charge.success)
+        default: subscription.create
+      - name: url
+        description: Webhook URL (defaults to $VITE_SERVICE_URL/api/paystack/webhook)
+        default: ""
+      - name: email
+        description: Customer email for payload
+        default: test@vauntico.com
+      - name: plan
+        description: Plan code (e.g., vauntico-seeker|alchemist|oracle)
+        default: vauntico-seeker
+      - name: interval
+        description: Billing interval (monthly|annual)
+        default: monthly
+      - name: amount
+        description: Amount in cents (e.g., 900)
+        default: 900
+      - name: subscription
+        description: Subscription code
+        default: SUB_TEST
+
+  - name: Vauntico Rituals • Simulate (pick plan)
+    description: Pick a plan file and simulate; writes report.json and manifest.json
+    command: node vauntico-dream-mover/dist/cli.js simulate -- --plan {{plan}} --report vauntico-dream-mover/logs/report.json --out vauntico-dream-mover/logs/manifest.json
+    tags: [vauntico, rituals, dream-mover, simulate]
+    arguments:
+      - name: plan
+        description: Path to a plan (e.g., vauntico-dream-mover/plans/developer-storage.sample.yml)
+        default: vauntico-dream-mover/plans/developer-storage.sample.yml
+
+  - name: Vauntico Rituals • Migrate (pick manifest)
+    description: Execute transactional migrate using a chosen manifest with hash verification
+    command: node vauntico-dream-mover/dist/cli.js migrate -- --manifest {{manifest}} --verify=hash
+    tags: [vauntico, rituals, dream-mover, migrate]
+    arguments:
+      - name: manifest
+        description: Path to a manifest JSON file
+        default: vauntico-dream-mover/logs/manifest.json
+
+  - name: Vauntico Rituals • Rollback (pick run manifest)
+    description: Rollback deterministically using a run manifest with capsule pointers
+    command: node vauntico-dream-mover/dist/cli.js rollback -- --manifest {{run}}
+    tags: [vauntico, rituals, dream-mover, rollback]
+    arguments:
+      - name: run
+        description: Path to a run manifest JSON file
+        default: vauntico-dream-mover/logs/last-run.json
+
+  - name: Vauntico Rituals • Validate all plans (module + repo, Windows)
+    description: Validate Dream Mover plans in the module and across the repository (Windows)
+    command: |
+      pwsh -NoProfile -ExecutionPolicy Bypass -Command "
+        $ErrorActionPreference='Stop';
+        Write-Host 'Validating module plans...';
+        node vauntico-dream-mover/dist/cli.js validate-plans --dir vauntico-dream-mover/plans;
+        Write-Host 'Validating repo plans...';
+        $files = Get-ChildItem -Path . -Recurse -Include *.yml,*.yaml | Where-Object { $_.FullName -match '\\plans\\' };
+        if (-not $files -or $files.Count -eq 0) { Write-Host 'No repo-wide plan files found.'; exit 0 };
+        $failed = $false;
+        foreach ($f in $files) {
+          Write-Host ('Validating ' + $f.FullName);
+          node vauntico-dream-mover/dist/cli.js validate-plan --plan $f.FullName; if ($LASTEXITCODE -ne 0) { $failed = $true }
+        }
+        if ($failed) { exit 1 } else { exit 0 }
+      "
+    tags: [vauntico, rituals, dream-mover, validate, repo, windows]
+
+  - name: Vauntico Rituals • Validate all plans (module + repo, Unix)
+    description: Validate Dream Mover plans in the module and across the repository (Unix/macOS)
+    command: |
+      bash -lc '
+        echo "Validating module plans...";
+        node vauntico-dream-mover/dist/cli.js validate-plans --dir vauntico-dream-mover/plans || exit 1;
+        echo "Validating repo plans...";
+        files=$(find . -type f \( -name "*.yml" -o -name "*.yaml" \) | grep "/plans/");
+        if [ -z "$files" ]; then echo "No repo-wide plan files found"; exit 0; fi;
+        ok=1;
+        while IFS= read -r f; do
+          echo "Validating $f";
+          node vauntico-dream-mover/dist/cli.js validate-plan --plan "$f" || ok=0;
+        done <<< "$files";
+        [ $ok -eq 1 ] || exit 1;
+      '
+    tags: [vauntico, rituals, dream-mover, validate, repo, unix]
+
+  - name: Dream Mover • Phase 22 Close & Cosmic
+    description: Eternal MVP (extended i18n + regions) and Cosmic Eternal chain
+    command: |
+      pwsh -NoProfile -Command "
+        node vauntico-dream-mover/dist/cli.js eternal-mvp --config beta;
+        node vauntico-dream-mover/dist/cli.js cosmic-eternal --blitz C:D: --viral x --legacy sim;
+        Write-Host 'Phase 22 complete → eternal-mvp.json + cosmic-eternal.yml';
+      "
+    tags: [vauntico, rituals, dream-mover, phase22]

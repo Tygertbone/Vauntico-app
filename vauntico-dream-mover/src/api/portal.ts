@@ -7,12 +7,12 @@ export function buildApp() {
   app.use(express.json())
 
   // Simple auth check: require ssoToken header (stub) if present in logs
-  app.use((req, res, next) => {
+  app.use((req: any, res: any, next: any) => {
     // In future, validate against logs/sso-token.json
     next()
   })
 
-  app.post('/sim', (req, res) => {
+  app.post('/sim', (req: any, res: any) => {
     const plan = req.body?.plan || 'unknown'
     const out = path.join('vauntico-dream-mover','logs','api.log')
     fs.mkdirSync(path.dirname(out), { recursive: true })
@@ -20,7 +20,7 @@ export function buildApp() {
     res.json({ ok: true, message: 'Simulation queued (stub)', plan })
   })
 
-  app.get('/manifest', (req, res) => {
+  app.get('/manifest', (req: any, res: any) => {
     const manifestPath = path.join('vauntico-dream-mover','logs','manifest.json')
     if (fs.existsSync(manifestPath)) {
       res.type('application/json').send(fs.readFileSync(manifestPath, 'utf8'))
@@ -29,7 +29,7 @@ export function buildApp() {
     }
   })
 
-  app.post('/rune-infuse', (req, res) => {
+  app.post('/rune-infuse', (req: any, res: any) => {
     const plan = req.body?.plan
     const template = req.body?.template || 'gdpr'
     if (!plan) return res.status(400).json({ ok: false, error: 'Missing plan' })

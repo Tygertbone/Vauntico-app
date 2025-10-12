@@ -1,0 +1,26 @@
+[
+  {
+    "planId": "plan-x",
+    "teamId": "team-y",
+    "required": 2,
+    "approvals": 6,
+    "approved": true,
+    "createdAt": "2025-10-12T18:51:46.735Z"
+  },
+  {
+    "planId": "plan-x",
+    "teamId": "team-y",
+    "required": 2,
+    "approvals": 0,
+    "approved": false,
+    "createdAt": "2025-10-12T18:54:08.456Z"
+  },
+  {
+    "planId": "plan-x",
+    "teamId": "team-y",
+    "required": 2,
+    "approvals": 0,
+    "approved": false,
+    "createdAt": "2025-10-12T18:55:46.333Z"
+  }
+]

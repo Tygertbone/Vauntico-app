@@ -26,7 +26,27 @@
     "phase6:runes": "jest --findRelatedTests src/compliance/rune-weaver.ts",
     "phase6:stride": "jest --findRelatedTests src/runtime/rust-bridge.ts",
     "phase12:scale": "jest --findRelatedTests src/runtime/rust-bridge.ts",
-    "phase12:sustain": "jest --findRelatedTests src/monitoring/sigil-mender.ts"
+    "phase12:sustain": "jest --findRelatedTests src/monitoring/sigil-mender.ts",
+    "phase14:beta": "node dist/cli.js simulate --plan plans/docker-volumes.sample.yml --report logs/report.json --out logs/manifest.json",
+    "phase14:buzz": "node dist/cli.js beta-survey --rite sim --score 9 && node dist/cli.js launch-polish --beta",
+    "phase15:glory": "node dist/cli.js global-i18n --plan plans/docker-volumes.sample.yml --lang af",
+    "phase15:gale": "node dist/cli.js viral-share --rite sim --platform x",
+    "phase16:eternal": "node dist/cli.js webhook-live --event create --key mock --amount 6",
+    "phase16:elevation": "node dist/cli.js scale-elevate --region za",
+    "phase17:legacy": "node dist/cli.js legacy-lore --rite sim --user stub",
+    "phase17:linger": "node dist/cli.js audit-eternal --rite sim --soc2 --controls encryption,retention",
+    "phase18:cosmic": "node dist/cli.js launch-mvp --config beta",
+    "phase18:call": "node dist/cli.js onboarding-nexus --from C: --to D:",
+    "phase19:empire": "node dist/cli.js scale-live --region za",
+    "phase19:exalt": "node dist/cli.js cosmic-close --nexus C:D: --legacy sim",
+    "phase20:end": "node dist/cli.js polish-mvp --config beta",
+    "phase20:eternal": "node dist/cli.js eternal-launch --blitz C:D: --viral x",
+    "phase21:culmination": "node dist/cli.js ultimate-polish --config beta",
+    "phase21:cosmic": "node dist/cli.js eternal-culminate --blitz C:D: --viral x --legacy sim",
+    "phase22:close": "node dist/cli.js eternal-mvp --config beta",
+    "phase22:cosmic": "node dist/cli.js cosmic-eternal --blitz C:D: --viral x --legacy sim",
+    "phase21:talisman": "node dist/cli.js simulate --plan plans/docker-volumes.sample.yml --report logs/report.json --out logs/manifest.json --plain",
+    "phase21:truth": "node dist/cli.js global-i18n --plan plans/docker-volumes.sample.yml --lang af --plain && node dist/cli.js legacy-lore --rite sim --user stub --plain"
   },
   "dependencies": {
     "commander": "^12.0.0",
@@ -48,7 +68,7 @@
     "jest": "^29.7.0",
     "ts-jest": "^29.2.5",
     "mermaid": "^11.3.0",
-    "@neondatabase/serverless": "^0.6.4"
+    "@neondatabase/serverless": "^1.0.2"
   },
   "jest": {
     "preset": "ts-jest",

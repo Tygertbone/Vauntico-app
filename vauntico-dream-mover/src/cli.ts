@@ -27,6 +27,7 @@ program
 
 program
   .command("simulate")
+  .option("--plain", "Emit plain-English light hints", false)
   .requiredOption("--plan <path>", "Plan YAML path")
   .requiredOption("--report <path>", "Scan report JSON")
   .option("--out <path>", "Manifest output JSON", "logs/manifest.json")
@@ -63,6 +64,10 @@ program
     console.log(`Simulation: ${sim.actions.length} actions, ~${summaryMB} MB freed`);
     console.log(`Manifest written → ${out}`);
     console.log(`Shadow map → logs/shadow-map.mmd`);
+
+    if (opts.plain) {
+      console.log('Plain: Safe rehearsal of moves; review manifest.json before migrating.');
+    }
 
     // Phase 4: Rust core POC
     if (opts.useRust) {
@@ -485,7 +490,7 @@ program
   .option('--uptime <pct>', 'Uptime percentage', '99.9%')
   .option('--out <path>', 'Output SLA path', 'vauntico-dream-mover/white-label/white-label.sla.yml')
   .action(async (opts) => {
-    const { generateSLA, writeSLA } = await import('../white-label/sla-weaver.js')
+const { generateSLA, writeSLA } = await import('./white-label/sla-shim.js')
     const yaml = generateSLA({ org: opts.org, soc2: !!opts.soc2, uptime: opts.uptime })
     writeSLA(opts.out, yaml)
     console.log('SLA written →', opts.out)
@@ -536,6 +541,225 @@ program
     fs.default.mkdirSync(pathMod.default.dirname(outPath), { recursive: true })
     fs.default.writeFileSync(outPath, y)
     console.log('Consult SLA →', outPath)
+  });
+
+// Phase 14: Feedback Loops (Beta Buzz)
+program
+  .command('beta-survey')
+  .requiredOption('--rite <id>', 'Rite identifier (e.g., sim|migrate)')
+  .option('--score <n>', 'Score 0-10', '9')
+  .action(async (opts) => {
+    const { postRiteSurvey } = await import('./beta/loop-weaver.js')
+    const s = Math.max(0, Math.min(10, parseInt(String(opts.score))))
+    const res = postRiteSurvey(String(opts.rite), s)
+    console.log('Feedback written → logs/feedback-loops.json')
+    console.log(`Avg: ${res.avg}  NPS: ${res.nps}`)
+    if (res.avg > 8) console.log('Badge: Beta Buzz ✅')
+  });
+
+// Phase 14: Launch Polish (Beta Brilliance)
+program
+  .command('launch-polish')
+  .option('--beta', 'Enable beta palette and DM_BETA env', false)
+  .action(async (opts) => {
+    const { vercelStub } = await import('./launch/polish-pal.js')
+    const env = vercelStub(!!opts.beta)
+    console.log('Vercel env stub → logs/vercel-env.json')
+    if (env.DM_BETA) {
+      console.log('Palette (beta) → logs/beta-palette.yml')
+      console.log('Mock deploy: https://vercel.com/vauntico/dream-mover?env=DM_BETA')
+    }
+  });
+
+// Phase 15: Global Glory — i18n weaving
+program
+  .command('global-i18n')
+  .option('--plain', 'Emit plain-English hint', false)
+  .requiredOption('--plan <path>', 'Plan YAML path')
+  .option('--lang <code>', 'Language code (en|af)', 'af')
+  .option('--out <path>', 'Output path (optional)')
+  .action(async (opts) => {
+    const { i18nWeave } = await import('./global/sigil-gilder.js')
+    const res = i18nWeave(opts.plan, opts.lang, opts.out)
+    if (opts.plain) {
+      console.log(`Plain: Translate plan to ${opts.lang} for clarity (lore: preserve intent, light: improve adoption).`)
+    }
+    console.log('Infused i18n plan →', res.out)
+  });
+
+// Phase 15: Viral Vectors — share stubs
+program
+  .command('viral-share')
+  .requiredOption('--rite <id>', 'Rite identifier (e.g., sim)')
+  .option('--platform <name>', 'x|reddit', 'x')
+  .action(async (opts) => {
+    const { shareRite } = await import('./viral/vector-gale.js')
+const entry = shareRite(String(opts.rite), (String(opts.platform) as 'x'|'reddit'))
+    console.log('Shared → logs/viral-vectors.json')
+    console.log('Viral score:', entry.viralScore)
+    console.log('Hint: boost NPS by sharing — consider running: dream-mover beta-survey --rite', opts.rite, '--score 10')
+  });
+
+// Phase 16: Live webhook flip (Paystack) — dry-run safe
+program
+  .command('webhook-live')
+  .requiredOption('--event <name>', 'Event (create|update)', 'create')
+  .option('--key <secret>', 'Webhook key or token', 'mock')
+  .option('--amount <zar>', 'Amount in ZAR', '6')
+  .action(async (opts) => {
+    const { webhookLive } = await import('./integrations/webhook-link.js')
+    const flip = webhookLive(String(opts.event), String(opts.key), parseFloat(String(opts.amount)))
+    console.log('Live flip → logs/live-flip.json')
+    console.log(`Tier: ${flip.tierBefore} → ${flip.tierAfter} (verified=${flip.verified})`)
+  });
+
+// Phase 16: Global scale elevation
+program
+  .command('scale-elevate')
+  .option('--region <code>', 'za|us', 'za')
+  .action(async (opts) => {
+    const { multiRegionDeploy } = await import('./scale/elevation-ts.js')
+const res = multiRegionDeploy((String(opts.region) as 'za'|'us'))
+    console.log('Scale metrics →', res.metricsPath)
+  });
+
+// Phase 17: Legacy lore (personal histories)
+program
+  .command('legacy-lore')
+  .option('--plain', 'Emit plain-English hint', false)
+  .requiredOption('--rite <id>', 'Rite identifier (e.g., sim|migrate)')
+  .option('--user <id>', 'User id/email (stub)', 'stub')
+  .action(async (opts) => {
+    const { personalGrimoire } = await import('./legacy/lore-linger.js')
+    const lore = personalGrimoire(String(opts.rite), String(opts.user))
+    if (opts.plain) {
+      console.log('Plain: Keep a simple history of your rites; learn and rollback with confidence.')
+    }
+    console.log('Personal lore → logs/personal-lore.json')
+    console.log('Chains (YAML stub) embedded; length=', lore.chains.length)
+  });
+
+// Phase 17: Eternal audits (SOC2 immutable stubs)
+program
+  .command('audit-eternal')
+  .requiredOption('--rite <id>', 'Rite identifier (e.g., sim)')
+  .option('--soc2', 'Include SOC2 fields', false)
+  .option('--controls <csv>', 'SOC2 controls CSV', 'encryption,retention')
+  .action(async (opts) => {
+    const { soc2Immutable } = await import('./legacy/audit-abide.js')
+    const controls = String(opts.controls || '').split(',').map(s=>s.trim()).filter(Boolean)
+    const rec = soc2Immutable(String(opts.rite), controls, !!opts.soc2)
+    console.log('Eternal audit → logs/eternal-audit.json')
+    console.log('SOC2 controls:', rec.SOC2.controls.join(','))
+  });
+
+// Phase 18: MVP Launch (Vercel real deploy stub)
+program
+  .command('launch-mvp')
+  .option('--config <name>', 'Deployment config', 'beta')
+  .action(async (opts) => {
+    const { vercelRealDeploy } = await import('./launch/polish-pal.js')
+    const res = vercelRealDeploy(String(opts.config))
+    console.log('MVP deploy →', res.out)
+    console.log('Mock link:', res.link)
+  });
+
+// Phase 18: Onboarding (Novice Nexus)
+program
+  .command('onboarding-nexus')
+  .requiredOption('--from <drive>', 'From drive letter (e.g., C:)')
+  .requiredOption('--to <drive>', 'To drive letter (e.g., D:)')
+  .action(async (opts) => {
+    const { spaceWhisper } = await import('./onboarding/nexus-call.js')
+    const out = spaceWhisper(String(opts.from), String(opts.to))
+    console.log('Nexus teach →', out.teachPath)
+  });
+
+// Phase 19: Live Scale (ngrok + vercel stub)
+program
+  .command('scale-live')
+  .option('--region <code>', 'za|us', 'za')
+  .action(async (opts) => {
+    const { realNgrokVercel } = await import('./scale/elevation-ts.js')
+const res = realNgrokVercel((String(opts.region) as 'za'|'us'))
+    console.log('Scale live →', res.out)
+    console.log('Links:', res.link, res.vercel)
+  });
+
+// Phase 19: Cosmic Culmination
+program
+  .command('cosmic-close')
+  .requiredOption('--nexus <from:to>', 'Drives formatted as C:D:')
+  .requiredOption('--legacy <rite>', 'Legacy rite id (e.g., sim)')
+  .action(async (opts) => {
+    const { legacyOnboard } = await import('./cosmic/culminate-exalt.js')
+    const res = legacyOnboard(String(opts.nexus), String(opts.legacy))
+    console.log('Cosmic close →', res.closePath)
+  });
+
+// Phase 20: Polish MVP (full i18n)
+program
+  .command('polish-mvp')
+  .option('--config <name>', 'Deployment config', 'beta')
+  .action(async (opts) => {
+    const { vercelFullDeploy } = await import('./launch/polish-pal.js')
+    const res = vercelFullDeploy(String(opts.config))
+    console.log('Polish MVP →', res.out)
+  });
+
+// Phase 20: Eternal launch chain
+program
+  .command('eternal-launch')
+  .requiredOption('--blitz <from:to>', 'Onboard drives (C:D:)')
+  .requiredOption('--viral <platform>', 'x|reddit')
+  .action(async (opts) => {
+    const { betaBlitzChain } = await import('./launch/eternal-end.js')
+const res = betaBlitzChain(String(opts.blitz), (String(opts.viral) as 'x'|'reddit'))
+    console.log('Eternal launch →', res.eternalPath)
+  });
+
+// Phase 21: Ultimate polish (multi-region + i18n)
+program
+  .command('ultimate-polish')
+  .option('--config <name>', 'Deployment config', 'beta')
+  .action(async (opts) => {
+    const { vercelUltimateDeploy } = await import('./launch/polish-pal.js')
+    const res = vercelUltimateDeploy(String(opts.config))
+    console.log('Ultimate polish →', res.out)
+  });
+
+// Phase 21: Eternal culmination chain
+program
+  .command('eternal-culminate')
+  .requiredOption('--blitz <from:to>', 'Onboard drives (C:D:)')
+  .requiredOption('--viral <platform>', 'x|reddit')
+  .requiredOption('--legacy <rite>', 'Legacy rite id (e.g., sim)')
+  .action(async (opts) => {
+    const { eternalBlitzChain } = await import('./culmination/cosmic-culminate.js')
+const res = eternalBlitzChain(String(opts.blitz), (String(opts.viral) as 'x'|'reddit'), String(opts.legacy))
+    console.log('Eternal culminate →', res.out)
+  });
+
+// Phase 22: Eternal MVP (multi-region + extended i18n)
+program
+  .command('eternal-mvp')
+  .option('--config <name>', 'Deployment config', 'beta')
+  .action(async (opts) => {
+    const { vercelEternalDeploy } = await import('./launch/polish-pal.js')
+    const res = vercelEternalDeploy(String(opts.config))
+    console.log('Eternal MVP →', res.out)
+  });
+
+// Phase 22: Cosmic eternal launch chain
+program
+  .command('cosmic-eternal')
+  .requiredOption('--blitz <from:to>', 'Onboard drives (C:D:)')
+  .requiredOption('--viral <platform>', 'x|reddit')
+  .requiredOption('--legacy <rite>', 'Legacy rite id (e.g., sim)')
+  .action(async (opts) => {
+    const { eternalBlitzEternal } = await import('./launch/cosmic-close.js')
+const res = eternalBlitzEternal(String(opts.blitz), (String(opts.viral) as 'x'|'reddit'), String(opts.legacy))
+    console.log('Cosmic eternal →', res.out)
   });
 
 program.parseAsync(process.argv);

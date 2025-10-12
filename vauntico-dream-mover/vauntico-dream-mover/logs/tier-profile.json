@@ -1,0 +1,12 @@
+{
+  "level": "Seeker",
+  "limits": {
+    "ritualsDay": 5,
+    "aiRisks": false,
+    "certified": false
+  },
+  "counters": {
+    "date": "2025-10-12",
+    "ritualsToday": 3
+  }
+}

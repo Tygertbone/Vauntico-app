@@ -23,7 +23,7 @@ export const computeRiskScore = (actions: Array<{ itemPath: string, destination:
   const serviceLocks = actions.filter(a => /postgres|docker/i.test(a.itemPath) || a.serviceLock).length
   const collisionRisk = overlaps * 0.01
   const sizeRisk = Math.min(1, sizeGB * 0.02)
-  const serviceRisk = Math.min(1, serviceLocks * 0.05)
+  const serviceRisk = Math.min(1, serviceLocks * 0.07)
   const total = Math.min(1, +(collisionRisk + sizeRisk + serviceRisk).toFixed(2))
   const factors = [] as string[]
   if (collisionRisk) factors.push(`pathCollision:${collisionRisk.toFixed(2)}`)
