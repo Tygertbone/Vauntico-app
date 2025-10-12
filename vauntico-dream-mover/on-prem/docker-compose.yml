@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  web:
+    image: node:20-alpine
+    environment:
+      - DM_ON_PREM=true
+    command: sh -c "node -v && sleep 3600"
+    volumes:
+      - ./logs:/app/logs

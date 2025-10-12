@@ -8,6 +8,8 @@ import { CertQuest } from '../components/CertQuest'
 import { ComplianceWizard } from '../components/ComplianceWizard'
 import { SSOSentinel } from '../components/SSOSentinel'
 import { CovenCollab } from '../components/CovenCollab'
+import { OnPremBanner } from '../components/OnPremBanner'
+import { WhiteLabelWizard } from '../components/WhiteLabelWizard'
 
 export function App() {
   const [plan, setPlan] = useState('vauntico-dream-mover/plans/developer-storage.sample.yml')
@@ -63,6 +65,13 @@ export function App() {
         <SSOSentinel />
         <div style={{ height: 8 }} />
         <CovenCollab />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>On-Prem & White-Label</h2>
+        <OnPremBanner />
+        <div style={{ height: 8 }} />
+        <WhiteLabelWizard />
       </section>
 
       <section style={{ marginTop: 24 }}>

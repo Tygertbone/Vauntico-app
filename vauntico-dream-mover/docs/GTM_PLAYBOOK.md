@@ -10,4 +10,5 @@ Assets
 - Add Phase 2 demo: Mermaid shadow maps and risk summaries in README.
 - Phase 3: Collision previews and colored Mermaid render (web).
 - Phase 5: Cert launch ($249), SA-friendly Paystack flow for Practitioner, 10% conversion target.
+- Phase 8: Oracle ($750/user bulk) on-prem + white-label banners; SOC2/SLA discussions.
 - Whitepapers, demo scripts, ROI calculators, plan marketplace spotlights.

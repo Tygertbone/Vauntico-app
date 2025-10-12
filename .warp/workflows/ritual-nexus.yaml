@@ -95,3 +95,13 @@ workflows:
       "
     description: SSO stub + share a GDPR-infused monorepo plan to a guild and cast approvals (CLI-driven)
     tags: [vauntico, rituals, phase7]
+
+  - name: Dream Mover • Phase 8 Bastion & Banner
+    command: |
+      pwsh -NoProfile -Command "
+        node vauntico-dream-mover/dist/cli.js on-prem-init --compose;
+        node vauntico-dream-mover/dist/cli.js white-label --org 'Vauntico Corp' --soc2 --uptime 99.9% --out vauntico-dream-mover/white-label/white-label.sla.yml;
+        Write-Host 'Open web dashboard → On-Prem Banner + WhiteLabel Wizard';
+      "
+    description: Initialize on-prem env and generate SLA (white-label) stubs
+    tags: [vauntico, rituals, phase8]

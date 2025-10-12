@@ -462,4 +462,33 @@ program
     console.log('Vote recorded →', JSON.stringify(entry, null, 2))
   });
 
+program
+  .command('on-prem-init')
+  .option('--compose', 'Write docker-compose stub to on-prem/', false)
+  .action(async (opts) => {
+    const outEnv = 'vauntico-dream-mover/logs/on-prem.env'
+    fs.mkdirSync('vauntico-dream-mover/logs', { recursive: true })
+    fs.writeFileSync(outEnv, 'DM_ON_PREM=true\n')
+    console.log('On-prem env →', outEnv)
+    if (opts.compose) {
+      const dcPath = 'vauntico-dream-mover/on-prem/docker-compose.yml'
+      fs.mkdirSync('vauntico-dream-mover/on-prem', { recursive: true })
+      fs.writeFileSync(dcPath, `version: '3.8'\nservices:\n  web:\n    image: node:20-alpine\n    environment:\n      - DM_ON_PREM=true\n    command: sh -c \\\"node -v && sleep 3600\\\"\n    volumes:\n      - ./logs:/app/logs\n`, 'utf8')
+      console.log('Docker compose stub →', dcPath)
+    }
+  });
+
+program
+  .command('white-label')
+  .requiredOption('--org <name>')
+  .option('--soc2', 'Include SOC2 terms', false)
+  .option('--uptime <pct>', 'Uptime percentage', '99.9%')
+  .option('--out <path>', 'Output SLA path', 'vauntico-dream-mover/white-label/white-label.sla.yml')
+  .action(async (opts) => {
+    const { generateSLA, writeSLA } = await import('../white-label/sla-weaver.js')
+    const yaml = generateSLA({ org: opts.org, soc2: !!opts.soc2, uptime: opts.uptime })
+    writeSLA(opts.out, yaml)
+    console.log('SLA written →', opts.out)
+  });
+
 program.parseAsync(process.argv);
