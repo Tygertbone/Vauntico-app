@@ -7,4 +7,5 @@ Phases
 - Phase 4 (18–24 mo): Enterprise compliance (SOC/GDPR/HIPAA), Oracle tier.
 
 Assets
+- Add Phase 2 demo: Mermaid shadow maps and risk summaries in README.
 - Whitepapers, demo scripts, ROI calculators, plan marketplace spotlights.

@@ -1,5 +1,8 @@
 import React, { useMemo, useState } from 'react'
 
+import { Dashboard } from '../components/Dashboard'
+import { AuditSummary } from '../components/AuditSummary'
+
 export function App() {
   const [plan, setPlan] = useState('vauntico-dream-mover/plans/developer-storage.sample.yml')
   const [manifestPath, setManifestPath] = useState('vauntico-dream-mover/logs/manifest.json')
@@ -17,15 +20,15 @@ export function App() {
 
       <section style={{ marginTop: 24 }}>
         <h2>Ritual Picker</h2>
-        <label>
-          Plan path:
-          <input style={{ marginLeft: 8, width: 520 }} value={plan} onChange={e => setPlan(e.target.value)} />
-        </label>
-        <div style={{ marginTop: 12 }}>
-          <button className=\"hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300\" title=\"simulate\" onClick={() => alert(`Simulate → ${plan}\\n(Invoke CLI via workflow)`)}>Simulate</button>
-          <button className=\"hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300\" style={{ marginLeft: 8 }} title=\"migrate\" onClick={() => alert(`Migrate using manifest → ${manifestPath}`)}>Migrate</button>
-          <button className=\"hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300\" style={{ marginLeft: 8 }} title=\"rollback\" onClick={() => alert('Rollback using logs/last-run.json')}>Rollback</button>
-        </div>
+        <Dashboard plan={plan} onPlanChange={setPlan} onRunHint={() => {
+          const cmd = `node vauntico-dream-mover/dist/cli.js simulate --plan ${plan} --report vauntico-dream-mover/logs/report.json --out vauntico-dream-mover/logs/manifest.json`
+          alert(`Run via Warp:\n${cmd}`)
+        }} />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Audit Summary</h2>
+        <AuditSummary manifestUrl={"/dm-logs/manifest.json"} lastRunUrl={"/dm-logs/last-run.json"} fallbackHint="Serve logs via localhost:3000 or open directly from vauntico-dream-mover/logs" />
       </section>
 
       <section style={{ marginTop: 24 }}>

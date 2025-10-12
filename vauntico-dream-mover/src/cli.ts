@@ -34,10 +34,33 @@ program
     const plan = loadPlan(opts.plan);
     const report = JSON.parse(fs.readFileSync(opts.report, "utf8"));
     const sim = simulate(plan, report);
+
+    // Phase 2: AI/Adaptive stubs — compute risk score and render Mermaid shadow map
+    const { computeRiskScore, renderMermaidShadow } = await import('./ai/risk.js');
+    const risk = computeRiskScore(sim.actions.map((a: any) => ({
+      itemPath: a.itemPath,
+      destination: a.destination,
+      actionType: a.actionType,
+      sizeBytes: a.sizeBytes || 0
+    })));
+    fs.mkdirSync('logs', { recursive: true });
+    const shadow = renderMermaidShadow(sim.actions as any);
+    fs.writeFileSync('logs/shadow-map.mmd', shadow, 'utf8');
+
+    // Persist manifest and augment with riskScore
     const out = saveManifest(sim, opts.out);
+    const manifest = JSON.parse(fs.readFileSync(out, 'utf8'));
+    manifest.riskScore = risk;
+    fs.writeFileSync(out, JSON.stringify(manifest, null, 2));
+
     const summaryMB = (sim.estimatedSpaceFreedBytes / 1_000_000).toFixed(2);
     console.log(`Simulation: ${sim.actions.length} actions, ~${summaryMB} MB freed`);
     console.log(`Manifest written → ${out}`);
+    console.log(`Shadow map → logs/shadow-map.mmd`);
+
+    // Reflective prompt (stub)
+    console.log("Reflective: What felt safest? (A) Hashes (B) Samples");
+
     for (const a of sim.actions.slice(0, 50)) {
       console.log("—\n" + explainDecision(a));
     }
