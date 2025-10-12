@@ -1,0 +1,18 @@
+version: 1
+targetDrive: "D:"
+modes:
+  safety: "cautious"
+  linking: "preferred"
+
+rules:
+  - name: Stage cloud transition payloads (Windows)
+    match:
+      paths:
+        - "C:\\Users\\%USER%\\Documents"
+        - "C:\\Users\\%USER%\\Pictures"
+    action:
+      type: relocate
+      destination: "D:\\CloudStaging"
+      verify: none
+      dryRun: true
+      notes: "Prepares a staging folder for later cloud sync. Review contents before any upload."

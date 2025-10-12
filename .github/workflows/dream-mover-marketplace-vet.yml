@@ -1,0 +1,30 @@
+name: Dream Mover Marketplace • Vet Plans
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'vauntico-dream-mover/plans/**'
+      - 'vauntico-dream-mover/src/planner/**'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+      - run: corepack enable
+      - run: pnpm -v
+      - name: Install deps (root)
+        run: pnpm install --frozen-lockfile=false
+      - name: Build Dream Mover
+        working-directory: vauntico-dream-mover
+        run: pnpm build
+      - name: Validate module plans
+        working-directory: vauntico-dream-mover
+        run: node dist/cli.js validate-plans --dir plans
+      - name: Validate repo-wide plans
+        run: node vauntico-dream-mover/dist/cli.js validate-plans --dir vauntico-dream-mover/plans
