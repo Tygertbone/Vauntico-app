@@ -1,0 +1,11 @@
+[package]
+name = "dream-mover-rs"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "dream_mover_rs"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+sha2 = "0.10"

@@ -1,0 +1,10 @@
+{
+  "safetyFlags": ["dryRun:true", "verify:<hash|sample|none>"],
+  "notesMinLen": 30,
+  "certifiedBadge": { "criteria": "minFaves:10", "commission": 0.2 },
+  "rules": [
+    { "id": "require-dry-run", "message": "Plan should default to dryRun:true for safety." },
+    { "id": "verify-present", "message": "Each action should include a verify mode (hash/sample/none)." },
+    { "id": "service-lock-note", "message": "Database or Docker plans should note service locks and stoppage requirements." }
+  ]
+}
