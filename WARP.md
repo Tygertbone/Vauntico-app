@@ -88,6 +88,10 @@ High-level architecture
   - User status: GET /api/user-status?email=… fetches has_creator_pass/plan from Supabase.
   - Startup: node server/server.js (PORT default 5000). Requires SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, PAYSTACK_SECRET_KEY.
 
+👉 Quickstart: Open **Warp** → **Vauntico Rituals** → **Simulate developer-storage plan**
+
+See the [Dream Mover Glossary](README.md#glossary-dream-mover) for definitions of terms like plan, manifest, and rollback.
+
 Key files to know
 - package.json: Declares scripts (Next) and custom fixer/lint tasks.
 - vite.config.mjs: Aliases and React plugin for Vite-style builds.
