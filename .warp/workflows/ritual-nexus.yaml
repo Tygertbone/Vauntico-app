@@ -84,3 +84,14 @@ workflows:
       "
     description: Use Rust-gated simulate and weave GDPR runes into DB plan (stubs, safe)
     tags: [vauntico, rituals, phase6]
+
+  - name: Dream Mover • Phase 7 Sentinel & Coven
+    command: |
+      pwsh -NoProfile -Command "
+        node vauntico-dream-mover/dist/cli.js tier-check --sso-provider google --email guild@example.com --output vauntico-dream-mover/logs/tier-profile.json;
+        node vauntico-dream-mover/dist/cli.js rune-infuse --template gdpr --plan vauntico-dream-mover/plans/monorepo-ai-links.sample.yml --out vauntico-dream-mover/plans/monorepo-ai-links.gdpr.yml;
+        node vauntico-dream-mover/dist/cli.js coven-share --plan-id monorepo-ai-links.gdpr.yml --team-id guild-stub --req 2;
+        Write-Host 'Open web dashboard → SSO Sentinel (login stub) and CovenCollab to share/vote';
+      "
+    description: SSO stub + share a GDPR-infused monorepo plan to a guild and cast approvals (CLI-driven)
+    tags: [vauntico, rituals, phase7]

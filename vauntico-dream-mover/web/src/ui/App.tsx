@@ -6,6 +6,8 @@ import { ShadowViewer } from '../components/ShadowViewer'
 import { TierGate } from '../components/TierGate'
 import { CertQuest } from '../components/CertQuest'
 import { ComplianceWizard } from '../components/ComplianceWizard'
+import { SSOSentinel } from '../components/SSOSentinel'
+import { CovenCollab } from '../components/CovenCollab'
 
 export function App() {
   const [plan, setPlan] = useState('vauntico-dream-mover/plans/developer-storage.sample.yml')
@@ -54,6 +56,13 @@ export function App() {
       <section style={{ marginTop: 24 }}>
         <h2>Compliance</h2>
         <ComplianceWizard />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>SSO & Collaboration</h2>
+        <SSOSentinel />
+        <div style={{ height: 8 }} />
+        <CovenCollab />
       </section>
 
       <section style={{ marginTop: 24 }}>

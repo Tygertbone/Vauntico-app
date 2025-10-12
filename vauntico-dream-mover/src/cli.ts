@@ -405,16 +405,23 @@ program
   .option('--user <id>', 'User id (stub)')
   .option('--email <email>', 'User email for lookup (optional)')
   .option('--upgrade', 'Upgrade to Practitioner (stub + Paystack intent)', false)
+  .option('--sso-provider <provider>', 'SSO provider (google|azure) to stub token')
   .option('--output <path>', 'Write JSON result to path')
   .action(async (opts) => {
     const { checkTier, upgradeToPractitioner } = await import('./tiers/gatekeeper.js');
     const { createPaystackIntent } = await import('./tiers/paystack-vault.js');
+    const { ssoCheck } = await import('./auth/sentinel.js');
     let profile = checkTier(opts.user);
     if (opts.upgrade) {
       const email = opts.email || 'test@example.com';
       const intent = await createPaystackIntent(email, 600);
       console.log('Paystack checkout (stub):', intent.url);
       profile = upgradeToPractitioner(email);
+    }
+    if (opts.ssoProvider) {
+      const email = opts.email || 'guild@example.com'
+      const token = ssoCheck(opts.ssoProvider, email)
+      console.log('SSO token stub → vauntico-dream-mover/logs/sso-token.json')
     }
     const out = String(opts.output || path.join('logs','tier-profile.json')).trim();
     fs.mkdirSync(path.dirname(out), { recursive: true });
@@ -431,6 +438,28 @@ program
     const { infusePlan } = await import('./compliance/rune-weaver.js');
     const res = infusePlan(opts.plan, opts.template, opts.out)
     console.log('Infused →', res.out)
+  });
+
+program
+  .command('coven-share')
+  .requiredOption('--plan-id <id>')
+  .requiredOption('--team-id <id>')
+  .option('--req <n>', 'Approvals required', '2')
+  .action(async (opts) => {
+    const { shareLib } = await import('./collab/coven-weaver.js');
+    const entry = shareLib(opts.planId, opts.teamId, parseInt(opts.req))
+    console.log('Shared →', JSON.stringify(entry, null, 2))
+  });
+
+program
+  .command('coven-vote')
+  .requiredOption('--plan-id <id>')
+  .requiredOption('--team-id <id>')
+  .action(async (opts) => {
+    const { voteShare } = await import('./collab/coven-weaver.js');
+    const entry = voteShare(opts.planId, opts.teamId)
+    if (!entry) { console.error('Not found'); process.exit(1) }
+    console.log('Vote recorded →', JSON.stringify(entry, null, 2))
   });
 
 program.parseAsync(process.argv);
