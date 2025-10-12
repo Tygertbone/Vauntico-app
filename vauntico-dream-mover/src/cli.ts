@@ -30,13 +30,14 @@ program
   .requiredOption("--plan <path>", "Plan YAML path")
   .requiredOption("--report <path>", "Scan report JSON")
   .option("--out <path>", "Manifest output JSON", "logs/manifest.json")
+  .option("--use-rust", "Attempt to use Rust core for POC checks", false)
   .action(async (opts) => {
     const plan = loadPlan(opts.plan);
     const report = JSON.parse(fs.readFileSync(opts.report, "utf8"));
     const sim = simulate(plan, report);
 
-    // Phase 2: AI/Adaptive stubs — compute risk score and render Mermaid shadow map
-    const { computeRiskScore, renderMermaidShadow } = await import('./ai/risk.js');
+    // Phase 3: Refined AI stubs — compute risk score, preview collisions, and render Mermaid with risk classes
+    const { computeRiskScore, renderMermaidShadow, collisionPreview } = await import('./ai/risk.js');
     const risk = computeRiskScore(sim.actions.map((a: any) => ({
       itemPath: a.itemPath,
       destination: a.destination,
@@ -47,10 +48,15 @@ program
     const shadow = renderMermaidShadow(sim.actions as any);
     fs.writeFileSync('logs/shadow-map.mmd', shadow, 'utf8');
 
-    // Persist manifest and augment with riskScore
+    // Collision preview
+    const preview = collisionPreview(sim.actions as any)
+    fs.writeFileSync('logs/collision-preview.json', JSON.stringify(preview, null, 2))
+
+    // Persist manifest and augment with riskScore and collisionPreview
     const out = saveManifest(sim, opts.out);
     const manifest = JSON.parse(fs.readFileSync(out, 'utf8'));
     manifest.riskScore = risk;
+    manifest.collisionPreview = preview;
     fs.writeFileSync(out, JSON.stringify(manifest, null, 2));
 
     const summaryMB = (sim.estimatedSpaceFreedBytes / 1_000_000).toFixed(2);
@@ -58,8 +64,18 @@ program
     console.log(`Manifest written → ${out}`);
     console.log(`Shadow map → logs/shadow-map.mmd`);
 
+    // Phase 4: Rust core POC
+    if (opts.useRust) {
+      const { getRustDriver } = await import('./runtime/rust-bridge.js')
+      const rust = await getRustDriver()
+      console.log(`Rust core available: ${rust.available}`)
+    }
+
     // Reflective prompt (stub)
     console.log("Reflective: What felt safest? (A) Hashes (B) Samples");
+    if ((preview || []).length) {
+      console.log("Collision preview: " + preview.join(', '))
+    }
 
     for (const a of sim.actions.slice(0, 50)) {
       console.log("—\n" + explainDecision(a));
@@ -327,6 +343,7 @@ program
   .command('marketplace-pull')
   .requiredOption('--plan <name>', 'Plan name to pull (e.g., developer-storage.sample.yml)')
   .option('--source <pathOrUrl>', 'Marketplace index (local JSON path or URL)', 'marketplace/index.json')
+  .option('--vet', 'Run marketplace vetting before pull', false)
   .action(async (opts) => {
     const isUrl = /^(https?:)?\/\//i.test(opts.source);
     let index: any;
@@ -353,6 +370,21 @@ program
       process.exit(1);
     }
     const srcPath = path.resolve(path.dirname(path.resolve(process.cwd(), opts.source)), entry.file);
+
+    if (opts.vet) {
+      const { vetPlan } = await import('./marketplace/vetter.js')
+      const rulesPath = path.resolve(process.cwd(), 'vauntico-dream-mover/marketplace/vet-rules.json')
+      const rulesCfg = JSON.parse(fs.readFileSync(rulesPath, 'utf8'))
+      const issues = vetPlan(srcPath, rulesCfg)
+      if (issues.length) {
+        console.log('Vetting failed:')
+        for (const i of issues) console.log(`- ${i.rule}: ${i.message}`)
+        process.exit(1)
+      } else {
+        console.log('Certified ✅ — vetting passed')
+      }
+    }
+
     const dstPath = path.resolve(process.cwd(), 'plans', path.basename(entry.file));
     fs.mkdirSync(path.dirname(dstPath), { recursive: true });
     fs.copyFileSync(srcPath, dstPath);
@@ -362,23 +394,24 @@ program
 // Tiers: check current capability tier for an identity/email (stub)
 program
   .command('tier-check')
+  .option('--user <id>', 'User id (stub)')
   .option('--email <email>', 'User email for lookup (optional)')
+  .option('--upgrade', 'Upgrade to Practitioner (stub + Paystack intent)', false)
   .option('--output <path>', 'Write JSON result to path')
-  .action((opts) => {
-    const now = new Date().toISOString();
-    const result = {
-      tier: 'seeker',
-      limits: { ritualsPerDay: 5, plans: 3, auditRetentionDays: 7 },
-      ts: now
-    };
-    const out = String(opts.output || '').trim();
-    if (out) {
-      fs.mkdirSync(path.dirname(out), { recursive: true });
-      fs.writeFileSync(out, JSON.stringify(result, null, 2));
-      console.log('Tier info →', out);
-    } else {
-      console.log(JSON.stringify(result, null, 2));
+  .action(async (opts) => {
+    const { checkTier, upgradeToPractitioner } = await import('./tiers/gatekeeper.js');
+    const { createPaystackIntent } = await import('./tiers/paystack-vault.js');
+    let profile = checkTier(opts.user);
+    if (opts.upgrade) {
+      const email = opts.email || 'test@example.com';
+      const intent = await createPaystackIntent(email, 600);
+      console.log('Paystack checkout (stub):', intent.url);
+      profile = upgradeToPractitioner(email);
     }
+    const out = String(opts.output || path.join('logs','tier-profile.json')).trim();
+    fs.mkdirSync(path.dirname(out), { recursive: true });
+    fs.writeFileSync(out, JSON.stringify(profile, null, 2));
+    console.log('Tier profile →', out);
   });
 
 program.parseAsync(process.argv);

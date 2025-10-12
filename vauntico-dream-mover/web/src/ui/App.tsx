@@ -3,6 +3,8 @@ import React, { useMemo, useState } from 'react'
 import { Dashboard } from '../components/Dashboard'
 import { AuditSummary } from '../components/AuditSummary'
 import { ShadowViewer } from '../components/ShadowViewer'
+import { TierGate } from '../components/TierGate'
+import { CertQuest } from '../components/CertQuest'
 
 export function App() {
   const [plan, setPlan] = useState('vauntico-dream-mover/plans/developer-storage.sample.yml')
@@ -21,6 +23,12 @@ export function App() {
 
       <section style={{ marginTop: 24 }}>
         <h2>Ritual Picker</h2>
+        <TierGate level={localStorage.getItem('dm-tier') || 'Seeker'} ritualsLeft={5} onUpgrade={() => {
+          const email = prompt('Enter email for Paystack checkout:') || 'test@example.com'
+          window.open(`https://paystack.com/pay/intent?email=${encodeURIComponent(email)}&amount=600&currency=ZAR`, '_blank')
+          localStorage.setItem('dm-tier','Practitioner')
+          alert('Practitioner unlock simulated. Reload to reflect.')
+        }} />
         <Dashboard plan={plan} onPlanChange={setPlan} onRunHint={() => {
           const cmd = `node vauntico-dream-mover/dist/cli.js simulate --plan ${plan} --report vauntico-dream-mover/logs/report.json --out vauntico-dream-mover/logs/manifest.json`
           alert(`Run via Warp:\n${cmd}`)
@@ -35,6 +43,11 @@ export function App() {
       <section style={{ marginTop: 24 }}>
         <h2>Shadow Map</h2>
         <ShadowViewer mmdUrl="/dm-logs/shadow-map.mmd" />
+      </section>
+
+      <section style={{ marginTop: 24 }}>
+        <h2>Certification</h2>
+        <CertQuest />
       </section>
 
       <section style={{ marginTop: 24 }}>

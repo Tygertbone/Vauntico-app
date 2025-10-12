@@ -19,7 +19,9 @@
     "tier:check": "node dist/cli.js tier-check --output logs/tier.json",
     "test": "jest",
     "phase2:test": "jest",
-    "phase3:test": "jest"
+    "phase3:test": "jest",
+    "phase4:vet": "node dist/marketplace/vetter.js --dir plans",
+    "phase4:rust": "cargo build --manifest-path rust-core/Cargo.toml"
   },
   "dependencies": {
     "commander": "^12.0.0",

@@ -1,0 +1,13 @@
+name: Migration Adept
+priceUSD: 249
+modules:
+  - title: Ritual Foundations
+    topics: [simulate, migrate, rollback]
+  - title: Safety
+    topics: [dryRun, verifyModes, timeCapsules]
+exam:
+  totalQuestions: 10
+  passingScore: 0.8
+payment:
+  primary: Paystack
+  fallback: Gumroad

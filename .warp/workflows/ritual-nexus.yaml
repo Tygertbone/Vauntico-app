@@ -53,3 +53,23 @@ workflows:
       "
     description: Simulate DB relocation to spike service-lock risk and view Mermaid render in web dashboard
     tags: [vauntico, rituals, phase3]
+
+  - name: Dream Mover • Phase 4 Vet & Rust POC
+    command: |
+      pwsh -NoProfile -Command "
+        node vauntico-dream-mover/dist/cli.js marketplace-pull --plan docker-volumes.sample.yml --source vauntico-dream-mover/marketplace/index.json --vet;
+        node vauntico-dream-mover/dist/cli.js simulate --plan vauntico-dream-mover/plans/docker-volumes.sample.yml --report vauntico-dream-mover/logs/report.json --out vauntico-dream-mover/logs/manifest.json --use-rust;
+        Write-Host 'If DM_RUST_LIB is set, simulate will log Rust core availability.';
+      "
+    description: Vet a marketplace plan and run simulate with Rust POC flag
+    tags: [vauntico, rituals, phase4]
+
+  - name: Dream Mover • Phase 5 Gates & Cert Quest
+    command: |
+      pwsh -NoProfile -Command "
+        node vauntico-dream-mover/dist/cli.js tier-check --output vauntico-dream-mover/logs/tier-profile.json;
+        node vauntico-dream-mover/dist/cli.js simulate --plan vauntico-dream-mover/plans/monorepo-ai-links.sample.yml --report vauntico-dream-mover/logs/report.json --out vauntico-dream-mover/logs/manifest.json;
+        Write-Host 'Open web dashboard → TierGate upgrade + CertQuest';
+      "
+    description: Check tier, simulate monorepo plan, then visit web to upgrade and attempt cert quest (stubs)
+    tags: [vauntico, rituals, phase5]

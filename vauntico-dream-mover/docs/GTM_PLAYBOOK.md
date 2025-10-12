@@ -8,4 +8,6 @@ Phases
 
 Assets
 - Add Phase 2 demo: Mermaid shadow maps and risk summaries in README.
+- Phase 3: Collision previews and colored Mermaid render (web).
+- Phase 5: Cert launch ($249), SA-friendly Paystack flow for Practitioner, 10% conversion target.
 - Whitepapers, demo scripts, ROI calculators, plan marketplace spotlights.
