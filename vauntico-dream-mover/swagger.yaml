@@ -1,0 +1,40 @@
+openapi: 3.0.0
+info:
+  title: Dream Mover API (Stub)
+  version: 0.1.0
+paths:
+  /sim:
+    post:
+      summary: Queue a simulation (stub)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                plan:
+                  type: string
+      responses:
+        '200':
+          description: ok
+  /manifest:
+    get:
+      summary: Get last manifest (if exists)
+      responses:
+        '200': { description: ok }
+        '404': { description: not found }
+  /rune-infuse:
+    post:
+      summary: Infuse a compliance template into a plan (stub)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                plan: { type: string }
+                template: { type: string, enum: [gdpr, hipaa] }
+      responses:
+        '200': { description: ok }

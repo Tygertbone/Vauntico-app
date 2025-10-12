@@ -105,3 +105,13 @@ workflows:
       "
     description: Initialize on-prem env and generate SLA (white-label) stubs
     tags: [vauntico, rituals, phase8]
+
+  - name: Dream Mover • Phase 9 Portal & Pulse
+    command: |
+      pwsh -NoProfile -Command "
+        Start-Job -ScriptBlock { node vauntico-dream-mover/dist/cli.js api-serve --port 3001 } | Out-Null;
+        node vauntico-dream-mover/dist/cli.js cron-rite --plan vauntico-dream-mover/plans/monorepo-ai-links.gdpr.yml --template gdpr --expr \"0 0 * * *\";
+        Write-Host 'API served on 3001 (stub) and cron schedule written. Open ApiPortal and CronRite in web.';
+      "
+    description: Serve API (stub) and schedule cron infusion
+    tags: [vauntico, rituals, phase9]

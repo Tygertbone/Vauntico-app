@@ -491,4 +491,24 @@ program
     console.log('SLA written →', opts.out)
   });
 
+program
+  .command('api-serve')
+  .option('--port <n>', 'Port to listen on', '3001')
+  .action(async (opts) => {
+    const { serve } = await import('./api/portal.js')
+    const server = serve(parseInt(opts.port))
+    process.on('SIGINT', ()=> server.close())
+  });
+
+program
+  .command('cron-rite')
+  .requiredOption('--plan <path>')
+  .requiredOption('--template <name>', 'gdpr|hipaa')
+  .requiredOption('--expr <cron>', 'cron expression')
+  .action(async (opts) => {
+    const { scheduleInfuse } = await import('./cron/rite-weaver.js')
+    const res = scheduleInfuse(opts.plan, opts.expr, opts.template)
+    console.log('Scheduled →', JSON.stringify(res, null, 2))
+  });
+
 program.parseAsync(process.argv);
