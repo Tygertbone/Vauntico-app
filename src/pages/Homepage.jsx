@@ -19,11 +19,19 @@ export default function Homepage() {
       <main role="main">
         <header className="text-center mb-12">
           <h1 className="text-4xl font-bold text-[var(--vauntico-gold-text)]">
-            Awaken. Build. Transcend.
+            Vauntico: Build with Ritual. Scale with Clarity.
           </h1>
           <p className="mt-4 text-lg text-gray-300">
-            Vauntico is where ideas become income.
+            From CLI to cosmos — empower your team with tools that teach, verify, and glow.
           </p>
+          <div className="mt-6 flex items-center justify-center gap-3">
+            <Link to="/dream-mover" className="bg-yellow-400 text-black px-6 py-3 rounded font-semibold hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
+              Launch Dream Mover
+            </Link>
+            <Link to="/webhook-studio" className="bg-gray-900 text-white border border-gray-700 px-6 py-3 rounded font-semibold hover:bg-gray-800 transition-all duration-300">
+              Explore Webhook Studio
+            </Link>
+          </div>
 
           {/* ✅ Featured Ascension Codex Banner */}
           <div className="mt-8 max-w-3xl mx-auto">
@@ -79,45 +87,43 @@ export default function Homepage() {
           </div>
         </header>
 
-        {/* Quick Links */}
-        <section
-          className="grid md:grid-cols-2 gap-6 mb-16"
-          aria-label="Quick links"
-        >
+        {/* Dual Columns: Dream Mover & Webhook Studio */}
+        <section className="grid md:grid-cols-2 gap-6 mb-16" aria-label="Products">
           <Link
-            to="/prompt-vault"
-            data-cta="homepage-explore-vaults"
-            aria-label="Explore our premium prompt vault collection"
-            className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition"
+            to="/dream-mover"
+            className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition block"
           >
-            <h3 className="text-xl font-bold text-vauntico-gold mb-2">
-              Explore Vaults
-            </h3>
-            <p className="text-gray-300">
-              Browse our collection of premium prompt libraries
-            </p>
+            <h3 className="text-xl font-bold text-vauntico-gold mb-2">Dream Mover</h3>
+            <p className="text-gray-300 mb-2">Ritualized onboarding console for safe migrations and live ops.</p>
+            <span className="text-yellow-400 underline">Launch Console →</span>
           </Link>
           <Link
-            to="/pricing"
-            data-cta="homepage-view-pricing"
-            aria-label="View pricing plans for your creative journey"
-            className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition"
+            to="/webhook-studio"
+            className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition block"
           >
-            <h3 className="text-xl font-bold text-vauntico-gold mb-2">
-              View Pricing
-            </h3>
-            <p className="text-gray-300">
-              Find the perfect plan for your creative journey
-            </p>
+            <h3 className="text-xl font-bold text-vauntico-gold mb-2">Webhook Studio</h3>
+            <p className="text-gray-300 mb-2">CLI toolkit, admin dashboard, and CI integration for verifiable flows.</p>
+            <span className="text-yellow-400 underline">Explore Studio →</span>
           </Link>
         </section>
 
-        {/* Vault Cards */}
-        <section
-          className="grid md:grid-cols-3 gap-6 mb-24"
-          aria-label="Vault cards"
-        >
-          <VaultCard
+        {/* Live Previews */}
+        <section className="grid md:grid-cols-3 gap-6 mb-24" aria-label="Live Previews">
+          <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
+            <h3 className="text-lg font-semibold mb-2">Badge Preview</h3>
+            <p className="text-gray-400 mb-3">View your current tier and status.</p>
+            <Link to="/link-rites" className="text-yellow-400 underline">Open /link-rites →</Link>
+          </div>
+          <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
+            <h3 className="text-lg font-semibold mb-2">Webhook Logs</h3>
+            <p className="text-gray-400 mb-3">Admin-only dashboard for recent events.</p>
+            <Link to="/admin/webhook-log" className="text-yellow-400 underline">Open logs →</Link>
+          </div>
+          <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
+            <h3 className="text-lg font-semibold mb-2">CLI Snippets</h3>
+            <pre className="bg-black/40 border border-gray-800 rounded p-3 text-xs overflow-auto">{`vauntico-webhook simulate --url $WEBHOOK_URL \
+  --email you@example.com --plan seekers-spark --amount 199\nvauntico-webhook disable --url $WEBHOOK_URL --event subscription.disable --email you@example.com --plan seekers-spark\nvauntico-webhook test --webhook $WEBHOOK_URL`}</pre>
+          </div>
             title="Creator's Toolkit"
             price="$49"
             description="Essential prompts for content creators and influencers"
