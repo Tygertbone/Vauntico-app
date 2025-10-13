@@ -15,7 +15,10 @@
     "webhook:simulate": "node scripts/simulate-paystack-webhook.mjs",
     "webhook:disable": "node scripts/simulate-paystack-disable.mjs",
     "webhook:simulate:ps": "pwsh -File scripts/webhook-simulate.ps1",
-    "webhook:disable:ps": "pwsh -File scripts/webhook-disable.ps1"
+    "webhook:disable:ps": "pwsh -File scripts/webhook-disable.ps1",
+    "webhook:simulate:sh": "bash scripts/webhook-simulate.sh",
+    "webhook:disable:sh": "bash scripts/webhook-disable.sh",
+    "webhook:test": "node scripts/test-webhook-flows.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.75.0",
