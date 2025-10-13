@@ -5,6 +5,7 @@ import CTAButton from "@/components/ui/CTAButton";
 import { Badge } from "@/components/ui/badge";
 import { Sparkles, Crown, Terminal } from "lucide-react";
 import LottieFromUrl from "@/components/LottieFromUrl";
+import LottieOnVisible from "@/components/LottieOnVisible";
 
 function FooterPulse() {
   return (
@@ -26,7 +27,7 @@ export default function Homepage() {
       <main role="main">
         <header className="text-center mb-12 md:mb-16">
           <div className="flex justify-center mb-6">
-            <LottieFromUrl src="/brand-assets/dualreveal.json" loop autoplay className="w-[560px] h-[260px]" />
+            <LottieOnVisible src="/brand-assets/dualreveal.json" loop className="w-[560px] h-[260px]" />
           </div>
           <h1 className="text-5xl md:text-6xl leading-tight font-extrabold text-[var(--vauntico-gold-text)]">
             Vauntico: Build with Ritual. Scale with Clarity.
@@ -152,13 +153,25 @@ className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 hover:scale-[1.02] hover
           <span className="glow-dot" aria-hidden="true"></span>
           <span>Built to Teach. Designed to Last.</span>
         </div>
-        <div className="flex items-center justify-center mb-4">
+        <div className="flex items-center justify-center mb-4 relative">
           {/* Footer GlyphPulse (1s loop) */}
           <FooterPulse />
+          {/* Hover overlays */}
+          {footerOverlay === 'blue' && (
+            <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+              <LottieFromUrl src="/brand-assets/blue-nodes.json" loop autoplay className="w-24 h-12" />
+            </div>
+          )}
+          {footerOverlay === 'orange' && (
+            <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+              <LottieFromUrl src="/brand-assets/orange-embers.json" loop autoplay className="w-24 h-12" />
+            </div>
+          )}
         </div>
         <nav className="flex items-center justify-center gap-4">
           <a href="https://github.com/Tygertbone/Vauntico-app" className="docs-link" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="/webhook-studio" className="docs-link">Docs</a>
+          <a href="/webhook-studio" className="docs-link hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300" onMouseEnter={() => setFooterOverlay('blue')} onMouseLeave={() => setFooterOverlay(null)}>Docs</a>
+          <a href="/dream-mover" className="docs-link hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300" onMouseEnter={() => setFooterOverlay('orange')} onMouseLeave={() => setFooterOverlay(null)}>Dream Mover</a>
           <a href="mailto:support@vauntico.com" className="docs-link">Contact</a>
           <a href="/privacy" className="docs-link">Privacy</a>
         </nav>
