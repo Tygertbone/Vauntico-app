@@ -135,24 +135,6 @@ export default function Homepage() {
             <li><a className="underline" href="/api/admin/webhook-logs?event=charge.success&page=1&pageSize=50" target="_blank" rel="noreferrer">Admin API — /api/admin/webhook-logs</a></li>
           </ul>
         </section>
-            title="Creator's Toolkit"
-            price="$49"
-            description="Essential prompts for content creators and influencers"
-            buttonText="Coming Soon"
-          />
-          <VaultCard
-            title="Agency Arsenal"
-            price="$99"
-            description="Professional workflows for marketing agencies"
-            buttonText="Coming Soon"
-          />
-          <VaultCard
-            title="E-commerce Empire"
-            price="$149"
-            description="Product descriptions and branding for online stores"
-            buttonText="Coming Soon"
-          />
-        </section>
 
       </main>
       <footer role="contentinfo" className="text-center text-xs text-gray-500 mt-12 py-8 border-t border-gray-800">
