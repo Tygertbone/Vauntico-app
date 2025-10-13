@@ -40,6 +40,35 @@ pnpm install
 pnpm dev
 ```
 
+## 🔔 Webhook Simulation (Paystack)
+
+You can simulate Paystack webhooks locally to validate entitlement upserts without exposing secrets in code.
+
+- Success (charge.success)
+  - PowerShell (secure prompt):
+    ```powershell
+    pnpm webhook:simulate:ps -- -Url https://www.vauntino.com/api/paystack/webhook -Plan seekers-spark -Email you@example.com -Amount 199
+    ```
+  - Direct (requires PAYSTACK_TEST_SECRET set):
+    ```powershell
+    $env:PAYSTACK_TEST_SECRET="{{your_test_secret}}"; pnpm webhook:simulate -- --url https://www.vauntino.com/api/paystack/webhook --plan seekers-spark --email you@example.com --amount 199
+    ```
+
+- Disable / Failure (subscription.disable or invoice.payment_failed)
+  - PowerShell (secure prompt):
+    ```powershell
+    pnpm webhook:disable:ps -- -Url https://www.vauntino.com/api/paystack/webhook -Event subscription.disable -Plan seekers-spark -Email you@example.com
+    ```
+  - Direct (requires PAYSTACK_TEST_SECRET set):
+    ```powershell
+    $env:PAYSTACK_TEST_SECRET="{{your_test_secret}}"; pnpm webhook:disable -- --url https://www.vauntino.com/api/paystack/webhook --event subscription.disable --plan seekers-spark --email you@example.com
+    ```
+
+Notes
+- Never hardcode secrets. Provide your secret at runtime via environment variables or the PowerShell secure prompt.
+- The webhook verifies x-paystack-signature (HMAC SHA512) and upserts entitlements in Supabase.
+- Tiers map from planKey (seekers-spark → Practitioner, weavers-pyre → Guild, eternal-blaze → Oracle) or from amount (199/499/999 ZAR).
+
 ## 🚀 Quickstart: Run Your First Ritual
 
 Dream Mover is designed as a guided console of migrations.  
