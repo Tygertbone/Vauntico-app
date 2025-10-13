@@ -52,10 +52,10 @@ function App() {
       <header className="w-full bg-black text-white border-b border-gray-800 px-4 py-3 flex items-center justify-between">
         <Link to="/" className="font-semibold hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">Vauntico</Link>
         <nav className="flex items-center gap-4 text-sm">
-          <Link to="/" className="text-gray-300 hover:text-white transition-colors">Home</Link>
-          <Link to="/dream-mover" className="text-gray-300 hover:text-white transition-colors">Dream Mover</Link>
-          <Link to="/webhook-studio" className="text-gray-300 hover:text-white transition-colors">Webhook Studio</Link>
-          <Link to="/admin/webhook-log" className="text-gray-300 hover:text-white transition-colors">Admin</Link>
+          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/dream-mover" className="nav-link">Dream Mover</Link>
+          <Link to="/webhook-studio" className="nav-link">Webhook Studio</Link>
+          <Link to="/admin/webhook-log" className="nav-link">Admin</Link>
         </nav>
         <div className="flex items-center gap-3">
           <SignedOut>
