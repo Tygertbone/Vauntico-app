@@ -82,4 +82,7 @@ jspm_packages/
 tmp/
 temp/.env
 
+# Local env import file (must never be committed)
+import.env
+
 .vercel

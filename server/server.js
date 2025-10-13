@@ -13,7 +13,8 @@ app.use(bodyParser.json());
 
 const supabase = createClient(
   process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
+  // Rotated secret must be provided via SUPABASE_SERVICE_ROLE_JWT
+  process.env.SUPABASE_SERVICE_ROLE_JWT
 );
 
 // Health check

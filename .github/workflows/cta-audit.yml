@@ -1,6 +1,28 @@
 name: CTA Audit
 
-on: [push, pull_request]
+on:
+  push:
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'server/**'
+      - 'vite.config.*'
+      - 'postcss.config.cjs'
+      - 'tailwind.config.*'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - '.github/workflows/**'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'server/**'
+      - 'vite.config.*'
+      - 'postcss.config.cjs'
+      - 'tailwind.config.*'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - '.github/workflows/**'
 
 permissions:
   contents: read
@@ -25,5 +47,199 @@ jobs:
           node-version: 20
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-node-20-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-node-20-pnpm-
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Run Vauntico lint
+        run: node vauntico-lint.cjs
+
+on:
+  push:
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'server/**'
+      - 'vite.config.*'
+      - 'postcss.config.cjs'
+      - 'tailwind.config.*'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - '.github/workflows/**'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'server/**'
+      - 'vite.config.*'
+      - 'postcss.config.cjs'
+      - 'tailwind.config.*'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - '.github/workflows/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-node-20-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-node-20-pnpm-
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Run Vauntico lint
+        run: node vauntico-lint.cjs
+
+on:
+  push:
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'server/**'
+      - 'vite.config.*'
+      - 'postcss.config.cjs'
+      - 'tailwind.config.*'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - '.github/workflows/**'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'server/**'
+      - 'vite.config.*'
+      - 'postcss.config.cjs'
+      - 'tailwind.config.*'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - '.github/workflows/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-node-20-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-node-20-pnpm-
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Run Vauntico lint
+        run: node vauntico-lint.cjs
+
+on:
+  push:
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'server/**'
+      - 'vite.config.*'
+      - 'postcss.config.cjs'
+      - 'tailwind.config.*'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - '.github/workflows/**'
+  pull_request:
+    paths:
+      - 'src/**'
+      - 'scripts/**'
+      - 'server/**'
+      - 'vite.config.*'
+      - 'postcss.config.cjs'
+      - 'tailwind.config.*'
+      - 'package.json'
+      - 'pnpm-lock.yaml'
+      - '.github/workflows/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+<<<<<<< HEAD
+          node-version: 20
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile
       - run: node vauntico-lint.cjs
+=======
+          node-version: 18
+      - name: Enable Corepack (pnpm)
+        run: corepack enable
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-node-18-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-node-18-pnpm-
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Run Vauntico lint
+        run: node vauntico-lint.cjs
+>>>>>>> 3b079354 (ci: gate workflow by code-impacting paths and add explicit pnpm store cache; docs: note CI path filters in README)

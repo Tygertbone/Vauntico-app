@@ -1,0 +1,23 @@
+# GitGuardian configuration
+# See: https://docs.gitguardian.com/ggshield/configuration/yaml_reference
+
+version: 1
+verbose: false
+
+paths:
+  # Exclude local sample/import files from scanning (should not be committed)
+  ignored:
+    - "**/node_modules/**"
+    - "**/.git/**"
+    - "**/.vercel/**"
+    - "**/dist/**"
+    - "import.env"
+
+matches:
+  # Treat any JWT-like token in tracked files as high severity
+  jwt:
+    enabled: true
+
+policies:
+  # Fail CI on high severity findings
+  severity: high
