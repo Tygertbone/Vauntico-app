@@ -1,6 +1,3 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
 echo "🔧 Running Vauntico Branded Standards Enforcement..."
 
 # Fail fast on any error

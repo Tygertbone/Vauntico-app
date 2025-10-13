@@ -64,15 +64,88 @@ program.command('hover-fix')
   });
 
 program.command('polish')
-  .description('Run polish script (no-op dry-run for now)')
+  .description('Scan CTA usage and optionally auto-fix missing props')
   .option('--dry-run', 'preview actions only')
+  .option('--fix', 'apply fixes to files')
+  .option('--report', 'only report issues (default)')
   .action((opts) => {
-    if (opts.dryRun) {
-      console.log('[dry-run] Would run vauntico-polish-fix.cjs');
-      return;
+    const root = process.cwd();
+    const srcDir = path.resolve(root, 'src');
+    if (!fs.existsSync(srcDir)) {
+      console.error('src directory not found');
+      process.exit(1);
     }
-    const p = spawnSync('node', [path.resolve(process.cwd(), 'vauntico-polish-fix.cjs')], { stdio: 'inherit' });
-    process.exit(p.status || 0);
+
+    const CTA_REGEX = /<CTAButton\b([^>]*)>/g;
+    const requiredProps = ['label', 'to', 'trackEvent'];
+
+    const walkDir = (dir) => fs.readdirSync(dir).flatMap(f => {
+      const p = path.join(dir, f);
+      const s = fs.statSync(p);
+      if (s.isDirectory()) return walkDir(p);
+      if (p.endsWith('.jsx')) return [p];
+      return [];
+    });
+
+    const files = walkDir(srcDir);
+    let filesChanged = 0;
+    let issues = 0;
+
+    files.forEach((filePath) => {
+      const original = fs.readFileSync(filePath, 'utf8');
+      let content = original;
+      let fileHadIssue = false;
+
+      content = content.replace(CTA_REGEX, (match, props) => {
+        const propStr = props || '';
+        const missing = requiredProps.filter(p => !new RegExp(`\\b${p}=`).test(propStr));
+        if (missing.length === 0) return match; // OK
+        fileHadIssue = true;
+        issues += missing.length;
+
+        if (!opts.fix) {
+          console.log(`CTA missing props in ${filePath}: ${missing.join(', ')}`);
+          return match; // report only
+        }
+
+        // Build additions with safe placeholders
+        const additions = [];
+        if (missing.includes('label')) additions.push('label="CTA"');
+        if (missing.includes('to')) additions.push('to="/"');
+        if (missing.includes('trackEvent')) additions.push('trackEvent="cta_click"');
+
+        const space = propStr.trim().length ? ' ' : ' ';
+        return `<CTAButton${propStr}${space}${additions.join(' ')}>`;
+      });
+
+      if (opts.fix && fileHadIssue && content !== original) {
+        if (opts.dryRun) {
+          console.log(`[dry-run] Would fix CTA props in ${filePath}`);
+        } else {
+          fs.writeFileSync(filePath, content, 'utf8');
+          console.log(`✅ Fixed CTA props in ${filePath}`);
+          filesChanged++;
+        }
+      }
+    });
+
+    if (!opts.fix && issues === 0) {
+      console.log('No CTA issues found.');
+    }
+
+    if (opts.fix) {
+      if (opts.dryRun) {
+        console.log(`\n[dry-run] ${filesChanged} files would be modified`);
+      } else {
+        console.log(`\n✅ ${filesChanged} files modified`);
+      }
+    } else {
+      // Fall back to existing scripted polish if user requests no report/scan changes
+      if (!opts.report) {
+        const p = spawnSync('node', [path.resolve(process.cwd(), 'vauntico-polish-fix.cjs')], { stdio: 'inherit' });
+        process.exit(p.status || 0);
+      }
+    }
   });
 
 program.parse();
