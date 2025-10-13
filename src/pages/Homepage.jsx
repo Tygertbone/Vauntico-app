@@ -4,6 +4,13 @@ import VaultCard from "../components/VaultCard";
 import CTAButton from "@/components/ui/CTAButton";
 import { Badge } from "@/components/ui/badge";
 import { Sparkles, Crown, Terminal } from "lucide-react";
+import LottieFromUrl from "@/components/LottieFromUrl";
+
+function FooterPulse() {
+  return (
+    <LottieFromUrl src="/brand-assets/glyphpulse.json" loop autoplay className="w-16 h-8" />
+  );
+}
 
 export default function Homepage() {
   return (
@@ -138,9 +145,13 @@ className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 hover:scale-[1.02] hover
 
       </main>
       <footer role="contentinfo" className="text-center text-xs text-gray-500 mt-12 py-8 border-t border-gray-800">
-        <div className="mb-2 flex items-center justify-center gap-2">
+        <div className="mb-4 flex items-center justify-center gap-2">
           <span className="glow-dot" aria-hidden="true"></span>
           <span>Built to Teach. Designed to Last.</span>
+        </div>
+        <div className="flex items-center justify-center mb-4">
+          {/* Footer GlyphPulse (1s loop) */}
+          <FooterPulse />
         </div>
         <nav className="flex items-center justify-center gap-4">
           <a href="https://github.com/Tygertbone/Vauntico-app" className="docs-link" target="_blank" rel="noreferrer">GitHub</a>

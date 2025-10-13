@@ -36,6 +36,7 @@ import TransmissionPage from './pages/codex/TransmissionPage.jsx';
 import TodayPage from './pages/codex/TodayPage.jsx';   
 import ArchivePage from './pages/codex/ArchivePage.jsx';   // ✅ FIXED
 import WebhookLog from './pages/admin/WebhookLog.jsx';
+import BrandPage from './pages/BrandPage.jsx';
 
 import './App.css';
 import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
@@ -56,6 +57,7 @@ function App() {
           <Link to="/dream-mover" className="nav-link">Dream Mover</Link>
           <Link to="/webhook-studio" className="nav-link">Webhook Studio</Link>
           <Link to="/admin/webhook-log" className="nav-link">Admin</Link>
+          <Link to="/brand" className="nav-link">Brand</Link>
         </nav>
         <div className="flex items-center gap-3">
           <SignedOut>
@@ -112,6 +114,9 @@ function App() {
 
             {/* Admin */}
             <Route path="/admin/webhook-log" element={<WebhookLog />} />
+
+            {/* Brand Grimoire */}
+            <Route path="/brand" element={<BrandPage />} />
           </Routes>
         </Router>
       </div>
