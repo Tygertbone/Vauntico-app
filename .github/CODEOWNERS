@@ -1,0 +1,4 @@
+# CODEOWNERS for Vauntico-app
+*       @Tygertbone
+/src/**  @Tygertbone
+/server/** @Tygertbone
