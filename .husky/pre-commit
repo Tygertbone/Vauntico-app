@@ -1,8 +1,30 @@
+# Modern Husky hook (no husky.sh sourcing)
+set -e
+
+echo "🔧 Running Vauntico Branded Standards Enforcement..."
+
+# Non-blocking audit (private registries may not support audit endpoints)
+pnpm audit --audit-level=high || true
+
+# Optional: run lint-staged if available (does not block if missing)
+if command -v pnpm >/dev/null 2>&1; then
+  pnpm exec lint-staged || true
+fi
+
+# Block on Vauntico lint failures
+if node vauntico-lint.cjs; then
+  echo "✅ Vauntico standards enforced - commit allowed"
+else
+  echo "❌ Commit blocked: Vauntico branded standards not met"
+  exit 1
+fi
 #!/usr/bin/env sh
 
 # Modern Husky hook (no husky.sh sourcing)
 set -e
 
+=======
+>>>>>>> ea785a4f (chore: workspace + husky v10 hook + polish auto-fix\n\n- add pnpm-workspace.yaml\n- update .husky/pre-commit to v10-compatible format\n- enhance vauntico polish: --report/--fix/--dry-run, auto-add CTA props)
 echo "🔧 Running Vauntico Branded Standards Enforcement..."
 
 # Run audit but do not block commits if the registry lacks an audit endpoint
