@@ -27,9 +27,9 @@ import LinkRitesPage from './pages/LinkRitesPage.jsx';
 import DreamMoverBridgePage from './pages/DreamMoverBridgePage.jsx';
 import VaultPage from './pages/VaultPage.jsx';
 import RitesPage from './pages/RitesPage.jsx';
+import WebhookStudioPage from './pages/WebhookStudioPage.jsx';
 
-// UI Shell
-import { Sidebar, SidebarProvider, SidebarInset } from './components/ui/sidebar.jsx';
+// UI Shell (sidebar removed for clean top-nav layout)
 
 // 🚀 NEW: Transmission Pages
 import TransmissionPage from './pages/codex/TransmissionPage.jsx';
@@ -42,16 +42,21 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
 
 function App() {
   return (
-    <SidebarProvider>
-      <Sidebar />
+    <>
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-black text-white px-3 py-2 rounded"
       >
         Skip to content
       </a>
-      <header className="w-full bg-black text-white border-b border-gray-800 px-4 py-2 flex items-center justify-between">
+      <header className="w-full bg-black text-white border-b border-gray-800 px-4 py-3 flex items-center justify-between">
         <Link to="/" className="font-semibold hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">Vauntico</Link>
+        <nav className="flex items-center gap-4 text-sm">
+          <Link to="/" className="text-gray-300 hover:text-white transition-colors">Home</Link>
+          <Link to="/dream-mover" className="text-gray-300 hover:text-white transition-colors">Dream Mover</Link>
+          <Link to="/webhook-studio" className="text-gray-300 hover:text-white transition-colors">Webhook Studio</Link>
+          <Link to="/admin/webhook-log" className="text-gray-300 hover:text-white transition-colors">Admin</Link>
+        </nav>
         <div className="flex items-center gap-3">
           <SignedOut>
             <Link to="/account" className="text-sm underline hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">Sign in</Link>
@@ -61,7 +66,7 @@ function App() {
           </SignedIn>
         </div>
       </header>
-      <SidebarInset>
+      <div id="main-content">
         <Router>
           <Routes>
             {/* Homepage */}
@@ -86,6 +91,9 @@ function App() {
             <Route path="/demo" element={<DemoPage />} />
             <Route path="/delegation" element={<DelegationPage />} />
 
+            {/* Webhook Studio */}
+            <Route path="/webhook-studio" element={<WebhookStudioPage />} />
+
             {/* 🚀 Ascension Codex Funnel */}
             <Route path="/ascension-codex" element={<AscensionCodexPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
@@ -106,8 +114,8 @@ function App() {
             <Route path="/admin/webhook-log" element={<WebhookLog />} />
           </Routes>
         </Router>
-      </SidebarInset>
-    </SidebarProvider>
+      </div>
+    </>
   );
 }
 
