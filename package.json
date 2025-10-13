@@ -12,7 +12,8 @@
     "audit:fix": "node vauntico-auto-fix.cjs",
     "polish:fix": "node vauntico-polish-fix.cjs",
     "ritual:qa": "node vauntico-ritual-qa.cjs",
-    "webhook:simulate": "node scripts/simulate-paystack-webhook.mjs"
+    "webhook:simulate": "node scripts/simulate-paystack-webhook.mjs",
+    "webhook:disable": "node scripts/simulate-paystack-disable.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.75.0",
