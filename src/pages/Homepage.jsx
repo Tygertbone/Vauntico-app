@@ -3,11 +3,11 @@ import { Helmet } from "react-helmet-async";
 import VaultCard from "../components/VaultCard";
 import CTAButton from "@/components/ui/CTAButton";
 import { Badge } from "@/components/ui/badge";
-import { Sparkles, Crown } from "lucide-react";
+import { Sparkles, Crown, Terminal } from "lucide-react";
 
 export default function Homepage() {
   return (
-    <div className="bg-black text-white min-h-screen px-6 py-12">
+    <div className="bg-black text-white min-h-screen px-6 py-14 md:py-16">
       <Helmet>
         <title>Vauntico — Awaken. Build. Transcend.</title>
         <meta
@@ -17,18 +17,18 @@ export default function Homepage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Helmet>
       <main role="main">
-        <header className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-[var(--vauntico-gold-text)]">
+        <header className="text-center mb-12 md:mb-16">
+          <h1 className="text-5xl md:text-6xl leading-tight font-extrabold text-[var(--vauntico-gold-text)]">
             Vauntico: Build with Ritual. Scale with Clarity.
           </h1>
-          <p className="mt-4 text-lg text-gray-300">
+          <p className="mt-4 text-base md:text-lg text-gray-300 max-w-3xl mx-auto">
             From CLI to cosmos — empower your team with tools that teach, verify, and glow.
           </p>
-          <div className="mt-6 flex items-center justify-center gap-3">
-            <Link to="/dream-mover" className="bg-yellow-400 text-black px-6 py-3 rounded font-semibold hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
+          <div className="mt-7 md:mt-8 flex items-center justify-center gap-3">
+            <Link to="/dream-mover" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
               Launch Dream Mover
             </Link>
-            <Link to="/webhook-studio" className="bg-gray-900 text-white border border-gray-700 px-6 py-3 rounded font-semibold hover:bg-gray-800 transition-all duration-300">
+            <Link to="/webhook-studio" className="bg-gray-900 text-white border border-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300">
               Explore Webhook Studio
             </Link>
           </div>
@@ -88,27 +88,27 @@ export default function Homepage() {
         </header>
 
         {/* Dual Columns: Dream Mover & Webhook Studio */}
-        <section className="grid md:grid-cols-2 gap-6 mb-16" aria-label="Products">
+        <section className="grid md:grid-cols-2 gap-6 mb-16 md:mb-20" aria-label="Products">
           <Link
             to="/dream-mover"
             className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition block"
           >
-            <h3 className="text-xl font-bold text-vauntico-gold mb-2">Dream Mover</h3>
-            <p className="text-gray-300 mb-2">Ritualized onboarding console for safe migrations and live ops.</p>
+            <h3 className="text-2xl font-bold text-vauntico-gold mb-2 flex items-center gap-2"><Sparkles className="w-5 h-5" /> Dream Mover</h3>
+            <p className="text-gray-300 mb-3">Ritualized onboarding console for safe migrations and live ops.</p>
             <span className="text-yellow-400 underline">Launch Console →</span>
           </Link>
           <Link
             to="/webhook-studio"
             className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition block"
           >
-            <h3 className="text-xl font-bold text-vauntico-gold mb-2">Webhook Studio</h3>
-            <p className="text-gray-300 mb-2">CLI toolkit, admin dashboard, and CI integration for verifiable flows.</p>
+            <h3 className="text-2xl font-bold text-vauntico-gold mb-2 flex items-center gap-2"><Terminal className="w-5 h-5" /> Webhook Studio</h3>
+            <p className="text-gray-300 mb-3">CLI toolkit, admin dashboard, and CI integration for verifiable flows.</p>
             <span className="text-yellow-400 underline">Explore Studio →</span>
           </Link>
         </section>
 
         {/* Live Previews */}
-        <section className="grid md:grid-cols-3 gap-6 mb-16" aria-label="Live Previews">
+        <section className="grid md:grid-cols-3 gap-6 mb-16 md:mb-20" aria-label="Live Previews">
           <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
             <h3 className="text-lg font-semibold mb-2">Badge Preview</h3>
             <p className="text-gray-400 mb-3">View your current tier and status.</p>
@@ -127,7 +127,7 @@ export default function Homepage() {
         </section>
 
         {/* Docs & Resources */}
-        <section className="bg-gray-950 border border-gray-800 rounded p-6 mb-20" aria-label="Docs & Resources">
+        <section className="bg-gray-950 border border-gray-800 rounded p-6 md:p-8 mb-20" aria-label="Docs & Resources">
           <h3 className="text-xl font-semibold mb-3">Docs & Resources</h3>
           <ul className="list-disc list-inside text-gray-300 space-y-2">
             <li><a className="underline" href="https://github.com/Tygertbone/Vauntico-app/tree/main/cli" target="_blank" rel="noreferrer">CLI README</a></li>
