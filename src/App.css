@@ -1,3 +1,17 @@
+
+/* Footer glow glyph */
+.glow-dot {
+  display: inline-block;
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--vauntico-accent);
+  box-shadow: var(--vauntico-glow);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 rgba(0,255,153,0.0); transform: scale(1); }
+  50%      { box-shadow: 0 0 24px rgba(0,255,153,0.55); transform: scale(1.08); }
+}
+
 /* IMPORTANT: All @import statements must come FIRST */
 
 /* Tailwind directives */
@@ -7,10 +21,20 @@
 
 /* CSS Variables */
 :root {
-  /* Brand golds and accessible variants */
+  /* Legacy brand golds (kept for compatibility) */
   --vauntico-gold: #C29B4B;        /* brand surface */
   --vauntico-gold-hover: #FFD700;  /* hover/focus */
   --vauntico-gold-text: #E6B800;   /* text accents on dark */
+
+  /* Console-inspired palette */
+  --vauntico-bg: #0b0c10;
+  --vauntico-bg-alt: #121212;
+  --vauntico-fg: #eaeaea;
+  --vauntico-accent: #00ff99;    /* ritual green */
+  --vauntico-accent-2: #ff6f3c;  /* ember orange */
+  --vauntico-link: #4fc3f7;      /* electric blue */
+  --vauntico-footer-bg: #0d0f12; /* muted footer */
+  --vauntico-glow: 0 0 18px rgba(0, 255, 153, 0.35);
 
   /* Brand neutrals (accessible grays) */
   --vauntico-dark: #1A1A1A;
@@ -24,8 +48,19 @@
 /* Dark mode variant */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--vauntico-bg);
+    --foreground: var(--vauntico-fg);
+  }
+}
+
+/* Optional light mode scaffold */
+@media (prefers-color-scheme: light) {
+  :root {
+    --vauntico-bg: #fdfdfd;
+    --vauntico-fg: #333333;
+    --vauntico-accent: #00aa77;
+    --vauntico-accent-2: #f5a623;
+    --vauntico-link: #1976d2;
   }
 }
 
@@ -57,6 +92,46 @@
     cursor: not-allowed;
   }
 
+  .accent-btn {
+    background-color: var(--vauntico-accent-2);
+    color: #0b0c10;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: transform 200ms, box-shadow 200ms, filter 200ms;
+  }
+  .accent-btn:hover { transform: scale(1.02); box-shadow: var(--vauntico-glow); filter: brightness(1.05); }
+
+  .secondary-btn {
+    background-color: var(--vauntico-bg-alt);
+    border: 1px solid #2a2a2a;
+    color: var(--vauntico-fg);
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: background-color 200ms;
+  }
+  .secondary-btn:hover { background-color: #1b1b1b; }
+
+  .nav-link {
+    color: var(--vauntico-link);
+    position: relative;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -2px;
+    width: 100%; height: 2px;
+    background: linear-gradient(90deg, var(--vauntico-accent), var(--vauntico-link));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 200ms ease;
+  }
+  .nav-link:hover::after { transform: scaleX(1); }
+
+  .docs-link { color: var(--vauntico-link); }
+  .docs-link:hover { text-decoration: underline; }
+
   .hero-gradient {
     background: linear-gradient(to bottom right, #111827, #581c87, #000000);
   }
@@ -67,8 +142,8 @@ body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   margin: 0;
   padding: 0;
-  background: var(--vauntico-dark);
-  color: var(--vauntico-light);
+  background: var(--vauntico-bg);
+  color: var(--vauntico-fg);
 }
 
 * {
