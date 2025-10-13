@@ -108,7 +108,7 @@ export default function Homepage() {
         </section>
 
         {/* Live Previews */}
-        <section className="grid md:grid-cols-3 gap-6 mb-24" aria-label="Live Previews">
+        <section className="grid md:grid-cols-3 gap-6 mb-16" aria-label="Live Previews">
           <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
             <h3 className="text-lg font-semibold mb-2">Badge Preview</h3>
             <p className="text-gray-400 mb-3">View your current tier and status.</p>
@@ -124,6 +124,17 @@ export default function Homepage() {
             <pre className="bg-black/40 border border-gray-800 rounded p-3 text-xs overflow-auto">{`vauntico-webhook simulate --url $WEBHOOK_URL \
   --email you@example.com --plan seekers-spark --amount 199\nvauntico-webhook disable --url $WEBHOOK_URL --event subscription.disable --email you@example.com --plan seekers-spark\nvauntico-webhook test --webhook $WEBHOOK_URL`}</pre>
           </div>
+        </section>
+
+        {/* Docs & Resources */}
+        <section className="bg-gray-950 border border-gray-800 rounded p-6 mb-20" aria-label="Docs & Resources">
+          <h3 className="text-xl font-semibold mb-3">Docs & Resources</h3>
+          <ul className="list-disc list-inside text-gray-300 space-y-2">
+            <li><a className="underline" href="https://github.com/Tygertbone/Vauntico-app/tree/main/cli" target="_blank" rel="noreferrer">CLI README</a></li>
+            <li><a className="underline" href="https://github.com/Tygertbone/Vauntico-app/tree/main/db/migrations" target="_blank" rel="noreferrer">Supabase RLS Guide & Migrations</a></li>
+            <li><a className="underline" href="/api/admin/webhook-logs?event=charge.success&page=1&pageSize=50" target="_blank" rel="noreferrer">Admin API — /api/admin/webhook-logs</a></li>
+          </ul>
+        </section>
             title="Creator's Toolkit"
             price="$49"
             description="Essential prompts for content creators and influencers"
@@ -143,48 +154,15 @@ export default function Homepage() {
           />
         </section>
 
-        {/* Email Capture Section */}
-        <div className="mt-24 px-6" role="region" aria-label="Email capture">
-          <h2 className="text-3xl font-bold text-[var(--vauntico-gold-text)] mb-4 text-center">
-            Join the Vauntico Movement
-          </h2>
-          <p className="text-gray-300 mb-6 text-center">
-            Get early access to new vaults, creator tools, and exclusive drops.
-          </p>
-          <form
-            name="vauntico-email-capture"
-            method="POST"
-            data-netlify="true"
-            className="max-w-xl mx-auto"
-          >
-            <input
-              type="hidden"
-              name="form-name"
-              value="vauntico-email-capture"
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="you@example.com"
-              required
-              className="w-full px-4 py-3 rounded bg-white text-black border border-[var(--vauntico-gold)] placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--vauntico-gold-hover)]"
-            />
-            <button
-              type="submit"
-              data-cta="homepage-email-subscribe"
-              aria-label="Subscribe to Vauntico updates and early access"
-              className="mt-4 bg-[var(--vauntico-gold)] text-black px-6 py-3 rounded font-semibold hover:bg-[var(--vauntico-gold-hover)] transition w-full"
-            >
-              Subscribe
-            </button>
-          </form>
-        </div>
       </main>
-      <footer
-        role="contentinfo"
-        className="text-center text-xs text-gray-500 mt-12"
-      >
-        © Vauntico — Legacy in Motion
+      <footer role="contentinfo" className="text-center text-xs text-gray-500 mt-12 py-8 border-t border-gray-800">
+        <div className="mb-2">Built to Teach. Designed to Last.</div>
+        <nav className="flex items-center justify-center gap-4">
+          <a href="https://github.com/Tygertbone/Vauntico-app" className="underline" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="/webhook-studio" className="underline">Docs</a>
+          <a href="mailto:support@vauntico.com" className="underline">Contact</a>
+          <a href="/privacy" className="underline">Privacy</a>
+        </nav>
       </footer>
     </div>
   );
