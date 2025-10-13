@@ -35,6 +35,7 @@ import { Sidebar, SidebarProvider, SidebarInset } from './components/ui/sidebar.
 import TransmissionPage from './pages/codex/TransmissionPage.jsx';
 import TodayPage from './pages/codex/TodayPage.jsx';   
 import ArchivePage from './pages/codex/ArchivePage.jsx';   // ✅ FIXED
+import WebhookLog from './pages/admin/WebhookLog.jsx';
 
 import './App.css';
 import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
@@ -100,6 +101,9 @@ function App() {
             <Route path="/account" element={<AccountPage />} />
             <Route path="/link-rites" element={<LinkRitesPage />} />
             <Route path="/dream-mover" element={<DreamMoverBridgePage />} />
+
+            {/* Admin */}
+            <Route path="/admin/webhook-log" element={<WebhookLog />} />
           </Routes>
         </Router>
       </SidebarInset>
