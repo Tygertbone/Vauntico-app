@@ -1,0 +1,13 @@
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Oracle’s Gaze Eye Within Prism -->
+  <polygon points="50,20 70,50 50,80 30,50" fill="none" stroke="#C0C0C0" stroke-width="2"/>
+  <circle cx="50" cy="50" r="15" fill="none" stroke="#C0C0C0" stroke-width="2"/>
+  <circle cx="50" cy="50" r="8" fill="#D4AF37"/>
+  <circle cx="52" cy="48" r="2" fill="#1A0DAB"/>
+  <line x1="50" y1="20" x2="50" y2="30" stroke="#C0C0C0" stroke-width="1"/>
+  <line x1="50" y1="80" x2="50" y2="70" stroke="#C0C0C0" stroke-width="1"/>
+  <line x1="30" y1="50" x2="40" y2="50" stroke="#C0C0C0" stroke-width="1"/>
+  <line x1="70" y1="50" x2="60" y2="50" stroke="#C0C0C0" stroke-width="1"/>
+  <circle cx="45" cy="45" r="1" fill="#00BFFF"/>
+  <circle cx="55" cy="55" r="1" fill="#00BFFF"/>
+</svg>

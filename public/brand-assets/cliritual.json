@@ -1,0 +1,35 @@
+{
+  "v": "5.9.0",
+  "fr": 60,
+  "ip": 0,
+  "op": 150,
+  "w": 400,
+  "h": 100,
+  "nm": "CLIRitual",
+  "layers": [
+    {
+      "ty": 5,
+      "nm": "CommandText",
+      "ks": {"o": {"k": 0}, "p": {"a": 1, "k": [{"t": 0, "s": [-400,50]}, {"t": 60, "s": [50,50]}]}},
+      "t": {"d": {"k": [{"s": {"t": "vauntico-webhook simulate --plan seekers-spark --email you@example.com --amount 199 --dry-run", "fs": 12, "f": "Source Code Pro", "fc": [0.102,0.051,0.671]}}]}}
+    },
+    {
+      "ty": 4,
+      "nm": "LoadingWards",
+      "ks": {"o": {"a": 1, "k": [{"t": 0, "s": [0]}, {"t": 60, "s": [100]}, {"t": 90, "s": [0]}]}},
+      "shapes": [{"ty": "sh", "ks": {"a": 0, "k": {"i": [[0,0]], "o": [[0,0]], "v": [[0,0],[20,20]], "c": false}}, "nm": "Ward"}]
+    },
+    {
+      "ty": 4,
+      "nm": "BadgeAssemble",
+      "ks": {"o": {"a": 1, "k": [{"t": 90, "s": [0]}, {"t": 120, "s": [100]}]}},
+      "shapes": [{"ty": "gr", "it": [{"ind": 0, "ty": "sh", "ks": {"a": 1, "k": [{"t": 90, "s": {"c": true, "v": []}}, {"t": 120, "s": {"c": true, "v": [[50,30],[70,40],[70,60],[50,70],[30,60],[30,40]]}}]}}]}]
+    },
+    {
+      "ty": 5,
+      "nm": "LogsCascade",
+      "ks": {"p": {"a": 1, "k": [{"t": 120, "s": [400,50]}, {"t": 150, "s": [50,80]}]}},
+      "t": {"d": {"k": [{"s": {"t": "{\"event\": \"charge.success\", \"data\": {\"reference\": \"abc123\", ...}}", "fs": 10, "f": "Source Code Pro", "fc": [0,0.75,1]}}]}}
+    }
+  ]
+}

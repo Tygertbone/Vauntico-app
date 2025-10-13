@@ -1,0 +1,8 @@
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Forge of Echoes Hammer + Echo Wave -->
+  <rect x="40" y="40" width="20" height="40" fill="none" stroke="#CD7F32" stroke-width="3"/>
+  <polygon points="40,40 30,30 30,50" fill="#CD7F32"/>
+  <path d="M50 20 Q60 30 50 40 Q40 30 50 20" stroke="#CD7F32" stroke-width="2" fill="none"/>
+  <path d="M50 45 Q65 55 50 65 Q35 55 50 45" stroke="#CD7F32" stroke-width="1" fill="none" opacity="0.7"/>
+  <circle cx="50" cy="55" r="1" fill="#00BFFF"/>
+</svg>
