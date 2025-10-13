@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json.schemastore.org/json",
+  "version": 1,
+  "assets": {
+    "favicon": {
+      "file": "favicon-obelisk.svg",
+      "usage": ["favicon", "mask-icon"],
+      "themeColor": "#C29B4B",
+      "desc": "Primary obelisk mark for browser chrome and PWA mask icon."
+    },
+    "glyphPulse": {
+      "file": "glyphpulse.json",
+      "duration": 1.0,
+      "loop": true,
+      "desc": "Footer pulse loop; overlays swap on hover.",
+      "hoverOverlays": {
+        "webhookStudio": "blue-nodes.json",
+        "dreamMover": "orange-embers.json"
+      }
+    },
+    "badgeGlow": {
+      "file": "badgeglow.json",
+      "duration": 1.5,
+      "loop": true,
+      "trigger": "webhook:charge.success",
+      "label": "seekers-spark",
+      "desc": "Link Rites entitlement confirmation."
+    },
+    "cliRitual": {
+      "file": "cliritual.json",
+      "stages": ["simulate", "badge", "logs"],
+      "font": "Source Code Pro",
+      "desc": "CLI ritual animation for Webhook Studio."
+    },
+    "dualReveal": {
+      "file": "dualreveal.json",
+      "triggers": ["load", "scroll"],
+      "centerpiece": "obelisk-gold-thread",
+      "desc": "Homepage split reveal between Dream Mover and Studio."
+    },
+    "gallery": [
+      { "name": "obelisk.svg", "meaning": "Eternal chain against chaos" }
+    ]
+  }
+}

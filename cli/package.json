@@ -1,0 +1,19 @@
+{
+  "name": "vauntico-webhook",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "description": "Vauntico webhook simulator CLI (internal)",
+  "bin": {
+    "vauntico-webhook": "./index.mjs"
+  },
+  "scripts": {
+    "start": "node index.mjs"
+  },
+  "keywords": ["vauntico", "webhook", "paystack", "cli", "supabase"],
+  "dependencies": {
+    "@supabase/supabase-js": "^2.75.0",
+    "commander": "^11.1.0",
+    "node-fetch": "^3.3.2"
+  }
+}
