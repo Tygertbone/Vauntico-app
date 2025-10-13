@@ -25,10 +25,10 @@ export default function Homepage() {
             From CLI to cosmos — empower your team with tools that teach, verify, and glow.
           </p>
           <div className="mt-7 md:mt-8 flex items-center justify-center gap-3">
-            <Link to="/dream-mover" className="bg-yellow-400 text-black px-6 py-3 rounded-lg font-semibold hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
+            <Link to="/dream-mover" className="accent-btn">
               Launch Dream Mover
             </Link>
-            <Link to="/webhook-studio" className="bg-gray-900 text-white border border-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-all duration-300">
+            <Link to="/webhook-studio" className="secondary-btn">
               Explore Webhook Studio
             </Link>
           </div>
@@ -91,7 +91,7 @@ export default function Homepage() {
         <section className="grid md:grid-cols-2 gap-6 mb-16 md:mb-20" aria-label="Products">
           <Link
             to="/dream-mover"
-            className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition block"
+className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300 block"
           >
             <h3 className="text-2xl font-bold text-vauntico-gold mb-2 flex items-center gap-2"><Sparkles className="w-5 h-5" /> Dream Mover</h3>
             <p className="text-gray-300 mb-3">Ritualized onboarding console for safe migrations and live ops.</p>
@@ -99,7 +99,7 @@ export default function Homepage() {
           </Link>
           <Link
             to="/webhook-studio"
-            className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition block"
+className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300 block"
           >
             <h3 className="text-2xl font-bold text-vauntico-gold mb-2 flex items-center gap-2"><Terminal className="w-5 h-5" /> Webhook Studio</h3>
             <p className="text-gray-300 mb-3">CLI toolkit, admin dashboard, and CI integration for verifiable flows.</p>
@@ -112,12 +112,12 @@ export default function Homepage() {
           <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
             <h3 className="text-lg font-semibold mb-2">Badge Preview</h3>
             <p className="text-gray-400 mb-3">View your current tier and status.</p>
-            <Link to="/link-rites" className="text-yellow-400 underline">Open /link-rites →</Link>
+            <Link to="/link-rites" className="docs-link">Open /link-rites →</Link>
           </div>
           <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
             <h3 className="text-lg font-semibold mb-2">Webhook Logs</h3>
             <p className="text-gray-400 mb-3">Admin-only dashboard for recent events.</p>
-            <Link to="/admin/webhook-log" className="text-yellow-400 underline">Open logs →</Link>
+            <Link to="/admin/webhook-log" className="docs-link">Open logs →</Link>
           </div>
           <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
             <h3 className="text-lg font-semibold mb-2">CLI Snippets</h3>
@@ -130,20 +130,23 @@ export default function Homepage() {
         <section className="bg-gray-950 border border-gray-800 rounded p-6 md:p-8 mb-20" aria-label="Docs & Resources">
           <h3 className="text-xl font-semibold mb-3">Docs & Resources</h3>
           <ul className="list-disc list-inside text-gray-300 space-y-2">
-            <li><a className="underline" href="https://github.com/Tygertbone/Vauntico-app/tree/main/cli" target="_blank" rel="noreferrer">CLI README</a></li>
-            <li><a className="underline" href="https://github.com/Tygertbone/Vauntico-app/tree/main/db/migrations" target="_blank" rel="noreferrer">Supabase RLS Guide & Migrations</a></li>
-            <li><a className="underline" href="/api/admin/webhook-logs?event=charge.success&page=1&pageSize=50" target="_blank" rel="noreferrer">Admin API — /api/admin/webhook-logs</a></li>
+            <li><a className="docs-link" href="https://github.com/Tygertbone/Vauntico-app/tree/main/cli" target="_blank" rel="noreferrer">CLI README</a></li>
+            <li><a className="docs-link" href="https://github.com/Tygertbone/Vauntico-app/tree/main/db/migrations" target="_blank" rel="noreferrer">Supabase RLS Guide & Migrations</a></li>
+            <li><a className="docs-link" href="/api/admin/webhook-logs?event=charge.success&page=1&pageSize=50" target="_blank" rel="noreferrer">Admin API — /api/admin/webhook-logs</a></li>
           </ul>
         </section>
 
       </main>
       <footer role="contentinfo" className="text-center text-xs text-gray-500 mt-12 py-8 border-t border-gray-800">
-        <div className="mb-2">Built to Teach. Designed to Last.</div>
+        <div className="mb-2 flex items-center justify-center gap-2">
+          <span className="glow-dot" aria-hidden="true"></span>
+          <span>Built to Teach. Designed to Last.</span>
+        </div>
         <nav className="flex items-center justify-center gap-4">
-          <a href="https://github.com/Tygertbone/Vauntico-app" className="underline" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="/webhook-studio" className="underline">Docs</a>
-          <a href="mailto:support@vauntico.com" className="underline">Contact</a>
-          <a href="/privacy" className="underline">Privacy</a>
+          <a href="https://github.com/Tygertbone/Vauntico-app" className="docs-link" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="/webhook-studio" className="docs-link">Docs</a>
+          <a href="mailto:support@vauntico.com" className="docs-link">Contact</a>
+          <a href="/privacy" className="docs-link">Privacy</a>
         </nav>
       </footer>
     </div>

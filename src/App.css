@@ -57,12 +57,21 @@
 @media (prefers-color-scheme: light) {
   :root {
     --vauntico-bg: #fdfdfd;
-    --vauntico-fg: #333333;
+    --vauntico-bg-alt: #ffffff;
+    --vauntico-fg: #2a2a2a;
     --vauntico-accent: #00aa77;
     --vauntico-accent-2: #f5a623;
     --vauntico-link: #1976d2;
+    --vauntico-border: #e5e7eb; /* gray-200 */
+    --vauntico-surface: #fafafa; /* subtle cards */
+    --vauntico-glow: 0 0 14px rgba(0, 170, 119, 0.28);
   }
 }
+
+/* Surfaces that adapt */
+.card-surface { background: var(--vauntico-bg-alt); border: 1px solid var(--vauntico-border, #2a2a2a); }
+.border-skin { border-color: var(--vauntico-border, #2a2a2a); }
+.hover-surface:hover { background: color-mix(in oklab, var(--vauntico-bg) 92%, #fff 8%); }
 
 /* Custom utility classes - use @layer to make them valid */
 @layer components {
