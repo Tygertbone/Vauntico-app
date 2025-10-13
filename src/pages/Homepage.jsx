@@ -25,6 +25,9 @@ export default function Homepage() {
       </Helmet>
       <main role="main">
         <header className="text-center mb-12 md:mb-16">
+          <div className="flex justify-center mb-6">
+            <LottieFromUrl src="/brand-assets/dualreveal.json" loop autoplay className="w-[560px] h-[260px]" />
+          </div>
           <h1 className="text-5xl md:text-6xl leading-tight font-extrabold text-[var(--vauntico-gold-text)]">
             Vauntico: Build with Ritual. Scale with Clarity.
           </h1>

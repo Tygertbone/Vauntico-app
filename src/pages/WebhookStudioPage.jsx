@@ -1,5 +1,6 @@
 import React from 'react'
 import { Helmet } from 'react-helmet-async'
+import LottieFromUrl from '@/components/LottieFromUrl'
 
 export default function WebhookStudioPage() {
   return (
@@ -12,7 +13,10 @@ export default function WebhookStudioPage() {
 
       <main className="max-w-5xl mx-auto">
         <header className="text-center mb-10">
-          <h1 className="text-4xl font-bold mb-3">Vauntico Webhook Studio</h1>
+          <div className="border border-gray-800 rounded-lg p-4 mb-6 bg-black/40">
+            <LottieFromUrl src="/brand-assets/cliritual.json" loop autoplay className="w-full h-[120px]" />
+          </div>
+          <h1 className="text-4xl font-bold mb-3 font-playfair">Vauntico Webhook Studio</h1>
           <p className="text-gray-300">CLI toolkit + Admin dashboard + CI checks — a clean ritual for verification.</p>
         </header>
 
@@ -20,7 +24,7 @@ export default function WebhookStudioPage() {
           <div className="border border-gray-800 rounded p-6 bg-gradient-to-b from-gray-900 to-black">
             <h2 className="text-2xl font-semibold mb-3">CLI Toolkit</h2>
             <p className="text-gray-400 mb-4">Simulate events, run end-to-end tests, and initialize local env — all from your terminal.</p>
-            <pre className="bg-gray-900 border border-gray-800 rounded p-3 text-xs overflow-auto">
+            <pre className="bg-gray-900 border border-gray-800 rounded p-3 text-xs overflow-auto font-sourcecode">
 {`# Dry-run (signed, no POST)
 vauntico-webhook simulate --url $WEBHOOK_URL \
   --email you@example.com --plan seekers-spark --amount 199 --dry-run
@@ -40,7 +44,7 @@ vauntico-webhook test --webhook $WEBHOOK_URL`}
           </div>
         </section>
 
-        <section className="border border-gray-800 rounded p-6 bg-gray-950 mb-12">
+        <section className="border border-gray-800 rounded p-6 bg-gray-950 mb-12 font-sourcecode">
           <h3 className="text-xl font-semibold mb-3">Docs & Resources</h3>
           <ul className="list-disc list-inside text-gray-300 space-y-2">
             <li><a className="underline" href="https://github.com/Tygertbone/Vauntico-app/tree/main/cli" target="_blank" rel="noreferrer">CLI README</a></li>

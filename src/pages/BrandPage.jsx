@@ -1,6 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import LottieFromUrl from '@/components/LottieFromUrl';
+import { Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui/tooltip';
 
 const glyphs = [
   { name: 'Obelisk', file: '/brand-assets/favicon-obelisk.svg', meaning: 'Eternal chain against chaos', usage: 'Favicon, centerpiece' },
@@ -10,24 +11,30 @@ const glyphs = [
   { name: 'Oracle’s Gaze', file: '/brand-assets/glyphs/oracles-gaze.svg', meaning: 'Eye within prism', usage: 'Oracle' },
 ];
 
-function GlyphCard({ g }) {
+function GlyphCard({ g, onExpand }) {
   return (
-    <div className="card-surface hover-surface rounded-lg p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-vauntico-glow">
+    <div className="brand-card rounded-lg p-4 transition-all duration-300 hover:scale-[1.02] hover:shadow-vauntico-glow cursor-pointer" onClick={() => onExpand?.(g)}>
       <div className="flex items-center gap-3">
-        <img src={g.file} alt={g.name} className="w-12 h-12" />
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <img src={g.file} alt={g.name} className="w-12 h-12" />
+          </TooltipTrigger>
+          <TooltipContent>{g.name} — {g.meaning}</TooltipContent>
+        </Tooltip>
         <div>
-          <div className="font-semibold">{g.name}</div>
-          <div className="text-xs text-gray-400">{g.meaning}</div>
+          <div className="font-semibold brand-gold font-playfair">{g.name}</div>
+          <div className="text-xs text-gray-300">{g.meaning}</div>
         </div>
       </div>
-      <div className="mt-3 text-xs text-gray-500">Usage: {g.usage}</div>
+      <div className="mt-3 text-xs text-gray-400">Usage: {g.usage}</div>
     </div>
   );
 }
 
 export default function BrandPage() {
+  const [expanded, setExpanded] = React.useState(null);
   return (
-    <div className="min-h-screen px-6 py-10" style={{ background: 'indigo', color: 'var(--vauntico-fg)' }}>
+    <div className="min-h-screen px-6 py-10 brand-bg" style={{ color: 'var(--vauntico-fg)' }}>
       <Helmet>
         <title>Vauntico Glyph System</title>
         <meta name="description" content="Symbols of resilience, clarity, and ascension" />
@@ -38,8 +45,8 @@ export default function BrandPage() {
         <div className="flex justify-center mb-4">
           <LottieFromUrl src="/brand-assets/dualreveal.json" loop autoplay className="w-[480px] h-[240px]" />
         </div>
-        <h1 className="text-3xl md:text-4xl font-extrabold">Vauntico Glyph System</h1>
-        <p className="mt-2 text-gray-300">Symbols of resilience, clarity, and ascension</p>
+        <h1 className="text-3xl md:text-4xl font-extrabold font-playfair brand-gold">Vauntico Glyph System</h1>
+        <p className="mt-2 text-gray-200">Symbols of resilience, clarity, and ascension</p>
       </section>
 
       {/* Glyph Gallery */}
@@ -47,9 +54,18 @@ export default function BrandPage() {
         <h2 className="text-xl font-semibold mb-4">Glyph Gallery</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {glyphs.map((g) => (
-            <GlyphCard key={g.name} g={g} />
+            <GlyphCard key={g.name} g={g} onExpand={setExpanded} />
           ))}
         </div>
+        {expanded && (
+          <div className="mt-6 brand-card rounded-lg p-4">
+            <div className="flex items-center justify-between">
+              <div className="font-semibold brand-gold font-playfair">{expanded.name}</div>
+              <a className="docs-link text-xs" href={expanded.file} download>Download SVG</a>
+            </div>
+            <div className="text-xs text-gray-300">{expanded.meaning}</div>
+          </div>
+        )}
       </section>
 
       {/* Meanings Table (placeholder rows) */}
@@ -80,7 +96,7 @@ export default function BrandPage() {
       {/* CLI Etch Demo */}
       <section className="max-w-5xl mx-auto mb-12">
         <h2 className="text-xl font-semibold mb-2">CLI Etch Demo</h2>
-        <div className="card-surface rounded-lg p-4">
+        <div className="card-surface rounded-lg p-4 font-sourcecode">
           <LottieFromUrl src="/brand-assets/cliritual.json" loop autoplay className="w-full h-[120px]" />
         </div>
       </section>
@@ -88,7 +104,7 @@ export default function BrandPage() {
       {/* Payload Hologram Parse (mock) */}
       <section className="max-w-5xl mx-auto mb-12">
         <h2 className="text-xl font-semibold mb-2">Payload Hologram Parse</h2>
-        <div className="card-surface rounded-lg p-4 text-xs font-mono">
+        <div className="card-surface rounded-lg p-4 text-xs font-sourcecode">
 {`{
   "event": "charge.success",
   "data": { "reference": "abc123", "plan": "seekers-spark", "email": "you@example.com" }
@@ -103,8 +119,11 @@ export default function BrandPage() {
       </section>
 
       {/* Footer */}
-      <footer className="text-center text-xs text-gray-400 py-8 border-t border-gray-800">
+      <footer className="text-center text-xs text-gray-200 py-8 border-t border-gray-800">
         Remix the wards — fork on GitHub, tag <span className="font-semibold">#VaunticoGlyphs</span>
+        <div className="mt-3">
+          <a className="accent-btn" href="https://github.com/Tygertbone/Vauntico-app/fork" target="_blank" rel="noreferrer">Fork on GitHub</a>
+        </div>
       </footer>
     </div>
   );

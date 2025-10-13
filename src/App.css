@@ -1,4 +1,14 @@
 
+/* Font utility classes */
+.font-playfair { font-family: 'Playfair Display', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif; }
+.font-sourcecode { font-family: 'Source Code Pro', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+
+/* Brand page helpers */
+.brand-bg { background: var(--brand-indigo); }
+.brand-gold { color: var(--brand-gold); }
+.brand-card { background: color-mix(in oklab, var(--brand-indigo) 65%, #000 35%); border: 1px solid rgba(255,255,255,0.08); }
+
+
 /* Footer glow glyph */
 .glow-dot {
   display: inline-block;
@@ -42,7 +52,11 @@
   --vauntico-muted: #666666;
   --vauntico-light: #f8f8f8;
 
-  --vauntico-pink: #E91E63;
+--vauntico-pink: #E91E63;
+
+  /* Brand route palette */
+  --brand-indigo: #1a237e; /* indigo-900 */
+  --brand-gold: #C29B4B;
 }
 
 /* Dark mode variant */

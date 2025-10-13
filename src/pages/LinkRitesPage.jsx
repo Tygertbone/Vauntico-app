@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async'
 import { SignedIn, SignedOut, useUser } from '@clerk/clerk-react'
 import { getSupabaseClient } from '@/lib/supabaseClient'
 import { Link } from 'react-router-dom'
+import LottieFromUrl from '@/components/LottieFromUrl'
 
 export default function LinkRitesPage() {
   const { isLoaded, user } = useUser()
@@ -60,8 +61,18 @@ export default function LinkRitesPage() {
                 <h2 className="text-xl font-semibold mb-2">Entitlement</h2>
                 {entitlement ? (
                   <div>
-                    <p className="text-gray-300">Tier: <span className="font-semibold">{entitlement.tier}</span></p>
-                    <p className="text-gray-400 text-sm">Status: {entitlement.status}</p>
+                    <div className="flex items-center gap-4">
+                      <div>
+                        <p className="text-gray-300">Tier: <span className="font-semibold">{entitlement.tier}</span></p>
+                        <p className="text-gray-400 text-sm">Status: {entitlement.status}</p>
+                      </div>
+                      {(entitlement.status?.toLowerCase?.().includes('success') || entitlement.status === 'active' || entitlement.status === 'granted') && (
+                        <LottieFromUrl src="/brand-assets/badgeglow.json" loop autoplay className="w-24 h-24" />
+                      )}
+                    </div>
+                    {entitlement.tier === 'seekers-spark' && (
+                      <div className="mt-2 text-xs text-gray-400">rune: seekers-spark</div>
+                    )}
                   </div>
                 ) : (
                   <p className="text-gray-400">No active entitlements detected yet. Complete a pledge in the Vault to unlock.</p>
