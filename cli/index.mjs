@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { Command } from 'commander'
+import { config as dotenvConfig } from 'dotenv'
 import crypto from 'crypto'
 import fetch from 'node-fetch'
 import { createClient } from '@supabase/supabase-js'
@@ -10,17 +11,20 @@ import { stdin as input, stdout as output } from 'node:process'
 const program = new Command()
 program
   .name('vauntico-webhook')
+  .option('--env-file <file>', 'Env file to load (dotenv)')
   .description('Vauntico webhook simulator CLI')
   .version('0.1.0')
 
 program.command('simulate')
   .description('Send charge.success')
+  .option('--env-file <file>', 'Env file to load (dotenv)')
   .option('-u, --url <url>', 'Webhook URL', process.env.WEBHOOK_URL || 'https://www.vauntino.com/api/paystack/webhook')
   .option('-p, --plan <planKey>', 'Plan key', 'seekers-spark')
   .option('-e, --email <email>', 'Customer email', 'adept@example.com')
   .option('-a, --amount <zar>', 'Amount (ZAR)', '199')
   .option('--dry-run', 'Print payload/signature only', false)
-  .action(async (opts) => {
+.action(async (opts) => {
+    if (opts.envFile) dotenvConfig({ path: opts.envFile })
     const secret = process.env.PAYSTACK_TEST_SECRET || process.env.PAYSTACK_SECRET_KEY
     bailIf(!secret, 'Missing PAYSTACK_TEST_SECRET (or PAYSTACK_SECRET_KEY)')
     const body = {
@@ -37,12 +41,14 @@ program.command('simulate')
 
 program.command('disable')
   .description('Send subscription.disable or invoice.payment_failed')
+  .option('--env-file <file>', 'Env file to load (dotenv)')
   .option('-u, --url <url>', 'Webhook URL', process.env.WEBHOOK_URL || 'https://www.vauntino.com/api/paystack/webhook')
   .option('-E, --event <name>', 'Event name', 'subscription.disable')
   .option('-p, --plan <planKey>', 'Plan key', 'seekers-spark')
   .option('-e, --email <email>', 'Customer email', 'adept@example.com')
   .option('--dry-run', 'Print payload/signature only', false)
-  .action(async (opts) => {
+.action(async (opts) => {
+    if (opts.envFile) dotenvConfig({ path: opts.envFile })
     const secret = process.env.PAYSTACK_TEST_SECRET || process.env.PAYSTACK_SECRET_KEY
     bailIf(!secret, 'Missing PAYSTACK_TEST_SECRET (or PAYSTACK_SECRET_KEY)')
     const body = {
@@ -57,8 +63,10 @@ program.command('disable')
 
 program.command('test')
   .description('Run full flow: success then disable; verify Supabase state')
+  .option('--env-file <file>', 'Env file to load (dotenv)')
   .option('--webhook <url>', 'Webhook URL', process.env.WEBHOOK_URL || 'https://www.vauntino.com/api/paystack/webhook')
-  .action(async (opts) => {
+.action(async (opts) => {
+    if (opts.envFile) dotenvConfig({ path: opts.envFile })
     const secret = process.env.PAYSTACK_TEST_SECRET || process.env.PAYSTACK_SECRET_KEY
     const SUPA_URL = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
     const SUPA_ANON = process.env.VITE_SUPABASE_API || process.env.VITE_SUPABASE_ANON_KEY
@@ -84,8 +92,17 @@ program.command('test')
 
 program.command('init')
   .description('Interactive init to create local env file for testing')
-  .option('-o, --output <file>', 'Env file path', '.env.test')
+  .option('--ci', 'Non-interactive, read from env only')
+  .option('--env-file <file>', 'Env file to write', '.env.test')
   .action(async (opts) => {
+    if (opts.ci) {
+      const keys = ['PAYSTACK_TEST_SECRET','SUPABASE_URL','VITE_SUPABASE_API','WEBHOOK_URL']
+      for (const k of keys) if (!process.env[k]) bailIf(true, `Missing ${k} in env`)
+      const lines = keys.map(k => `${k}=${process.env[k]}`)
+      fs.writeFileSync(opts.envFile, lines.join('\n'))
+      console.log(`Wrote ${opts.envFile}`)
+      return
+    }
     const rl = readline.createInterface({ input, output })
     const ask = (q) => new Promise((res)=> rl.question(q, res))
     const env = {}
@@ -95,8 +112,8 @@ program.command('init')
     env.WEBHOOK_URL = await ask('WEBHOOK_URL (your preview /api/paystack/webhook): ')
     rl.close()
     const lines = Object.entries(env).map(([k,v])=> `${k}=${v}`)
-    fs.writeFileSync(opts.output, lines.join('\n'))
-    console.log(`Wrote ${opts.output}`)
+    fs.writeFileSync(opts.envFile, lines.join('\n'))
+    console.log(`Wrote ${opts.envFile}`)
   })
 
 program.parse()

@@ -62,6 +62,28 @@ function getRawBody(req) {
   })
 }
 
+async function logWebhook({ eventType, email, amountZAR, tier, status, payload, dataReference }) {
+  const SUPABASE_URL = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL
+  const SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_SERVICE_ROLE
+  if (!SUPABASE_URL || !SERVICE_KEY) return
+  const supa = createClient(SUPABASE_URL, SERVICE_KEY, { auth: { persistSession: false } })
+  try {
+    await supa
+      .from('webhook_logs')
+      .upsert({
+        event_type: eventType,
+        email,
+        amount_zar: amountZAR ?? null,
+        tier: tier ?? null,
+        status: status ?? null,
+        payload,
+        data_reference: dataReference || null,
+      }, { onConflict: 'event_type,data_reference' })
+  } catch (e) {
+    console.warn('[paystack:webhook] log insert failed:', e?.message || e)
+  }
+}
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ ok: false })
 
@@ -90,6 +112,7 @@ export default async function handler(req, res) {
     const meta = data?.metadata || {}
     const planKey = meta?.planKey || meta?.plan_key || null
     const clerkUserId = meta?.clerkUserId || meta?.clerk_user_id || null
+    const dataReference = data?.reference || data?.id || null
 
     let tier = determineTierByPlanKey(planKey)
     if (!tier) tier = determineTierByAmountZAR(amountZAR)
@@ -97,6 +120,7 @@ export default async function handler(req, res) {
     // Minimal write path — keep webhook fast
     if ((eventType === 'charge.success' || eventType === 'subscription.create') && tier) {
       await upsertEntitlement({ clerkUserId, email, tier, status: 'active' })
+      await logWebhook({ eventType, email, amountZAR, tier, status: 'active', payload: event, dataReference })
     } else if (
       eventType === 'subscription.disable' ||
       eventType === 'customer.subscription.disable' ||
@@ -106,6 +130,7 @@ export default async function handler(req, res) {
       if (clerkUserId || email) {
         await upsertEntitlement({ clerkUserId, email, tier: tier || 'Practitioner', status: 'inactive' })
       }
+      await logWebhook({ eventType, email, amountZAR, tier: tier || null, status: 'inactive', payload: event, dataReference })
     }
 
     return res.status(200).json({ ok: true })
