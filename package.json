@@ -11,11 +11,24 @@
     "generate-codex": "node scripts/generate-codex.js",
     "audit:fix": "node vauntico-auto-fix.cjs",
     "polish:fix": "node vauntico-polish-fix.cjs",
-    "ritual:qa": "node vauntico-ritual-qa.cjs"
+    "ritual:qa": "node vauntico-ritual-qa.cjs",
+    "webhook:simulate": "node scripts/simulate-paystack-webhook.mjs",
+    "webhook:disable": "node scripts/simulate-paystack-disable.mjs",
+    "webhook:simulate:ps": "pwsh -File scripts/webhook-simulate.ps1",
+    "webhook:disable:ps": "pwsh -File scripts/webhook-disable.ps1",
+    "webhook:simulate:sh": "bash scripts/webhook-simulate.sh",
+    "webhook:disable:sh": "bash scripts/webhook-disable.sh",
+    "webhook:test": "node scripts/test-webhook-flows.mjs"
+  },
+  "bin": {
+    "vauntico-webhook": "./bin/vauntico-webhook.mjs"
   },
   "dependencies": {
+    "@clerk/backend": "^1.7.0",
+    "@clerk/clerk-react": "^5.51.0",
     "@supabase/supabase-js": "^2.75.0",
     "body-parser": "^2.2.0",
+    "commander": "^11.1.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",

@@ -40,6 +40,59 @@ pnpm install
 pnpm dev
 ```
 
+## 🔔 Webhook Simulation (Paystack) & Tests
+
+### Unix (macOS/Linux)
+- Secure wrapper (prompts for PAYSTACK_TEST_SECRET):
+  ```bash
+  pnpm webhook:simulate:sh -- -u https://www.vauntino.com/api/paystack/webhook -p seekers-spark -e you@example.com -a 199
+  pnpm webhook:disable:sh -- -u https://www.vauntino.com/api/paystack/webhook -E subscription.disable -p seekers-spark -e you@example.com
+  ```
+- Direct (requires PAYSTACK_TEST_SECRET set):
+  ```bash
+  export PAYSTACK_TEST_SECRET="{{your_test_secret}}"
+  pnpm webhook:simulate -- --url https://www.vauntino.com/api/paystack/webhook --plan seekers-spark --email you@example.com --amount 199
+  pnpm webhook:disable -- --url https://www.vauntino.com/api/paystack/webhook --event subscription.disable --plan seekers-spark --email you@example.com
+  ```
+
+You can simulate Paystack webhooks locally to validate entitlement upserts without exposing secrets in code.
+
+- Success (charge.success)
+  - PowerShell (secure prompt):
+    ```powershell
+    pnpm webhook:simulate:ps -- -Url https://www.vauntino.com/api/paystack/webhook -Plan seekers-spark -Email you@example.com -Amount 199
+    ```
+  - Direct (requires PAYSTACK_TEST_SECRET set):
+    ```powershell
+    $env:PAYSTACK_TEST_SECRET="{{your_test_secret}}"; pnpm webhook:simulate -- --url https://www.vauntino.com/api/paystack/webhook --plan seekers-spark --email you@example.com --amount 199
+    ```
+
+- Disable / Failure (subscription.disable or invoice.payment_failed)
+  - PowerShell (secure prompt):
+    ```powershell
+    pnpm webhook:disable:ps -- -Url https://www.vauntino.com/api/paystack/webhook -Event subscription.disable -Plan seekers-spark -Email you@example.com
+    ```
+  - Direct (requires PAYSTACK_TEST_SECRET set):
+    ```powershell
+    $env:PAYSTACK_TEST_SECRET="{{your_test_secret}}"; pnpm webhook:disable -- --url https://www.vauntino.com/api/paystack/webhook --event subscription.disable --plan seekers-spark --email you@example.com
+    ```
+
+Notes
+- Never hardcode secrets. Provide your secret at runtime via environment variables or the PowerShell/Unix secure prompt.
+- The webhook verifies x-paystack-signature (HMAC SHA512), upserts entitlements in Supabase, and logs events into webhook_logs (if the table exists).
+- Tiers map from planKey (seekers-spark → Practitioner, weavers-pyre → Guild, eternal-blaze → Oracle) or from amount (199/499/999 ZAR).
+
+### GitHub Actions: Automated E2E
+This repository includes a workflow that runs the E2E webhook test on pushes to main and feat/*.
+
+Configure repo secrets (Settings → Secrets and variables → Actions → New repository secret):
+- PAYSTACK_TEST_SECRET
+- SUPABASE_URL (e.g., https://uggthxauerxxldwdkamh.supabase.co)
+- VITE_SUPABASE_API (Supabase anon key)
+- WEBHOOK_URL (preview deployment webhook URL, e.g., https://your-preview.vercel.app/api/paystack/webhook)
+
+The workflow calls pnpm webhook:test and will fail the build if live Supabase state is not updated as expected.
+
 ## 🚀 Quickstart: Run Your First Ritual
 
 Dream Mover is designed as a guided console of migrations.  
