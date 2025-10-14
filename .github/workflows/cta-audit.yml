@@ -49,6 +49,15 @@ jobs:
           cache-dependency-path: pnpm-lock.yaml
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
+      - name: Enforce CTA polish (dry-run)
+        shell: bash
+        run: |
+          set -e
+          node bin/vauntico.cjs polish --fix --dry-run | tee polish.out
+          if grep -q "Would fix CTA props" polish.out; then
+            echo "CTA polish required. Run: vauntico polish --fix";
+            exit 1;
+          fi
       - name: Run Vauntico lint
         run: node vauntico-lint.cjs
 
