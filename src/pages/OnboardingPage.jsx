@@ -23,8 +23,7 @@ const OnboardingPage = () => {
           <p className="text-gray-300 mb-6">
             Every sacred journey begins with clarity. What legacy do you want to build?
           </p>
-          <button
-            onClick={() => console.log('Intention setting clicked')}
+          <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"> console.log('Intention setting clicked')}
             data-cta="onboarding-set-intention"
             aria-label="Set your intention for the Vauntico journey"
             className="bg-gray-800 text-white px-6 py-3 rounded hover:bg-gray-700 transition-colors duration-200"
@@ -38,8 +37,7 @@ const OnboardingPage = () => {
           <p className="text-gray-300 mb-6">
             Select the creator path that aligns with your vision and goals.
           </p>
-          <button
-            onClick={() => console.log('Path selection clicked')}
+          <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"> console.log('Path selection clicked')}
             data-cta="onboarding-choose-path"
             aria-label="Choose your creator path"
             className="bg-gray-800 text-white px-6 py-3 rounded hover:bg-gray-700 transition-colors duration-200"

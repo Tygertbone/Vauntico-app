@@ -12,7 +12,37 @@ jobs:
   pin-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
+      - name: Ensure actions are pinned to commit SHAs
+        shell: bash
+        run: |
+          set -euo pipefail
+          rc=0
+          while IFS= read -r f; do
+            # Find all uses: lines and ensure they end with a 40-char hex SHA
+            if grep -P "^\s*uses:\s*[^@]+@([a-f0-9]{40})\s*$" "$f" > /dev/null; then
+              :
+            else
+              echo "✗ Not pinned to SHA in: $f";
+              grep -n "^\s*uses:" "$f" || true
+              rc=1
+            fi
+          done < <(git ls-files '.github/workflows/*.yml')
+          exit $rc
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/**'
+
+permissions:
+  contents: read
+
+jobs:
+  pin-check:
+    runs-on: ubuntu-latest
+    steps:
+- uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
       - name: Ensure actions are pinned to commit SHAs
         shell: bash
         run: |

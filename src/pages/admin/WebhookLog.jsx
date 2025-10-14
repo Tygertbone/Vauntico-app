@@ -151,7 +151,7 @@ function Row({ row }) {
       <td className="px-3 py-2">{row.status || '-'}</td>
       <td className="px-3 py-2">{new Date(row.created_at).toLocaleString()}</td>
       <td className="px-3 py-2">
-        <button onClick={()=>setOpen(!open)} className="underline text-yellow-400 hover:opacity-80">{open ? 'Hide' : 'View'}</button>
+        <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">setOpen(!open)} className="underline text-yellow-400 hover:opacity-80">{open ? 'Hide' : 'View'}</button>
         {open && (
           <pre className="mt-2 max-h-64 overflow-auto bg-gray-900 p-2 rounded border border-gray-800 text-xs">{JSON.stringify(row.payload, null, 2)}</pre>
         )}

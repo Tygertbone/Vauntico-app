@@ -82,7 +82,7 @@ export default function Homepage() {
               label="Get Your Creator Pass"
               to="/creator-pass"
               trackEvent="home_click_creator_pass"
-              className="mt-6"
+              className="mt-6 hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
             />
           </div>
         </header>
@@ -130,9 +130,9 @@ className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 hover:scale-[1.02] hover
         <section className="bg-gray-950 border border-gray-800 rounded p-6 md:p-8 mb-20" aria-label="Docs & Resources">
           <h3 className="text-xl font-semibold mb-3">Docs & Resources</h3>
           <ul className="list-disc list-inside text-gray-300 space-y-2">
-            <li><a className="docs-link" href="https://github.com/Tygertbone/Vauntico-app/tree/main/cli" target="_blank" rel="noreferrer">CLI README</a></li>
-            <li><a className="docs-link" href="https://github.com/Tygertbone/Vauntico-app/tree/main/db/migrations" target="_blank" rel="noreferrer">Supabase RLS Guide & Migrations</a></li>
-            <li><a className="docs-link" href="/api/admin/webhook-logs?event=charge.success&page=1&pageSize=50" target="_blank" rel="noreferrer">Admin API — /api/admin/webhook-logs</a></li>
+            <li><a className="docs-link hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300" href="https://github.com/Tygertbone/Vauntico-app/tree/main/cli" target="_blank" rel="noreferrer">CLI README</a></li>
+            <li><a className="docs-link hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300" href="https://github.com/Tygertbone/Vauntico-app/tree/main/db/migrations" target="_blank" rel="noreferrer">Supabase RLS Guide & Migrations</a></li>
+            <li><a className="docs-link hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300" href="/api/admin/webhook-logs?event=charge.success&page=1&pageSize=50" target="_blank" rel="noreferrer">Admin API — /api/admin/webhook-logs</a></li>
           </ul>
         </section>
 
@@ -143,10 +143,10 @@ className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 hover:scale-[1.02] hover
           <span>Built to Teach. Designed to Last.</span>
         </div>
         <nav className="flex items-center justify-center gap-4">
-          <a href="https://github.com/Tygertbone/Vauntico-app" className="docs-link" target="_blank" rel="noreferrer">GitHub</a>
-          <a href="/webhook-studio" className="docs-link">Docs</a>
-          <a href="mailto:support@vauntico.com" className="docs-link">Contact</a>
-          <a href="/privacy" className="docs-link">Privacy</a>
+          <a href="https://github.com/Tygertbone/Vauntico-app" className="docs-link hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="/webhook-studio" className="docs-link hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">Docs</a>
+          <a href="mailto:support@vauntico.com" className="docs-link hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">Contact</a>
+          <a href="/privacy" className="docs-link hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">Privacy</a>
         </nav>
       </footer>
     </div>

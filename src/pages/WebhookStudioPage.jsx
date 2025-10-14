@@ -43,9 +43,9 @@ vauntico-webhook test --webhook $WEBHOOK_URL`}
         <section className="border border-gray-800 rounded p-6 bg-gray-950 mb-12">
           <h3 className="text-xl font-semibold mb-3">Docs & Resources</h3>
           <ul className="list-disc list-inside text-gray-300 space-y-2">
-            <li><a className="underline" href="https://github.com/Tygertbone/Vauntico-app/tree/main/cli" target="_blank" rel="noreferrer">CLI README</a></li>
-            <li><a className="underline" href="https://github.com/Tygertbone/Vauntico-app/tree/main/db/migrations" target="_blank" rel="noreferrer">Supabase RLS & Migrations</a></li>
-            <li><a className="underline" href="/api/admin/webhook-logs?event=charge.success&page=1&pageSize=50" target="_blank" rel="noreferrer">Admin API (sample query)</a></li>
+            <li><a className="underline hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300" href="https://github.com/Tygertbone/Vauntico-app/tree/main/cli" target="_blank" rel="noreferrer">CLI README</a></li>
+            <li><a className="underline hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300" href="https://github.com/Tygertbone/Vauntico-app/tree/main/db/migrations" target="_blank" rel="noreferrer">Supabase RLS & Migrations</a></li>
+            <li><a className="underline hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300" href="/api/admin/webhook-logs?event=charge.success&page=1&pageSize=50" target="_blank" rel="noreferrer">Admin API (sample query)</a></li>
           </ul>
         </section>
 
