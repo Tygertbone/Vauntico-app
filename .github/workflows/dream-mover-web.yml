@@ -31,35 +31,3 @@ jobs:
         with:
           name: dream-mover-web-dist
           path: vauntico-dream-mover/web/dist
-
-on:
-  workflow_dispatch:
-  push:
-    branches: [ chore/ci-pnpm ]
-    paths:
-      - 'vauntico-dream-mover/web/**'
-      - 'vauntico-dream-mover/src/**'
-      - 'vauntico-dream-mover/package.json'
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-- uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
-- uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
-        with:
-          node-version: '20.19.1'
-          cache: 'pnpm'
-      - run: corepack enable
-      - run: pnpm -v
-      - name: Install web deps
-        working-directory: vauntico-dream-mover/web
-        run: pnpm install --frozen-lockfile=false
-      - name: Build web
-        working-directory: vauntico-dream-mover/web
-        run: pnpm build
-      - name: Upload dist artifact
-uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        with:
-          name: dream-mover-web-dist
-          path: vauntico-dream-mover/web/dist
