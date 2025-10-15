@@ -71,18 +71,22 @@ jobs:
           node-version: '20.19.1'
           cache: pnpm
           cache-dependency-path: pnpm-lock.yaml
-      - name: Restore Next cache
+      - name: Restore Next cache (salted)
         uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830
         with:
           path: |
             .next/cache
-          key: next-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+          key: next-${{ runner.os }}-${{ github.run_id }}-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: |
             next-${{ runner.os }}-
       - run: pnpm install --frozen-lockfile
-      - name: Check versions
+      - name: Verify environment
         run: |
-          pnpm -v
+          echo "SHA from env: $GITHUB_SHA"
+          git rev-parse HEAD
           node -v
+          pnpm -v
+          node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('package.json','utf8'));console.log('build script:',p.scripts&&p.scripts.build)"
+          pnpm ls sonner || true
       - name: Build (Next)
         run: pnpm build
