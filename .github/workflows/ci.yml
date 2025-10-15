@@ -61,6 +61,8 @@ jobs:
     needs: quick-lint
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      NODE_ENV: development
     steps:
       - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
       - uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061
@@ -92,6 +94,8 @@ jobs:
           pnpm ls @types/react || true
       - name: Ensure TS React types (fallback)
         run: |
-          if ! pnpm ls @types/react > /dev/null 2>&1; then pnpm add -D @types/react@18; fi
+          pnpm ls @types/react || pnpm add -D @types/react@18
+          pnpm ls @types/react-dom || pnpm add -D @types/react-dom@18
+          pnpm ls @types/node || pnpm add -D @types/node
       - name: Build (Next)
         run: pnpm build
