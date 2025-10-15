@@ -33,8 +33,8 @@ const CTAButton = ({
       onClick={handleClick}
       disabled={disabled}
       aria-label={label}
-      className={cn(
-        "bg-gradient-to-r from-[var(--vauntico-gold)] to-[var(--vauntico-gold-hover)] text-black font-semibold px-6 py-3 rounded-lg shadow-lg transition-transform duration-200 hover:scale-105 hover:shadow-vauntico-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--vauntico-gold-hover)]/50 disabled:opacity-50 disabled:cursor-not-allowed",
+className={cn(
+        "bg-gradient-to-r from-[var(--vauntico-gold)] to-[var(--vauntico-gold-hover)] text-black font-semibold px-6 py-3 rounded-lg shadow-lg hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--vauntico-gold-hover)]/50 disabled:opacity-50 disabled:cursor-not-allowed",
         className
       )}
       {...props}

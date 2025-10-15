@@ -1,0 +1,37 @@
+name: Supply Chain Pinning
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/**'
+
+permissions:
+  contents: read
+
+jobs:
+  pin-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
+      - name: Ensure actions are pinned to commit SHAs
+        shell: bash
+        run: |
+          set -euo pipefail
+          rc=0
+          # Collect tracked workflow files (.yml and .yaml)
+          while IFS= read -r f; do
+            # Grab all `uses:` lines
+            mapfile -t uses_lines < <(grep -En '^\s*uses:\s*' "$f" || true)
+            if [ ${#uses_lines[@]} -eq 0 ]; then
+              continue
+            fi
+
+            # Any line that is not a local action (./) and not pinned to a 40-char SHA is a failure
+            bad=$(printf '%s\n' "${uses_lines[@]}" | grep -Ev '^\s*uses:\s*\./' | grep -Ev '^\s*uses:\s*[^@]+@[a-f0-9]{40}\s*$' || true)
+            if [ -n "$bad" ]; then
+              echo "✗ Not pinned to SHA in: $f"
+              printf '%s\n' "$bad"
+              rc=1
+            fi
+          done < <(git ls-files '.github/workflows/*.yml' '.github/workflows/*.yaml' | sort -u)
+          exit $rc

@@ -59,7 +59,7 @@ const VaunticoPricingPage = () => {
             trackEvent="pricing_click_awaken"
             data-cta="pricing-awaken-tier"
             aria-label="Choose Awaken tier - Free spiritual journey starter"
-            className="cta-button awaken-cta"
+            className="cta-button awaken-cta hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
           >
             Start Your Awakening
           </CTAButton>
@@ -97,7 +97,7 @@ const VaunticoPricingPage = () => {
             trackEvent="pricing_click_ascend"
             data-cta="pricing-ascend-tier"
             aria-label="Choose Ascend tier - Premium spiritual empowerment"
-            className="cta-button ascend-cta"
+            className="cta-button ascend-cta hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
           >
             Ascend to Greatness
           </CTAButton>
@@ -135,7 +135,7 @@ const VaunticoPricingPage = () => {
             trackEvent="pricing_click_transcend"
             data-cta="pricing-transcend-tier"
             aria-label="Choose Transcend tier - Ultimate legacy builder"
-            className="cta-button transcend-cta"
+            className="cta-button transcend-cta hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
           >
             Forge Your Legacy
           </CTAButton>
@@ -152,13 +152,13 @@ const VaunticoPricingPage = () => {
         </p>
 
         <div className="cta-buttons-row">
-          <CTAButton to="/checkout" label="Start Your Awakening" trackEvent="pricing_click_awaken" className="cta-button awaken-cta">
+          <CTAButton to="/checkout" label="Start Your Awakening" trackEvent="pricing_click_awaken" className="cta-button awaken-cta hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
             Start Your Awakening
           </CTAButton>
-          <CTAButton to="/checkout" label="Ascend to Greatness" trackEvent="pricing_click_ascend" className="cta-button ascend-cta featured">
+          <CTAButton to="/checkout" label="Ascend to Greatness" trackEvent="pricing_click_ascend" className="cta-button ascend-cta featured hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
             Ascend to Greatness
           </CTAButton>
-          <CTAButton to="/checkout" label="Forge Your Legacy" trackEvent="pricing_click_transcend" className="cta-button transcend-cta">
+          <CTAButton to="/checkout" label="Forge Your Legacy" trackEvent="pricing_click_transcend" className="cta-button transcend-cta hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
             Forge Your Legacy
           </CTAButton>
         </div>

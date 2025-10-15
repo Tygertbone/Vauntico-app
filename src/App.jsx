@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 
 // Core Pages
 import Homepage from './pages/Homepage.jsx';
@@ -21,27 +21,52 @@ import PromptVaultPage from './components/PromptVaultPage.jsx';
 import VaultsPage from './components/VaultsPage.jsx';
 import CreatorPassPage from './components/CreatorPassPage.jsx';
 
-// UI Shell
-import { Sidebar, SidebarProvider, SidebarInset } from './components/ui/sidebar.jsx';
+// SSO pages
+import AccountPage from './pages/AccountPage.jsx';
+import LinkRitesPage from './pages/LinkRitesPage.jsx';
+import DreamMoverBridgePage from './pages/DreamMoverBridgePage.jsx';
+import VaultPage from './pages/VaultPage.jsx';
+import RitesPage from './pages/RitesPage.jsx';
+import WebhookStudioPage from './pages/WebhookStudioPage.jsx';
+
+// UI Shell (sidebar removed for clean top-nav layout)
 
 // 🚀 NEW: Transmission Pages
 import TransmissionPage from './pages/codex/TransmissionPage.jsx';
 import TodayPage from './pages/codex/TodayPage.jsx';   
 import ArchivePage from './pages/codex/ArchivePage.jsx';   // ✅ FIXED
+import WebhookLog from './pages/admin/WebhookLog.jsx';
 
 import './App.css';
+import { SignedIn, SignedOut, UserButton } from '@clerk/clerk-react'
 
 function App() {
   return (
-    <SidebarProvider>
-      <Sidebar />
+    <>
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-black text-white px-3 py-2 rounded"
       >
         Skip to content
       </a>
-      <SidebarInset>
+      <header className="w-full bg-black text-white border-b border-gray-800 px-4 py-3 flex items-center justify-between">
+        <Link to="/" className="font-semibold hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">Vauntico</Link>
+        <nav className="flex items-center gap-4 text-sm">
+          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/dream-mover" className="nav-link">Dream Mover</Link>
+          <Link to="/webhook-studio" className="nav-link">Webhook Studio</Link>
+          <Link to="/admin/webhook-log" className="nav-link">Admin</Link>
+        </nav>
+        <div className="flex items-center gap-3">
+          <SignedOut>
+            <Link to="/account" className="text-sm underline hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">Sign in</Link>
+          </SignedOut>
+          <SignedIn>
+            <UserButton afterSignOutUrl="/" />
+          </SignedIn>
+        </div>
+      </header>
+      <div id="main-content">
         <Router>
           <Routes>
             {/* Homepage */}
@@ -52,6 +77,8 @@ function App() {
             <Route path="/vaults" element={<VaultsPage />} />
             <Route path="/vaults/:slug" element={<VaultDetailPage />} />
             <Route path="/vault-success" element={<VaultSuccessPage />} />
+            <Route path="/vault" element={<VaultPage />} />
+            <Route path="/rites" element={<RitesPage />} />
 
             {/* Creator / Pricing */}
             <Route path="/pricing" element={<PricingPage />} />
@@ -64,6 +91,9 @@ function App() {
             <Route path="/demo" element={<DemoPage />} />
             <Route path="/delegation" element={<DelegationPage />} />
 
+            {/* Webhook Studio */}
+            <Route path="/webhook-studio" element={<WebhookStudioPage />} />
+
             {/* 🚀 Ascension Codex Funnel */}
             <Route path="/ascension-codex" element={<AscensionCodexPage />} />
             <Route path="/checkout" element={<CheckoutPage />} />
@@ -74,10 +104,18 @@ function App() {
             <Route path="/codex/:week/:day" element={<TransmissionPage />} />
             <Route path="/codex/today" element={<TodayPage />} />
             <Route path="/codex/archive" element={<ArchivePage />} />   {/* ✅ FIXED */}
+
+            {/* Auth */}
+            <Route path="/account" element={<AccountPage />} />
+            <Route path="/link-rites" element={<LinkRitesPage />} />
+            <Route path="/dream-mover" element={<DreamMoverBridgePage />} />
+
+            {/* Admin */}
+            <Route path="/admin/webhook-log" element={<WebhookLog />} />
           </Routes>
         </Router>
-      </SidebarInset>
-    </SidebarProvider>
+      </div>
+    </>
   );
 }
 

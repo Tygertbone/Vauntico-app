@@ -27,8 +27,7 @@ export default function DelegationPage() {
             <li role="listitem">Research competitors or trends</li>
             <li role="listitem">Automate repetitive workflows</li>
           </ul>
-          <button
-            onClick={() => console.log('Start delegating clicked')}
+          <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"> console.log('Start delegating clicked')}
             data-cta="delegation-start-delegating"
             aria-label="Start delegating tasks to AI agents"
             className="mt-4 bg-vauntico-gold text-black px-6 py-3 rounded font-semibold hover:bg-yellow-400 transition-colors duration-200"
@@ -45,8 +44,7 @@ export default function DelegationPage() {
           <div className="bg-gray-800 p-4 rounded text-gray-400 text-sm hover:bg-gray-700 transition-colors duration-200" role="note">
             [Embed or link to delegation templates here]
           </div>
-          <button
-            onClick={() => console.log('Browse templates clicked')}
+          <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"> console.log('Browse templates clicked')}
             data-cta="delegation-browse-templates"
             aria-label="Browse AI agent templates"
             className="mt-4 bg-gray-800 text-white px-6 py-3 rounded hover:bg-gray-700 transition-colors duration-200"

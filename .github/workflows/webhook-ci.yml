@@ -1,0 +1,73 @@
+name: Webhook E2E Test
+
+on:
+  push:
+    branches:
+      - main
+      - 'feat/**'
+
+jobs:
+  webhook-e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061
+        with:
+          version: 10
+
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install deps
+        run: pnpm install --prefer-offline --no-frozen-lockfile
+
+      - name: Run webhook E2E test
+        run: pnpm webhook:test
+        env:
+          PAYSTACK_TEST_SECRET: ${{ secrets.PAYSTACK_TEST_SECRET }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          VITE_SUPABASE_API: ${{ secrets.VITE_SUPABASE_API }}
+          # Point this to your preview deployment webhook URL (e.g., https://your-preview.vercel.app/api/paystack/webhook)
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+
+on:
+  push:
+    branches:
+      - main
+      - 'feat/**'
+
+jobs:
+  webhook-e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955
+
+      - name: Setup pnpm
+uses: pnpm/action-setup@41ff72655975bd51cab0327fa583b6e92b6d3061
+        with:
+          version: 10
+
+      - name: Setup Node
+uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '20'
+          cache: 'pnpm'
+
+      - name: Install deps
+        run: pnpm install --prefer-offline --no-frozen-lockfile
+
+      - name: Run webhook E2E test
+        run: pnpm webhook:test
+        env:
+          PAYSTACK_TEST_SECRET: ${{ secrets.PAYSTACK_TEST_SECRET }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          VITE_SUPABASE_API: ${{ secrets.VITE_SUPABASE_API }}
+          # Point this to your preview deployment webhook URL (e.g., https://your-preview.vercel.app/api/paystack/webhook)
+          WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}

@@ -71,9 +71,7 @@ const PaystackButton = ({
               disabled={!userEmail}>
               Continue to Payment
             </button>
-            <button 
-              type="button"
-              onClick={() => setShowEmailInput(false)}
+            <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"> setShowEmailInput(false)}
               data-cta="paystack-email-cancel"
               aria-label="Cancel email input and return to payment options"
               className="px-4 py-2 text-gray-600 hover:text-gray-800 transition-colors hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
