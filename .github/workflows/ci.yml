@@ -86,7 +86,12 @@ jobs:
           git rev-parse HEAD
           node -v
           pnpm -v
+          pnpm ls next || true
           node -e "const fs=require('fs');const p=JSON.parse(fs.readFileSync('package.json','utf8'));console.log('build script:',p.scripts&&p.scripts.build)"
           pnpm ls sonner || true
+          pnpm ls @types/react || true
+      - name: Ensure TS React types (fallback)
+        run: |
+          if ! pnpm ls @types/react > /dev/null 2>&1; then pnpm add -D @types/react@18; fi
       - name: Build (Next)
         run: pnpm build
