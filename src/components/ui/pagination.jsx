@@ -43,10 +43,11 @@ function PaginationLink({ className, isActive, size = "icon", ...props }) {
       data-active={isActive}
       className={cn(
         buttonVariants({ variant: isActive ? "outline" : "ghost", size }),
+        "hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300",
         className
       )}
       {...props}
-    / className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
+    >
   );
 }
 
