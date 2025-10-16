@@ -45,7 +45,7 @@ export default function VaultSuccessPage() {
             </Link>
           </nav>
         </main>
-      </div>
+
         <div className="mt-24 px-6" role="region" aria-labelledby="email-capture-title">
           <h2 id="email-capture-title" className="text-3xl font-bold text-vauntico-gold mb-4 text-center">
             Join the Vauntico Movement
@@ -78,6 +78,7 @@ export default function VaultSuccessPage() {
             </button>
           </form>
         </div>
+      </div>
     </SidebarInset>
   );
 }
