@@ -91,7 +91,7 @@ export default function Homepage() {
         <section className="grid md:grid-cols-2 gap-6 mb-16 md:mb-20" aria-label="Products">
           <Link
             to="/dream-mover"
-className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300 block"
+            className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300 block"
           >
             <h3 className="text-2xl font-bold text-vauntico-gold mb-2 flex items-center gap-2"><Sparkles className="w-5 h-5" /> Dream Mover</h3>
             <p className="text-gray-300 mb-3">Ritualized onboarding console for safe migrations and live ops.</p>
@@ -99,7 +99,7 @@ className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 hover:scale-[1.02] hover
           </Link>
           <Link
             to="/webhook-studio"
-className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300 block"
+            className="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300 block"
           >
             <h3 className="text-2xl font-bold text-vauntico-gold mb-2 flex items-center gap-2"><Terminal className="w-5 h-5" /> Webhook Studio</h3>
             <p className="text-gray-300 mb-3">CLI toolkit, admin dashboard, and CI integration for verifiable flows.</p>

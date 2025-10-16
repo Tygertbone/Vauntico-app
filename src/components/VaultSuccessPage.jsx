@@ -176,4 +176,4 @@ const handleSubmit = async (e) => {
   )
 }
 
-export default VaultSuccessPag
+export default VaultSuccessPage
