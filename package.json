@@ -30,7 +30,12 @@
     "node-fetch": "^3.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
     "sonner": "^2.0.7"
+=======
+    "next": "^15.5.5",
+    "commander": "^11.1.0"
+>>>>>>> 23f7c23e4f6c879b9fed4d42f639a496772d249f
   },
   "devDependencies": {
     "@types/node": "^24.7.2",
