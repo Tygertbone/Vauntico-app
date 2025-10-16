@@ -140,7 +140,7 @@ Affirmation: "I rise again, stronger than before."
           onClick={generateTransmission}
           data-cta="transmission-generator-generate"
           aria-label="Generate your personalized spiritual transmission"
-className=\"bg-vauntico-gold text-black px-6 py-2 rounded font-semibold hover:bg-yellow-400 hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300\"
+          className="bg-vauntico-gold text-black px-6 py-2 rounded font-semibold hover:bg-yellow-400 hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
         >
           Generate Transmission
         </button>
