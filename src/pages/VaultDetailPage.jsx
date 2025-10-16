@@ -26,10 +26,11 @@ const VaultDetailPage = () => {
               <p className="text-gray-300 mb-4">
                 Get a glimpse of the powerful tools and templates inside this sacred vault.
               </p>
-              <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"> console.log('Preview clicked')}
+              <button 
+                onClick={() => console.log('Preview clicked')}
                 data-cta="vault-detail-preview"
                 aria-label="Preview the vault contents"
-                className="bg-gray-800 text-white px-6 py-3 rounded hover:bg-gray-700 transition-colors duration-200 w-full"
+                className="bg-gray-800 text-white px-6 py-3 rounded hover:bg-gray-700 hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300 w-full"
               >
                 Preview Contents
               </button>
@@ -66,10 +67,11 @@ const VaultDetailPage = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"> console.log('Learn more clicked')}
+            <button 
+              onClick={() => console.log('Learn more clicked')}
               data-cta="vault-detail-learn-more"
               aria-label="Learn more about this vault"
-              className="bg-gray-800 text-white px-6 py-3 rounded hover:bg-gray-700 transition-colors duration-200"
+              className="bg-gray-800 text-white px-6 py-3 rounded hover:bg-gray-700 hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
             >
               Learn More
             </button>
