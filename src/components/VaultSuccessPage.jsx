@@ -116,8 +116,7 @@ const handleSubmit = async (e) => {
               href={notionEmbedUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center space-x-2 text-[var(--vauntico-gold)] hover:text-[var(--vauntico-gold-hover)] font-semibold transition-colors hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
-             className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
+              className="inline-flex items-center space-x-2 text-[var(--vauntico-gold)] hover:text-[var(--vauntico-gold-hover)] font-semibold transition-colors hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">
               <span>Open in new tab</span>
               <ExternalLink className="w-4 h-4" />
             </a>
