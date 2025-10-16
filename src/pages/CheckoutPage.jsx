@@ -181,8 +181,9 @@ const CheckoutPage = () => {
                 </div>
 
                 <div className="pt-4 border-t border-gray-700">
-                  <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"> (window.location.href = '/ascension-codex')}
-                    className="text-sm text-gray-400 hover:text-white transition-colors"
+                  <button 
+                    onClick={() => (window.location.href = '/ascension-codex')}
+                    className="text-sm text-gray-400 hover:text-white transition-colors hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
                   >
                     ← Back to plans
                   </button>
