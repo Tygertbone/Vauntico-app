@@ -55,7 +55,7 @@ jobs:
       - name: Run QA ritual (non-blocking)
         run: pnpm run -s ritual:qa || true
       - name: Lint (if present)
-        run: pnpm run -s lint --if-present
+        run: pnpm run -s --if-present lint
 
   build:
     needs: quick-lint
