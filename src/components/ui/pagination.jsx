@@ -35,7 +35,7 @@ function PaginationItem(props) {
   return <li data-slot="pagination-item" {...props} />;
 }
 
-function PaginationLink({ className, isActive, size = "icon", ...props }) {
+function PaginationLink({ className, isActive, size = "icon", children, ...props }) {
   return (
     <a
       aria-current={isActive ? "page" : undefined}
@@ -48,6 +48,8 @@ function PaginationLink({ className, isActive, size = "icon", ...props }) {
       )}
       {...props}
     >
+      {children}
+    </a>
   );
 }
 
@@ -101,6 +103,7 @@ PaginationLink.propTypes = {
   className: PropTypes.string,
   isActive: PropTypes.bool,
   size: PropTypes.string,
+  children: PropTypes.node,
 };
 PaginationPrevious.propTypes = { className: PropTypes.string };
 PaginationNext.propTypes = { className: PropTypes.string };
