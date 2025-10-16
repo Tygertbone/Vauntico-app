@@ -207,4 +207,39 @@ MenubarRadioItem.propTypes = {
   children: PropTypes.node,
 };
 MenubarLabel.propTypes = {
-  className:
+  className: PropTypes.string,
+  inset: PropTypes.bool,
+};
+
+MenubarSeparator.propTypes = {
+  className: PropTypes.string,
+};
+
+MenubarShortcut.propTypes = {
+  className: PropTypes.string,
+};
+
+MenubarSubTrigger.propTypes = {
+  className: PropTypes.string,
+  inset: PropTypes.bool,
+  children: PropTypes.node,
+};
+
+MenubarSubContent.propTypes = {
+  className: PropTypes.string,
+};
+
+export {
+  Menubar,
+  MenubarTrigger,
+  MenubarContent,
+  MenubarItem,
+  MenubarCheckboxItem,
+  MenubarRadioItem,
+  MenubarLabel,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarSub,
+  MenubarSubTrigger,
+  MenubarSubContent,
+};
