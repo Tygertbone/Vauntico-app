@@ -1,0 +1,57 @@
+{
+  "name": "@vauntico/purifier",
+  "version": "1.0.0",
+  "description": "🔥 The Mythic JSX Restoration Tool - Purify corrupted React components with mystical precision",
+  "main": "lib/scanner.js",
+  "bin": {
+    "vauntico-purifier": "bin/cli.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scan": "node bin/cli.js scan",
+    "autofix": "node bin/cli.js autofix",
+    "report": "node bin/cli.js report",
+    "ritual": "node bin/cli.js ritual"
+  },
+  "keywords": [
+    "jsx",
+    "react",
+    "lint",
+    "fix",
+    "corruption",
+    "vauntico",
+    "purifier",
+    "ast",
+    "babel",
+    "mystical",
+    "ritual"
+  ],
+  "author": "Vauntico <hello@vauntico.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vauntico/vauntico-app",
+    "directory": "tools/vauntico-purifier"
+  },
+  "homepage": "https://vauntico.com/tools/purifier",
+  "dependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/generator": "^7.23.0",
+    "@babel/parser": "^7.23.0",
+    "@babel/traverse": "^7.23.0",
+    "chalk": "^4.1.2",
+    "commander": "^11.1.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "vauntico": {
+    "doctrine": "From corruption comes clarity. From chaos comes code.",
+    "element": "fire",
+    "purpose": "restoration",
+    "ritual": true
+  }
+}
