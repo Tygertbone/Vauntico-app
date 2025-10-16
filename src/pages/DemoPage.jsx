@@ -29,10 +29,11 @@ export default function DemoPage() {
         <p className="text-gray-300 mb-4">
           From homepage to vault unlock, every interaction is intentional. We optimize for clarity, emotion, and conversion.
         </p>
-        <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"> { e.stopPropagation(); console.log('Demo video clicked'); }}
+        <button 
+          onClick={(e) => { e.stopPropagation(); console.log('Demo video clicked'); }}
           data-cta="demo-video-embed"
           aria-label="Play funnel walkthrough demo video"
-          className="bg-gray-800 p-4 rounded text-gray-400 text-sm hover:bg-gray-700 transition-colors duration-200 w-full text-left"
+          className="bg-gray-800 p-4 rounded text-gray-400 text-sm hover:bg-gray-700 hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300 w-full text-left"
         >
           [Embed walkthrough video or animated funnel demo here]
         </button>
@@ -55,17 +56,19 @@ export default function DemoPage() {
         <p className="text-gray-300 mb-4">
           We follow a simple rule: clarity over complexity. Every page has one goal, one emotion, and one action.
         </p>
-        <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"> console.log('UX docs clicked')}
+        <button 
+          onClick={() => console.log('UX docs clicked')}
           data-cta="demo-ux-docs"
           aria-label="View UX documentation and design files"
-          className="bg-gray-800 p-4 rounded text-gray-400 text-sm hover:bg-gray-700 transition-colors duration-200 w-full text-left"
+          className="bg-gray-800 p-4 rounded text-gray-400 text-sm hover:bg-gray-700 hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300 w-full text-left"
         >
           [Optional: Link to Figma file or UX doc]
         </button>
-        <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"> console.log('Experience demo clicked')}
+        <button 
+          onClick={() => console.log('Experience demo clicked')}
           data-cta="demo-experience-demo"
           aria-label="Experience the Vauntico UX demo"
-          className="mt-4 bg-vauntico-gold text-black px-6 py-3 rounded font-semibold hover:bg-yellow-400 transition-colors duration-200"
+          className="mt-4 bg-vauntico-gold text-black px-6 py-3 rounded font-semibold hover:bg-yellow-400 hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"
         >
           Experience the Demo
         </button>
