@@ -1,0 +1,44 @@
+{
+  "name": "vauntico-webhook-security",
+  "version": "1.0.0",
+  "description": "Production-ready webhook validation system with HMAC-SHA256 signature verification and replay attack prevention",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src tests examples",
+    "send-webhook": "tsx examples/send-webhook.ts"
+  },
+  "keywords": [
+    "webhook",
+    "security",
+    "hmac",
+    "signature",
+    "validation",
+    "authentication",
+    "audit",
+    "replay-attack"
+  ],
+  "author": "Vauntico Security Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@typescript-eslint/eslint-plugin": "^6.15.0",
+    "@typescript-eslint/parser": "^6.15.0",
+    "eslint": "^8.56.0",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10",
+    "vitest": "^1.1.0",
+    "@vitest/coverage-v8": "^1.1.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

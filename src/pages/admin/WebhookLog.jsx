@@ -142,7 +142,8 @@ export default function WebhookLog() {
 }
 
 function Row({ row }) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
+
   return (
     <tr className="border-t border-gray-800">
       <td className="px-3 py-2">{row.event_type}</td>
@@ -151,11 +152,18 @@ function Row({ row }) {
       <td className="px-3 py-2">{row.status || '-'}</td>
       <td className="px-3 py-2">{new Date(row.created_at).toLocaleString()}</td>
       <td className="px-3 py-2">
-        <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300">setOpen(!open)} className="underline text-yellow-400 hover:opacity-80">{open ? 'Hide' : 'View'}</button>
+        <button
+          onClick={() => setOpen(!open)}
+          className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300 underline text-yellow-400 hover:opacity-80"
+        >
+          {open ? 'Hide' : 'View'}
+        </button>
         {open && (
-          <pre className="mt-2 max-h-64 overflow-auto bg-gray-900 p-2 rounded border border-gray-800 text-xs">{JSON.stringify(row.payload, null, 2)}</pre>
+          <pre className="mt-2 max-h-64 overflow-auto bg-gray-900 p-2 rounded border border-gray-800 text-xs">
+            {JSON.stringify(row.payload, null, 2)}
+          </pre>
         )}
       </td>
     </tr>
-  )
+  );
 }

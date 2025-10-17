@@ -1,0 +1,313 @@
+/**
+ * Webhook Component Styles
+ * 
+ * Minimalist, accessible styling for webhook audit components.
+ * Built with semantic HTML and progressive enhancement.
+ */
+
+/* ===========================
+   Audit Log Container
+   =========================== */
+
+.webhook-audit-log {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.audit-header {
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 1rem;
+}
+
+.audit-header h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+
+.audit-subtitle {
+  margin: 0;
+  color: #718096;
+  font-size: 0.875rem;
+}
+
+/* ===========================
+   Audit Entries
+   =========================== */
+
+.audit-entries {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.audit-entry {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: #ffffff;
+  transition: box-shadow 0.2s ease;
+}
+
+.audit-entry:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.audit-entry.outcome-success {
+  border-left: 4px solid #48bb78;
+}
+
+.audit-entry.outcome-failure {
+  border-left: 4px solid #f56565;
+}
+
+/* ===========================
+   Entry Header
+   =========================== */
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.outcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: #edf2f7;
+  color: #2d3748;
+}
+
+.outcome-success .outcome-badge {
+  background: #c6f6d5;
+  color: #22543d;
+}
+
+.outcome-failure .outcome-badge {
+  background: #fed7d7;
+  color: #742a2a;
+}
+
+.entry-timestamp {
+  font-size: 0.875rem;
+  color: #718096;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+}
+
+/* ===========================
+   Entry Body
+   =========================== */
+
+.entry-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.entry-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 0;
+}
+
+.detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.detail-row dt {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #718096;
+}
+
+.detail-row dd {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #2d3748;
+}
+
+.source-name {
+  font-weight: 500;
+}
+
+.signature-hash {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+  font-size: 0.8rem;
+  color: #4a5568;
+  word-break: break-all;
+}
+
+.entry-message {
+  padding: 0.75rem;
+  background: #f7fafc;
+  border-radius: 4px;
+  border-left: 3px solid #cbd5e0;
+}
+
+.entry-message p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #4a5568;
+}
+
+/* ===========================
+   Empty State
+   =========================== */
+
+.audit-empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #718096;
+}
+
+.empty-message {
+  font-size: 1.125rem;
+  font-weight: 500;
+  margin: 0 0 0.5rem 0;
+}
+
+.empty-hint {
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+/* ===========================
+   Audit Footer
+   =========================== */
+
+.audit-footer {
+  margin-top: 2rem;
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.audit-footer p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #718096;
+}
+
+/* ===========================
+   Status Badge Component
+   =========================== */
+
+.webhook-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+}
+
+.webhook-status-badge.status-success {
+  background: #c6f6d5;
+  color: #22543d;
+  border-color: #9ae6b4;
+}
+
+.webhook-status-badge.status-error {
+  background: #fed7d7;
+  color: #742a2a;
+  border-color: #fc8181;
+}
+
+.webhook-status-badge.status-warning {
+  background: #fefcbf;
+  color: #744210;
+  border-color: #faf089;
+}
+
+.webhook-status-badge.status-expired {
+  background: #e2e8f0;
+  color: #2d3748;
+  border-color: #cbd5e0;
+}
+
+.badge-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.badge-label {
+  line-height: 1;
+}
+
+.badge-timestamp {
+  font-size: 0.75rem;
+  opacity: 0.8;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ===========================
+   Responsive Design
+   =========================== */
+
+@media (max-width: 768px) {
+  .webhook-audit-log {
+    padding: 1rem;
+  }
+
+  .audit-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .entry-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .entry-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===========================
+   Print Styles
+   =========================== */
+
+@media print {
+  .webhook-audit-log {
+    max-width: 100%;
+  }
+
+  .audit-entry {
+    page-break-inside: avoid;
+    border: 1px solid #000;
+  }
+
+  .outcome-badge {
+    border: 1px solid #000;
+  }
+}

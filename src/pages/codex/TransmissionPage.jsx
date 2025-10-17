@@ -42,8 +42,9 @@ const TransmissionPage = () => {
           <h1 className="text-2xl font-bold mb-4 text-red-400">Error</h1>
           <p className="text-gray-300">{error}</p>
           <div className="mt-6">
-            <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"> navigate("/codex/archive")}
-              className="px-4 py-2 rounded bg-gray-900 hover:bg-gray-800 text-[var(--vauntico-gold-text)] font-semibold transition"
+            <button
+              onClick={() => navigate("/codex/archive")}
+              className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300 px-4 py-2 rounded bg-gray-900 hover:bg-gray-800 text-[var(--vauntico-gold-text)] font-semibold"
             >
               Back to archive
             </button>
@@ -89,13 +90,15 @@ const TransmissionPage = () => {
         </article>
 
         <div className="mt-8 flex items-center gap-4">
-          <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"> navigate("/codex/archive")}
-            className="px-4 py-2 rounded bg-gray-900 hover:bg-gray-800 text-[var(--vauntico-gold-text)] font-semibold transition"
+          <button
+            onClick={() => navigate("/codex/archive")}
+            className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300 px-4 py-2 rounded bg-gray-900 hover:bg-gray-800 text-[var(--vauntico-gold-text)] font-semibold"
           >
             View archive
           </button>
-          <button className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300"> navigate("/codex/today")}
-            className="px-4 py-2 rounded bg-gray-800 hover:bg-gray-700 text-white font-semibold transition"
+          <button
+            onClick={() => navigate("/codex/today")}
+            className="hover:scale-[1.02] hover:shadow-vauntico-glow transition-all duration-300 px-4 py-2 rounded bg-gray-800 hover:bg-gray-700 text-white font-semibold"
           >
             Go to today
           </button>
